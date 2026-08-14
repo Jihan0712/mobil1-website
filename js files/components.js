@@ -69,7 +69,7 @@ const myHeader = `
                     </div>
                 </li>
                 <li><a href="#">Where to Buy</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="../src/about.html">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>

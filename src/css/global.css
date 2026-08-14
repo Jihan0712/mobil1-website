@@ -23,12 +23,13 @@
 
 /* 2. CSS RESET & GLOBAL VARIABLES */
 :root {
-    --primary-blue: #001f5b; 
+    --primary-blue: #001450; 
+    --secondary-blue: #0C479D;
     --text-dark: #222222;
-    --text-gray: #555555; 
+    --text-gray: #5A5A5A; 
     --white: #ffffff;
-    --red-brand: #e00000;
-    --light-bg: #f9f9f9;
+    --red-brand: #FE000C;
+    --light-bg: #F8F8F8;
     --border-color: #dcdcdc;
     --font-family: 'EMprint', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }

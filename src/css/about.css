@@ -1,0 +1,178 @@
+/* HERO SECTION */
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Adjust height based on design */
+    min-height: 400px;
+    background-color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TOP INFO SECTION (Mobil) */
+.about-mobil-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 72px 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.about-mobil-left .eyebrow {
+    font-size: 17px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.about-mobil-left h1 {
+    font-size: 40px;
+    color: var(--primary-blue);
+    line-height: 1.2;
+    max-width: 500px;
+}
+
+.about-mobil-right h2 {
+    font-size: 1.4rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.about-mobil-right p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.list-box {
+    background-color: #EEF5FF; /* Light blue background */
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.list-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-box ul li {
+    font-size: 1.05rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.list-box ul li:last-child {
+    margin-bottom: 0;
+}
+
+.list-box ul li .number {
+    font-size: 18px;
+    font-weight: normal;
+    color: var(--primary-blue);
+}
+
+/* BOTTOM PROMO SECTION (Allied Lubrication) */
+.about-allied-section {
+    display: flex;
+    width: 100%;
+    max-width: 1440;
+    min-height: 560px;
+}
+
+.allied-left {
+    flex: 1;
+    background-color: var(--secondary-blue);
+    padding: 88px 72px 88px 120px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.allied-right {
+    flex: 1;
+    background-color: var(--primary-blue); /* Deep navy blue */
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allied-left .eyebrow {
+    font-size: 14px;
+    display: left;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.allied-left h2 {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+}
+
+.allied-left p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    max-width: 600px;
+}
+
+.allied-right img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 28px;
+    align-items: center;
+    object-fit: cover;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .about-mobil-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-allied-section {
+        flex-direction: column;
+    }
+    
+    .allied-left {
+        padding: 5rem 5%;
+    }
+    
+    .allied-right {
+        padding: 5rem 5%;
+    }
+}
