@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Search</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="homepage.html">
+                <img src="https://via.placeholder.com/100x40/ffffff/001f5b?text=Mobil" alt="Mobil Logo">
+            </a>
+            <span class="logo-divider">|</span>
+            <img src="https://via.placeholder.com/120x40/ffffff/001f5b?text=Allied+Lubrication" alt="Allied Lubrication">
+        </div>
+        
+        <div class="menu-toggle">
+            <svg width="24" height="24" viewBox="120 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M124 7H140M124 12H140M124 17H140" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#">Products &#709;</a></li>
+                <li><a href="#">Where to Buy</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="desktop-actions">
+            <button class="btn-primary">Find the Right Oil &#8594;</button>
+            <a href="search.html" style="cursor: pointer; display: flex;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5 15.5L21 21" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="search-container">
+        
+        <!-- Search Hero Section -->
+        <div class="search-hero">
+            <div class="search-eyebrow">Search Mobil</div>
+            <h1 class="search-title">Find what keeps you moving</h1>
+            <p class="search-subtitle">Search Mobil products, engine-care guidance, service centers, and support in one place.</p>
+            
+            <div class="search-box-wrapper">
+                <div class="search-input-area">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.5 15.5L21 21" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Default value removed so user sees placeholder initially -->
+                    <input type="text" id="searchInput" placeholder="Search by vehicle make, model, or year...">
+                </div>
+                <!-- The script handles search via 'input' event, but keep button just in case -->
+                <button class="search-btn-large" onclick="performSearch()">Search &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Filter Tabs (Dynamically populated by JS) -->
+        <div class="search-tabs" id="brandTabs">
+            <div class="search-tab active" data-brand="all" onclick="setBrand('all')">All</div>
+        </div>
+
+        <!-- Dynamic Results Header -->
+        <div class="results-header">
+            <h2 id="resultsTitle">All Vehicle Recommendations</h2>
+            <span id="resultsCount">Loading results...</span>
+        </div>
+
+        <!-- Dynamic Results Grid -->
+        <div class="results-grid" id="resultsArea">
+            <!-- JavaScript will inject cards here -->
+        </div>
+
+        <!-- Empty State CTA (Shown when no results) -->
+        <div class="empty-state-cta" id="emptyState" style="display: none;">
+            <div class="empty-text">
+                <span class="result-eyebrow">Empty state guidance</span>
+                <h3>No exact match? Let's narrow it down.</h3>
+                <p>Check the spelling, try a broader product or vehicle term, or use Driver Profile for a guided recommendation.</p>
+            </div>
+            <a href="driver-profile.html" class="btn-primary" style="background-color: #001f5b;">Start Driver Profile &rarr;</a>
+        </div>
+
+    </main>
+        <footer>
+        <div class="footer-top">
+            <div class="footer-logo-col">
+                <img src="https://via.placeholder.com/150x50/ffffff/001f5b?text=Mobil+Logo" alt="Mobil Logo">
+                <p>Engine oils and services engineered for performance.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Passenger vehicle</a></li>
+                        <li><a href="#">Commercial vehicles & trucks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Find the right oil</a></li>
+                        <li><a href="#">Where to buy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Mobil</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <span>© 2024 Mobil</span>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+        </div>
+    </footer>
+
+    <!-- Migs Chatbot Injection -->
+    <script src="migs-bot.js"></script>
+
+    <!-- YOUR LOCAL DATA & SEARCH LOGIC -->
+    <script>
+        // Data extracted from PH Mobil Lube Guide Final.xlsx
+        const lubeData = [
+            // SUZUKI
+            { make: "Suzuki", model: "Alto 800", year: "2000–2013", engine: "F8D (0.8L)", visc: "10W-30 / 10W-40", api: "SG / SH / SJ", cap: "2.7 – 3.0 L", good: "", better: "FRICTION FIGHTER 10W40", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Alto 800", year: "2014–2021", engine: "F8D (0.8L)", visc: "5W-30", api: "SG+ / SN", cap: "3.0 – 3.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Alto K10", year: "2000s–Present", engine: "K10B (1.0L)", visc: "5W-30", api: "SG+ / SL", cap: "2.9 – 3.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "S-Presso", year: "2020–Present", engine: "K10B (1.0L)", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "2.9 – 3.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "Celerio", year: "Gen 1 (2009–2014)", engine: "K10B (1.0L)", visc: "5W-30", api: "SL / SM", cap: "2.9 – 3.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Celerio", year: "Gen 2/3 (2015–Pres)", engine: "K10B / K10C", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "2.8 – 3.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "Swift", year: "2005–2010 (1.5)", engine: "M15A (1.5L)", visc: "5W-30 / 10W-40", api: "SL / SM", cap: "3.9 – 4.0 L", good: "FRICTION FIGHTER 5W30 / 10W40", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Swift", year: "2011–2017 (1.2)", engine: "K12B (1.2L)", visc: "0W-20 / 5W-30", api: "SM / SN", cap: "3.1 – 3.4 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "Swift", year: "2011–2017 (1.4)", engine: "K14B (1.4L)", visc: "5W-30", api: "SM / SN", cap: "3.2 – 3.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Swift", year: "2018–Present", engine: "K12M (1.2L)", visc: "0W-20", api: "SN / SP", cap: "3.1 – 3.3 L", good: "", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Suzuki", model: "Swift Sport", year: "2018–Present", engine: "K14C (1.4 Turbo)", visc: "5W-30", api: "SN / SP", cap: "3.9 – 4.0 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Dzire", year: "2013–2017", engine: "K12B (1.2L)", visc: "5W-30", api: "SM / SN", cap: "3.1 – 3.4 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Dzire", year: "2018–Present", engine: "K12M (1.2L)", visc: "0W-20", api: "SN / SP", cap: "3.1 – 3.3 L", good: "", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Suzuki", model: "Ciaz", year: "2015–Present", engine: "K14B (1.4L)", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.1 – 3.4 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "SX4", year: "2007–2013", engine: "M16A (1.6L)", visc: "5W-30 / 10W-40", api: "SL / SM", cap: "3.9 – 4.2 L", good: "FRICTION FIGHTER 5W30 / 10W40", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Ertiga", year: "Gen 1 (2014–2018)", engine: "K14B (1.4L)", visc: "5W-30", api: "SM / SN", cap: "3.1 – 3.4 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Suzuki", model: "Ertiga / Hybrid", year: "Gen 2 (2019–Pres)", engine: "K15B (1.5L)", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.2 – 3.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "XL7", year: "2020–Present", engine: "K15B (1.5L)", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.2 – 3.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            { make: "Suzuki", model: "Jimny", year: "Gen 4 (2019–Pres)", engine: "K15B (1.5L)", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.4 – 3.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30 / 0W20", best: "MOBIL1 5W30 / 0W20" },
+            
+            // TOYOTA
+            { make: "Toyota", model: "Vios", year: "2003 - Present", engine: "1.3L / 1.5L", visc: "5W-30 / 0W-20", api: "SN/CF", cap: "3.3 - 4.2 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Toyota", model: "Innova", year: "2005 - Present", engine: "2.0L Gas / 2.5L Diesel", visc: "5W-30 / 15W-40", api: "SN / CH-4", cap: "4.5 - 6.9 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30 / DELVAC1 5W40" },
+            { make: "Toyota", model: "Fortuner", year: "2005 - Present", engine: "2.7L Gas / Diesel", visc: "5W-30 / 15W-40", api: "SN / CI-4", cap: "5.6 - 7.5 L", good: "", better: "SUPER DEFENSE 10W30 / 15W40", best: "DELVAC1 5W40" },
+            { make: "Toyota", model: "Hilux", year: "2000 - Present", engine: "Diesel", visc: "15W-40 / 5W-30", api: "CI-4", cap: "Varies", good: "", better: "SUPER DEFENSE 15W40", best: "DELVAC1 5W40" },
+            { make: "Toyota", model: "Corolla Altis", year: "2001 - Present", engine: "1.6L / 1.8L", visc: "5W-30", api: "SN", cap: "4.0 - 4.2 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Toyota", model: "Wigo", year: "2014 - Present", engine: "1.0L / 1.2L", visc: "5W-30 / 0W-20", api: "SN", cap: "2.7 - 3.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Toyota", model: "Camry", year: "2000 - Present", engine: "2.4L / 2.5L", visc: "5W-30", api: "SN", cap: "4.3 - 4.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Toyota", model: "Hiace", year: "2019 - Present", engine: "2.8L Diesel", visc: "5W-30 / 5W-40", api: "CI-4", cap: "7.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "DELVAC1 5W40" },
+
+            // MITSUBISHI
+            { make: "Mitsubishi", model: "Montero Sport", year: "2008 - Present", engine: "2.4L / 2.5L Diesel", visc: "5W-30 / 15W-40", api: "SN / CF-4", cap: "6.4 - 7.5 L", good: "", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30 / DELVAC1 5W40" },
+            { make: "Mitsubishi", model: "Xpander", year: "2018 - Present", engine: "1.5L Gas", visc: "0W-20 / 5W-30", api: "SN/SP", cap: "4.3 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Mitsubishi", model: "Mirage G4", year: "2012 - Present", engine: "1.2L Gas", visc: "0W-20", api: "SN/SP", cap: "3.0 - 3.2 L", good: "", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Mitsubishi", model: "Strada / Triton", year: "2006 - Present", engine: "Diesel", visc: "5W-30 / 15W-40", api: "CI-4", cap: "Varies", good: "", better: "SUPER DEFENSE 15W40", best: "DELVAC1 5W40" },
+
+            // HONDA
+            { make: "Honda", model: "Civic", year: "2016 – Present", engine: "1.8L / 1.5L Turbo", visc: "0W-20", api: "SN PLUS / SP", cap: "3.5 - 3.7 L", good: "", better: "MOBIL1 0W20", best: "MOBIL1 0W20" },
+            { make: "Honda", model: "City", year: "2020 – Present", engine: "1.5L i-VTEC", visc: "0W-20", api: "SN PLUS / SP", cap: "3.6 - 4.0 L", good: "", better: "MOBIL1 0W20", best: "MOBIL1 0W20" },
+            { make: "Honda", model: "Jazz", year: "2009 – 2020", engine: "1.3L / 1.5L", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Honda", model: "CR-V", year: "2017 – Present", engine: "1.5L Turbo / 2.0L", visc: "0W-20", api: "SN PLUS / SP", cap: "3.7 - 4.2 L", good: "", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Honda", model: "HR-V", year: "2022 – Present", engine: "1.5L N/A / Turbo", visc: "0W-20", api: "SN PLUS / SP", cap: "3.5 - 3.7 L", good: "", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+            { make: "Honda", model: "BR-V", year: "2016 – Present", engine: "1.5L i-VTEC", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "3.4 - 3.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+
+            // NISSAN
+            { make: "Nissan", model: "Navara", year: "2007 - Present", engine: "2.5L Diesel", visc: "5W-30 / 15W-40", api: "CI-4", cap: "6.5 - 7.0 L", good: "", better: "SUPER DEFENSE 15W40", best: "DELVAC1 5W40" },
+            { make: "Nissan", model: "Terra", year: "2018 - Present", engine: "2.5L Diesel", visc: "5W-30", api: "CI-4/SN", cap: "6.5 - 7.0 L", good: "", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Nissan", model: "Almera", year: "2013 - Present", engine: "1.2L / 1.5L", visc: "5W-30 / 0W-20", api: "SN/SP", cap: "3.0 - 3.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Nissan", model: "X-Trail", year: "2001 - Present", engine: "2.0L / 2.5L Gas", visc: "5W-30 / 0W-20", api: "SN/SP", cap: "4.3 - 4.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 0W20", best: "MOBIL1 0W20" },
+
+            // HYUNDAI
+            { make: "Hyundai", model: "Starex / Grand Starex", year: "2008–2021", engine: "2.5L CRDi", visc: "5W-30", api: "ACEA C3", cap: "7.4 L", good: "", better: "SUPER DEFENSE 10W30", best: "DELVAC1 5W40" },
+            { make: "Hyundai", model: "Tucson", year: "2016–2024", engine: "2.0L Gas / Diesel", visc: "5W-30 / 0W-20", api: "SP / ACEA C3", cap: "4.0 - 7.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Hyundai", model: "Santa Fe", year: "2019–2024", engine: "2.2L CRDi / 2.5L Gas", visc: "0W-30 / 5W-30", api: "SP / ACEA C5", cap: "5.8 - 6.7 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+
+            // FORD
+            { make: "Ford", model: "Ranger / Everest", year: "2019–2024", engine: "2.0L Bi-Turbo", visc: "0W-30", api: "ACEA C2", cap: "7.0 - 7.5 L", good: "", better: "", best: "DELVAC1 5W40" },
+            { make: "Ford", model: "Territory", year: "2020–2024", engine: "1.5L EcoBoost", visc: "5W-30", api: "SN / SP", cap: "4.5 - 5.0 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Ford", model: "EcoSport", year: "2014–2022", engine: "1.5L / 1.0L", visc: "5W-30 / 0W-20", api: "SN", cap: "4.1 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+
+            // MAZDA
+            { make: "Mazda", model: "Mazda 3", year: "2012–2024", engine: "SkyActiv-G", visc: "0W-20 / 5W-30", api: "SN / SP", cap: "4.2 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Mazda", model: "CX-5", year: "2012–2024", engine: "SkyActiv-G / D", visc: "0W-20 / 5W-30", api: "SN / SP / ACEA C3", cap: "4.2 - 5.8 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Mazda", model: "BT-50", year: "2021–2024", engine: "1.9L / 3.0L BluePower", visc: "5W-30 / 0W-30", api: "ACEA C2/C3", cap: "7.0 - 7.6 L", good: "", better: "", best: "DELVAC1 5W40" },
+
+            // GEELY
+            { make: "Geely", model: "Coolray", year: "Present", engine: "1.5L Turbo", visc: "5W-30 / 0W-20", api: "SN / SP", cap: "5.6 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+            { make: "Geely", model: "Okavango", year: "2020–Present", engine: "1.5L Mild-Hybrid", visc: "5W-30", api: "SN / SP", cap: "~4.5 L", good: "FRICTION FIGHTER 5W30", better: "ALL IN ONE PROTECTION 5W30", best: "MOBIL1 5W30" },
+
+            // BMW
+            { make: "BMW", model: "3 Series", year: "2012–2024", engine: "F30/G20", visc: "0W-20 / 5W-30", api: "BMW LL-01 / LL-17 FE+", cap: "5.0 - 5.25 L", good: "", better: "", best: "MOBIL1 0W20 / 5W30" },
+            { make: "BMW", model: "X5 / X6", year: "2000–2024", engine: "Diesel", visc: "5W-30 / 5W-40", api: "BMW LL-04", cap: "6.5 - 7.5 L", good: "", better: "", best: "MOBIL1 ESP 5W30" },
+
+            // MERCEDES
+            { make: "Mercedes", model: "C-Class", year: "2008–2021", engine: "W204/W205", visc: "0W-40 / 5W-40", api: "MB 229.5", cap: "5.5 - 6.5 L", good: "", better: "", best: "MOBIL1 FS 0W-40" },
+            { make: "Mercedes", model: "GLC / GLE", year: "2015–2024", engine: "Petrol / Diesel", visc: "5W-30 / 0W-30", api: "MB 229.51 / 229.52", cap: "6.0 - 6.5 L", good: "", better: "", best: "MOBIL1 ESP 5W30" }
+        ];
+
+        // Extract unique brands for tabs
+        const brands = [...new Set(lubeData.map(item => item.make))].sort();
+        let currentBrand = 'all';
+        let currentQuery = '';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTabs();
+            performSearch(); // Initial render of all products
+            
+            // Search listener
+            const input = document.getElementById('searchInput');
+            let debounceTimer;
+            input.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    currentQuery = e.target.value.trim().toLowerCase();
+                    performSearch();
+                }, 300);
+            });
+        });
+
+        function renderTabs() {
+            const container = document.getElementById('brandTabs');
+            brands.forEach(brand => {
+                const tab = document.createElement('div');
+                tab.className = 'search-tab';
+                tab.textContent = brand;
+                tab.dataset.brand = brand;
+                tab.onclick = () => setBrand(brand);
+                container.appendChild(tab);
+            });
+        }
+
+        function setBrand(brand) {
+            currentBrand = brand;
+            
+            // Update UI
+            document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.search-tab[data-brand="${brand}"]`) || 
+                              document.querySelector(`.search-tab[data-brand="all"]`);
+            if(activeTab) activeTab.classList.add('active');
+
+            performSearch();
+        }
+
+        function performSearch() {
+            const query = currentQuery.toLowerCase();
+            const grid = document.getElementById('resultsArea');
+            const emptyState = document.getElementById('emptyState');
+            const countSpan = document.getElementById('resultsCount');
+            const title = document.getElementById('resultsTitle');
+
+            // Filter Logic
+            const filtered = lubeData.filter(item => {
+                const matchesBrand = currentBrand === 'all' || item.make === currentBrand;
+                
+                // If no query, just show brand filter
+                if (!query) return matchesBrand;
+
+                // Search string construction
+                const searchStr = `${item.make} ${item.model} ${item.year} ${item.engine} ${item.visc}`.toLowerCase();
+                return matchesBrand && searchStr.includes(query);
+            });
+
+            // Render
+            grid.innerHTML = '';
+            
+            if (filtered.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'flex';
+                countSpan.textContent = '0 results found';
+            } else {
+                grid.style.display = 'grid';
+                emptyState.style.display = 'none';
+                countSpan.textContent = `${filtered.length} result${filtered.length !== 1 ? 's' : ''} found`;
+                
+                // Update Title based on context
+                if(query) {
+                    title.textContent = `Search Results for "${query}"`;
+                } else if (currentBrand !== 'all') {
+                    title.textContent = `${currentBrand} Recommendations`;
+                } else {
+                    title.textContent = "All Vehicle Recommendations";
+                }
+
+                filtered.forEach(item => {
+                    const card = createCard(item);
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        function createCard(item) {
+            const div = document.createElement('div');
+            div.className = 'result-card';
+            
+            // Helper to handle empty recommendations
+            const getRecHTML = (label, value, className = '') => {
+                if(!value || value.trim() === "") return '';
+                return `<div class="rec-row ${className}">
+                    <span class="rec-label">${label}:</span>
+                    <span class="rec-value">${value}</span>
+                </div>`;
+            };
+
+            div.innerHTML = `
+                <div class="card-header">
+                    <span class="result-eyebrow">${item.make}</span>
+                </div>
+                <h3>${item.model}</h3>
+                <div class="result-meta">
+                    <span class="meta-tag">${item.year}</span>
+                    <span class="meta-tag">${item.engine}</span>
+                </div>
+                
+                <div class="oil-specs">
+                    <div class="spec-item">
+                        <label>Viscosity</label>
+                        <span>${item.visc}</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Capacity</label>
+                        <span>${item.cap}</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Spec / API</label>
+                        <span>${item.api}</span>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    ${getRecHTML('Good', item.good)}
+                    ${getRecHTML('Better', item.better)}
+                    ${getRecHTML('Best', item.best, 'rec-best')}
+                </div>
+            `;
+            return div;
+        }
+    </script>
+</body>
+</html>

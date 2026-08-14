@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Regular.woff2') format('woff2'),
+         url('../../fonts/EMprint-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Semibold.woff2') format('woff2'),
+         url('../../fonts/EMprint-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Bold.woff2') format('woff2'),
+         url('../../fonts/EMprint-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.5;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER / NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container img {
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-divider {
+    color: #cccccc;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-nav ul li a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+
+
+/* DRIVER PROFILE LAYOUT */
+.driver-profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    padding: 5rem 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px); /* Fill screen minus header */
+}
+
+.image-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-column img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 24px; /* Matches the rounded corners in the design */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.eyebrow-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.text-column h1 {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.text-column p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* FLOATING CHAT BOT */
+.chat-bot {
+    position: fixed;
+    right: 20px;
+    bottom: 20px; /* Moved to bottom right based on new screenshot */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    border: 3px solid white;
+    background-image: url('https://via.placeholder.com/60x60/001f5b/ffffff?text=Bot');
+    background-size: cover;
+}
+.chat-bot::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .driver-profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 3rem;
+        gap: 3rem;
+    }
+
+    .text-column {
+        align-items: center;
+    }
+
+    .text-column h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-nav, .desktop-actions {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo-container img {
+        height: 30px;
+    }
+}

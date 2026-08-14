@@ -1,0 +1,449 @@
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Regular.woff2') format('woff2'),
+         url('../../fonts/EMprint-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Semibold.woff2') format('woff2'),
+         url('../../fonts/EMprint-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EMprint';
+    src: url('../../fonts/EMprint-Bold.woff2') format('woff2'),
+         url('../../fonts/EMprint-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* TYPOGRAPHY */
+h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtext {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* HEADER / NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-nav ul li a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Hamburger Menu Icon (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+
+.btn-outline {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    background: url('https://via.placeholder.com/1920x600/333333/ffffff?text=Engine+Bay+Background') no-repeat center center/cover;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px; /* Small gap between the white boxes */
+}
+
+.hero-title span {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.hero-content .btn-primary {
+    margin-top: 1.5rem;
+}
+
+/* COMMON SECTION STYLES */
+section {
+    padding: 4rem 5%;
+}
+
+/* HOW MOBIL HELPS SECTION */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.tag-red {
+    color: var(--red-tag);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.card-content h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.card-content p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* FIND RIGHT PROTECTION SECTION */
+.find-protection {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.find-protection h2 {
+    color: var(--white);
+}
+
+.find-protection p {
+    color: #d0d0d0;
+    margin-bottom: 2rem;
+}
+
+.find-protection .content-left {
+    flex: 1;
+}
+
+.find-protection .image-right {
+    flex: 1;
+}
+
+.find-protection .image-right img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: 350px;
+}
+
+/* EXPLORE PRODUCTS SECTION */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    color: var(--primary-blue);
+}
+
+/* BUY WITH CONFIDENCE SECTION */
+.buy-confidence {
+    background-color: var(--light-bg);
+}
+
+.buy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.buy-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.buy-card img {
+    height: 40px;
+    object-fit: contain;
+}
+
+.buy-card a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--white);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 5%;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-logo-col {
+    max-width: 300px;
+}
+
+.footer-logo-col img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-col p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.footer-links {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-col h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+.footer-bottom {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 1.5rem 5%;
+    display: flex;
+    gap: 2rem;
+    font-size: 0.8rem;
+}
+
+.footer-bottom a {
+    color: #d0d0d0;
+}
+
+/* FLOATING CHAT BOT */
+.chat-bot {
+    position: fixed;
+    right: 20px;
+    top: 40%;
+    width: 55px;
+    height: 55px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    border: 3px solid white;
+}
+.chat-bot::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 14px;
+    height: 14px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* RESPONSIVE DESIGN (MEDIA QUERIES) */
+@media (max-width: 1024px) {
+    .grid-4, .buy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header Mobile Adjustments */
+    .desktop-nav, .desktop-actions {
+        display: none; /* Hide desktop nav and buttons */
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    /* Hero Mobile Adjustments */
+    .hero-title span {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Card Horizontal Scroll Slider for Mobile */
+    .grid-3 {
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        /* Pulling the margin right out so the next card peeks over the edge */
+        margin-right: -5%; 
+        padding-right: 5%;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hide scrollbar for a cleaner mobile app feel */
+    .grid-3::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .grid-3 .card {
+        min-width: 85%; /* Make cards take up 85% of screen to let next card peek */
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+
+    .grid-4, .buy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .find-protection {
+        flex-direction: column;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}
