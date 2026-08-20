@@ -4,67 +4,378 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobil - Driver Profile</title>
+    
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/driver-profile.css">
-    <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/chat-window.css">
 </head>
+<!-- Optional: Add data-no-footer="true" to the body if you don't want the footer showing during the quiz -->
 <body>
 
-    <div class="chat-bot" onclick="toggleChat()"></div>
+    <!-- Header injected by components.js -->
 
-    <header>
-        <div class="logo-container">
-            <a href="homepage.html">
-                <img src="https://via.placeholder.com/100x40/ffffff/001f5b?text=Mobil" alt="Mobil Logo">
-            </a>
-            <span class="logo-divider">|</span>
-            <img src="https://via.placeholder.com/120x40/ffffff/001f5b?text=Allied+Lubrication" alt="Allied Lubrication">
-        </div>
+    <main class="quiz-container">
         
-        <div class="menu-toggle">
-            <svg width="24" height="24" viewBox="120 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M124 7H140M124 12H140M124 17H140" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <!-- ================= START PAGE ================= -->
+        <div id="step-0" class="quiz-step active">
+            <div class="start-grid">
+                <div class="start-image">
+                    <img src="../assets/driver/car.png" alt="Yellow Sports Car">
+                </div>
+                <div class="start-content">
+                    <span class="eyebrow">DRIVER PROFILE</span>
+                    <h1>Which driver are you?</h1>
+                    <p>Answer five quick questions about your vehicle, driving conditions, and maintenance priorities. We'll identify your driver profile and narrow down the protection that fits your standards.</p>
+                    <button class="btn-primary" onclick="goToStep(1)">Let's start <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+                </div>
+            </div>
         </div>
-        
-        <nav class="desktop-nav">
-            <ul>
-                <li><a href="#">Products &#709;</a></li>
-                <li><a href="#">Where to Buy</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="desktop-actions">
-            <button class="btn-primary">Find the Right Oil &#8594;</button>
+
+        <!-- ================= STEP 1 ================= -->
+        <div id="step-1" class="quiz-step">
+            <div class="quiz-header">
+                <button class="back-link" onclick="goToStep(0)">&larr; Back</button>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 20%;"></div>
+                </div>
+                <h2 class="quiz-question">What type of vehicle do you drive?</h2>
+                <p class="quiz-instruction">Select one option</p>
+            </div>
             
-            <a href="search.html" style="cursor: pointer; display: flex;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15.5 15.5L21 21" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </div>
-    </header>
-
-    <main class="driver-profile-section">
-        
-        <div class="image-column">
-            <img src="https://via.placeholder.com/600x650/cccccc/333333?text=Yellow+Sports+Car" alt="Yellow Porsche">
-        </div>
-
-        <div class="text-column">
-            <span class="eyebrow-text">Driver Profile</span>
-            <h1>Which driver are you?</h1>
-            <p>Answer five quick questions about your vehicle, driving conditions, and maintenance priorities. We'll identify your driver profile and narrow down the protection that fits your standards.</p>
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption(1, 'gas')">
+                    <img src="../assets/driver/gas.png" alt="Gasoline car">
+                    <div class="option-label">Gasoline car <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(1, 'suv')">
+                    <img src="../assets/driver/suv.png" alt="SUV / pickup">
+                    <div class="option-label">SUV / pickup <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(1, 'diesel')">
+                    <img src="../assets/driver/diesel.png" alt="Diesel vehicle">
+                    <div class="option-label">Diesel vehicle <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(1, 'moto')">
+                    <img src="../assets/driver/motorcycle.png" alt="Motorcycle">
+                    <div class="option-label">Motorcycle <div class="checkbox-circle"></div></div>
+                </div>
+                <!-- New Commercial Vehicle Card -->
+                <div class="option-card" onclick="selectOption(1, 'commercial')">
+                    <img src="../assets/driver/truck.png" alt="Commercial vehicle / truck">
+                    <div class="option-label">Commercial vehicle / truck <div class="checkbox-circle"></div></div>
+                </div>
+            </div>
             
-            <button class="btn-primary">Let's start &#8594;</button>
+            <div class="quiz-actions">
+                <button id="btn-next-1" class="btn-primary btn-disabled" onclick="goToStep(2)">Continue <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+            </div>
+        </div>
+
+        <!-- ================= STEP 2 ================= -->
+        <div id="step-2" class="quiz-step">
+            <div class="quiz-header">
+                <button class="back-link" onclick="goToStep(1)">&larr; Back</button>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 40%;"></div>
+                </div>
+                <h2 class="quiz-question">Where do you drive most often?</h2>
+                <p class="quiz-instruction">Select one option</p>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption(2, 'city')">
+                    <img src="../assets/driver/city.png" alt="City Traffic">
+                    <div class="option-label">City / daily traffic <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(2, 'highway')">
+                    <img src="../assets/driver/highway.png" alt="Highway">
+                    <div class="option-label">Highway / long drives <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(2, 'mixed')">
+                    <img src="../assets/driver/mix.png" alt="Mixed driving">
+                    <div class="option-label">Mixed city and highway <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(2, 'rough')">
+                    <img src="../assets/driver/rough.png" alt="Rough roads">
+                    <div class="option-label">Rough or provincial roads <div class="checkbox-circle"></div></div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="btn-next-2" class="btn-primary btn-disabled" onclick="goToStep(3)">Next step <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+            </div>
+        </div>
+
+        <!-- ================= STEP 3 ================= -->
+        <div id="step-3" class="quiz-step">
+            <div class="quiz-header">
+                <button class="back-link" onclick="goToStep(2)">&larr; Back</button>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 60%;"></div>
+                </div>
+                <h2 class="quiz-question">What are your usual driving conditions?</h2>
+                <p class="quiz-instruction">Select one option</p>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption(3, 'stopgo')">
+                    <img src="../assets/driver/heavy.png" alt="Stop and go">
+                    <div class="option-label">Heavy stop-go traffic <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(3, 'hot')">
+                    <img src="../assets/driver/hot.png" alt="Hot weather">
+                    <div class="option-label">Hot weather most of year <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(3, 'dust')">
+                    <img src="../assets/driver/dusty.png" alt="Dust">
+                    <div class="option-label">Dust or unpaved roads <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(3, 'heavy')">
+                    <img src="../assets/driver/rainy.png" alt="Heavy loads">
+                    <div class="option-label">Rainy or flood-prone roads <div class="checkbox-circle"></div></div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="btn-next-3" class="btn-primary btn-disabled" onclick="goToStep(4)">Next step <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+            </div>
+        </div>
+
+        <!-- ================= STEP 4 ================= -->
+        <div id="step-4" class="quiz-step">
+            <div class="quiz-header">
+                <button class="back-link" onclick="goToStep(3)">&larr; Back</button>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 80%;"></div>
+                </div>
+                <h2 class="quiz-question">How would you describe your driving style?</h2>
+                <p class="quiz-instruction">Select one option</p>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption(4, 'easy')">
+                    <img src="../assets/driver/easy.png" alt="Easygoing">
+                    <div class="option-label">Easygoing <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(4, 'normal')">
+                    <img src="../assets/driver/normal.png" alt="Normal">
+                    <div class="option-label">Normal everyday driving <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(4, 'fast')">
+                    <img src="../assets/driver/performance.png" alt="Fast Paced">
+                    <div class="option-label">Performance-minded <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(4, 'commercial')">
+                    <img src="../assets/driver/carry.png" alt="Heavy Duty">
+                    <div class="option-label">Often carry heavy loads <div class="checkbox-circle"></div></div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="btn-next-4" class="btn-primary btn-disabled" onclick="goToStep(5)">Next step <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+            </div>
+        </div>
+
+        <!-- ================= STEP 5 ================= -->
+        <div id="step-5" class="quiz-step">
+            <div class="quiz-header">
+                <button class="back-link" onclick="goToStep(4)">&larr; Back</button>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+                <h2 class="quiz-question">How long do you plan to keep your vehicle?</h2>
+                <p class="quiz-instruction">Select one option</p>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption(5, 'short')">
+                    <img src="../assets/driver/less.png" alt="Less than 2 years">
+                    <div class="option-label">Less than 2 years <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(5, 'med')">
+                    <img src="../assets/driver/2.png" alt="2 to 5 years">
+                    <div class="option-label">2 to 5 years <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(5, 'long')">
+                    <img src="../assets/driver/5.png" alt="More than 5 years">
+                    <div class="option-label">More than 5 years <div class="checkbox-circle"></div></div>
+                </div>
+                <div class="option-card" onclick="selectOption(5, 'forever')">
+                    <img src="../assets/driver/long.png" alt="As long as possible">
+                    <div class="option-label">As long as possible <div class="checkbox-circle"></div></div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="btn-next-5" class="btn-primary btn-disabled" onclick="calculateResult()">See my profile <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></button>
+            </div>
+        </div>
+
+<!-- ================= RESULT PAGE ================= -->
+        <div id="step-result" class="quiz-step">
+            <div class="result-hero">
+                <img src="../assets/driver/read.png" alt="Mechanic holding clipboard">
+                <span class="hero-eyebrow">YOUR DRIVER PROFILE</span>
+                <h1 class="result-title" id="result-title">You're the Essentialist.</h1>
+                <p class="result-description" id="result-desc">You keep car care practical, consistent, and focused on the long run. You want dependable protection that makes sense for everyday driving and helps your vehicle stay ready for years ahead.</p>
+            </div>
+
+            <div class="recommended-products">
+                <h3>Protection that fits your standards</h3>
+                <div class="product-cards-container">
+                    
+                    <!-- Card 1: Best Fit -->
+                    <div class="product-card card-best-fit">
+                        <div class="card-img-box">
+                            <img src="../assets/driver/oil.png" alt="Mobil Super">
+                        </div>
+                        <div class="product-details">
+                            <span class="badge-pill badge-green">BEST FIT</span>
+                            <div class="tech-specs">
+                                <span class="spec-type">FULL SYNTHETIC</span>
+                                <span class="spec-grade">5W-30</span>
+                            </div>
+                            <h4>Mobil Super™ All-In-One Protection<br>5W-30</h4>
+                            <p>Dependable everyday protection for drivers who value practical maintenance and long-term engine care.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Also Suitable -->
+                    <div class="product-card card-also-suitable">
+                        <div class="card-img-box img-bg-gray">
+                            <img src="../assets/driver/oil2.png" alt="Mobil 1">
+                        </div>
+                        <div class="product-details">
+                            <span class="badge-pill badge-blue">ALSO SUITABLE</span>
+                            <div class="tech-specs">
+                                <span class="spec-type">ADVANCED FULL SYNTHETIC</span>
+                                <span class="spec-grade">5W-30</span>
+                            </div>
+                            <h4>Mobil 1™ Triple Action 5W-30</h4>
+                            <p>A full-synthetic step-up for drivers who want stronger protection against heat, wear, and everyday engine stress.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- What Defines Your Drive Section -->
+            <div class="defines-drive">
+                <span class="section-eyebrow">WHAT DEFINES YOUR DRIVE</span>
+                <div class="drive-tags">
+                    <span class="tag">Mixed city + highway</span>
+                    <span class="tag">Frequent heat</span>
+                    <span class="tag">Long-term protection</span>
+                </div>
+            </div>
+
+            <!-- How You Take Care of Your Car Section -->
+            <div class="car-care-box">
+                <h4>How you take care of your car</h4>
+                <p>You choose maintenance that is sensible, dependable, and easy to sustain. You care less about unnecessary complexity and more about keeping your vehicle protected, efficient, and ready for everyday life.</p>
+                <p class="disclaimer-text">Your result reflects your driving habits and priorities. Final oil selection must still follow your vehicle manufacturer's required viscosity and specification.</p>
+            </div>
+
+            <!-- Bottom Action -->
+            <div class="explore-actions">
+                <a href="products.html" class="link-primary">Explore all products <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+            </div>
         </div>
 
     </main>
 
+    <!-- Footer injected by components.js -->
+    
+    <!-- Scripts -->
+    <script src="js files/components.js"></script>
+    <script src="js files/migs-bot.js"></script>
 
+    <!-- QUIZ LOGIC SCRIPT -->
+    <script>
+        // Store user answers
+        const userAnswers = {
+            step1: null,
+            step2: null,
+            step3: null,
+            step4: null,
+            step5: null
+        };
+
+        // Function to handle switching between steps
+        function goToStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.quiz-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show the target step
+            if(stepNumber === 'result') {
+                document.getElementById('step-result').classList.add('active');
+                window.scrollTo(0, 0);
+            } else {
+                document.getElementById('step-' + stepNumber).classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Function to handle selecting an option card
+        function selectOption(stepNumber, value) {
+            // Save answer
+            userAnswers['step' + stepNumber] = value;
+            
+            // Get all cards in the current step and remove 'selected' class
+            const currentStepDiv = document.getElementById('step-' + stepNumber);
+            const allCards = currentStepDiv.querySelectorAll('.option-card');
+            
+            allCards.forEach(card => card.classList.remove('selected'));
+            
+            // Add 'selected' class to the clicked card
+            event.currentTarget.classList.add('selected');
+            
+            // Enable the "Next Step" button for this specific step
+            const nextBtn = document.getElementById('btn-next-' + stepNumber);
+            nextBtn.classList.remove('btn-disabled');
+        }
+
+        // Calculate the final profile based on answers
+        function calculateResult() {
+            const titleEl = document.getElementById('result-title');
+            const descEl = document.getElementById('result-desc');
+
+            // Example Logic based on Style (Step 4) and Conditions (Step 3)
+            if (userAnswers.step4 === 'fast' || userAnswers.step1 === 'suv') {
+                titleEl.innerText = "You're the Performance Seeker.";
+                descEl.innerText = "You demand the most out of your engine. Whether you're accelerating on the highway or pushing your SUV, you need ultimate protection against extreme heat and wear.";
+            } 
+            else if (userAnswers.step4 === 'commercial' || userAnswers.step3 === 'heavy') {
+                titleEl.innerText = "You're the Heavy Duty Driver.";
+                descEl.innerText = "Your vehicle is your livelihood. You carry heavy loads, face severe conditions, and need an oil that won't quit under pressure, minimizing your downtime.";
+            } 
+            else {
+                // Default Profile
+                titleEl.innerText = "You're the Essentialist.";
+                descEl.innerText = "You keep your vehicle running smooth, consistent, and forward-looking for the long run. You want dependable protection that sets standard for everyday driving and holds value.";
+            }
+
+            // Transition to result page
+            goToStep('result');
+        }
+    </script>
+        <!-- Scripts -->
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
 </body>

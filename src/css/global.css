@@ -291,7 +291,7 @@ footer {
 .footer-col h4 {
     color: var(--primary-blue);
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 .footer-col ul {
@@ -304,7 +304,7 @@ footer {
 
 .footer-col ul li a {
     color: var(--text-gray);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .footer-bottom {

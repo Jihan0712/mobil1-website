@@ -10,44 +10,111 @@
 </head>
 <body>
 
+    <!-- Header will be injected by components.js -->
+
     <div class="chat-bot" onclick="toggleChat()"></div>
+    
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-title">
-                    <span>Give your engine</span>
-                    <span>the protection it needs</span>
-                    <span>to go further.</span>
+        
+        <!-- ==========================================
+             HERO CAROUSEL SECTION 
+             ========================================== -->
+        <section class="hero-carousel">
+            <div class="carousel-track-container">
+                <ul class="carousel-track" id="track">
+                    
+                    <!-- Slide 1 -->
+                    <li class="carousel-slide current-slide">
+                        <img src="../assets/homepage/hero.png" alt="Mobil Oil Bottles" class="slide-image">
+                        <div class="slide-content">
+                            <div class="highlight-title">
+                                <span>Give your engine</span>
+                                <span>the protection it needs</span>
+                                <span>to go further.</span>
+                            </div>
+                            <a href="engine.html" class="btn-primary" style="background-color: #001450;">
+                                See what your engine goes through 
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Slide 2 -->
+                    <li class="carousel-slide">
+                        <img src="../assets/homepage/care.png" alt="Slide 2" class="slide-image">
+                        <div class="slide-content">s
+                            <div class="highlight-title">
+                                <span>Performance that</span>
+                                <span>pushes boundaries.</span>ss
+                            </div>
+                            <a href="product-detail.html" class="btn-primary" style="background-color: #001450;">View Products &rarr;</a>
+                        </div>
+                    </li>
+
+                    <!-- Slide 3 -->
+                    <li class="carousel-slide">
+                        <img src="../assets/homepage/car.png" alt="Slide 3" class="slide-image">
+                        <div class="slide-content">
+                            <div class="highlight-title">
+                                <span>Find the perfect</span>
+                                <span>oil for your drive.</span>
+                            </div>
+                            <a href="driver-profile.html" class="btn-primary" style="background-color: #001450;">Start Driver Profile &rarr;</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-nav">
+                <button class="carousel-arrow" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="carousel-dots" id="dotsNav">
+                    <button class="carousel-dot current-dot" data-index="0"></button>
+                    <button class="carousel-dot" data-index="1"></button>
+                    <button class="carousel-dot" data-index="2"></button>
                 </div>
-                <button class="btn-primary">See what your engine goes through &#8594;</button>
+                
+                <button class="carousel-arrow" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </section>
 
+        <!-- ==========================================
+             EXISTING SECTIONS 
+             ========================================== -->
         <section class="how-it-helps">
             <h2>How Mobil helps protect your engine</h2>
             <p class="section-subtext">Protection for daily driving, changing conditions, and long-term care.</p>
             
             <div class="grid-3">
                 <div class="card">
-                    <img src="https://via.placeholder.com/400x350/cccccc/333333?text=Woman+in+Car" alt="Everyday wear">
+                    <img src="../assets/homepage/drive.png" alt="Everyday wear">
                     <div class="card-content">
-                        <span class="tag-red">Engine Protection</span>
                         <h3>Everyday wear</h3>
                         <p>Helps protect against heat, friction, and strain.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/400x350/cccccc/333333?text=Family" alt="Different driving needs">
+                    <img src="../assets/homepage/parent.png" alt="Different driving needs">
                     <div class="card-content">
-                        <span class="tag-red">Engine Protection</span>
                         <h3>Different driving needs</h3>
                         <p>Built for different vehicles, journeys, and road conditions.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/400x350/cccccc/333333?text=Mechanic" alt="Long-term care">
+                    <img src="../assets/homepage/care.png" alt="Long-term care">
                     <div class="card-content">
-                        <span class="tag-red">Engine Protection</span>
                         <h3>Long-term care</h3>
                         <p>Supports dependable engine care over time.</p>
                     </div>
@@ -62,7 +129,7 @@
                 <a href="driver-profile.html" class="btn-outline">Start Driver Profile &#8594;</a>
             </div>
             <div class="image-right">
-                <img src="https://via.placeholder.com/600x400/333333/ffffff?text=Driver+Profile+Image" alt="Driver Profile">
+                <img src="../assets/homepage/check.png" alt="Driver Profile">
             </div>
         </section>
 
@@ -72,19 +139,19 @@
             
             <div class="grid-4">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Cars" alt="Cars & light vehicles">
+                    <img src="../assets/homepage/car.png" alt="Cars & light vehicles">
                     <h3>Cars & light vehicles</h3>
                 </div>
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Commercial+Vehicles" alt="Commercial vehicles & trucks">
+                    <img src="../assets/homepage/commercial.png" alt="Commercial vehicles & trucks">
                     <h3>Commercial vehicles & trucks</h3>
                 </div>
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Motorcycles" alt="Motorcycles & scooters">
+                    <img src="../assets/homepage/motor.png" alt="Motorcycles & scooters">
                     <h3>Motorcycles & scooters</h3>
                 </div>
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Fluids" alt="Fluids, gear oils & greases">
+                    <img src="../assets/homepage/fluid.png" alt="Fluids, gear oils & greases">
                     <h3>Fluids, gear oils & greases</h3>
                 </div>
             </div>
@@ -96,22 +163,86 @@
 
             <div class="buy-grid">
                 <div class="buy-card">
-                    <img src="https://via.placeholder.com/150x50/ffffff/ff5722?text=Shopee" alt="Shopee Logo">
-                    <a href="#">Buy on Shopee &#8594;</a>
+                    <img src="../assets/shopee.png" alt="Shopee Logo">
+                    <a href="#">Buy on Shopee 
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.66667 8H13.3333M9.33334 12L13.3333 8L9.33334 4" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </a>
                 </div>
                 <div class="buy-card">
-                    <img src="https://via.placeholder.com/150x50/ffffff/000080?text=Lazada" alt="Lazada Logo">
-                    <a href="#">Buy on Lazada &#8594;</a>
+                    <img src="../assets/lazada.png" alt="Lazada Logo">
+                    <a href="#">Buy on Lazada 
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.66667 8H13.3333M9.33334 12L13.3333 8L9.33334 4" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </a>
                 </div>
                 <div class="buy-card">
                     <h3 style="color: var(--primary-blue);">Service centers</h3>
-                    <a href="#">Find one near you &#8594;</a>
+                    <a href="#">Find one near you 
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.66667 8H13.3333M9.33334 12L13.3333 8L9.33334 4" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer will be injected by components.js -->
+
+    <!-- External Scripts -->
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
+
+    <!-- Carousel Logic Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('track');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtn');
+            const prevButton = document.getElementById('prevBtn');
+            const dotsNav = document.getElementById('dotsNav');
+            const dots = Array.from(dotsNav.children);
+            
+            let currentIndex = 0;
+
+            const updateCarousel = (index) => {
+                // Move track
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                
+                // Update active class on slides
+                slides.forEach(slide => slide.classList.remove('current-slide'));
+                slides[index].classList.add('current-slide');
+                
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('current-dot'));
+                dots[index].classList.add('current-dot');
+                
+                currentIndex = index;
+            };
+
+            nextButton.addEventListener('click', () => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= slides.length) nextIndex = 0; // Loop back to start
+                updateCarousel(nextIndex);
+            });
+
+            prevButton.addEventListener('click', () => {
+                let prevIndex = currentIndex - 1;
+                if (prevIndex < 0) prevIndex = slides.length - 1; // Loop to end
+                updateCarousel(prevIndex);
+            });
+
+            dotsNav.addEventListener('click', e => {
+                const targetDot = e.target.closest('button');
+                if (!targetDot) return;
+                
+                const targetIndex = dots.findIndex(dot => dot === targetDot);
+                updateCarousel(targetIndex);
+            });
+        });
+    </script>
 </body>
 </html>

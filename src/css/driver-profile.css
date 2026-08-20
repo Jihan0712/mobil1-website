@@ -1,212 +1,471 @@
-@font-face {
-    font-family: 'EMprint';
-    src: url('../../fonts/EMprint-Regular.woff2') format('woff2'),
-         url('../../fonts/EMprint-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+/* QUIZ CONTAINER */
+.quiz-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 4rem 5%;
+    min-height: 70vh;
 }
-@font-face {
-    font-family: 'EMprint';
-    src: url('../../fonts/EMprint-Semibold.woff2') format('woff2'),
-         url('../../fonts/EMprint-Semibold.woff') format('woff');
+
+.quiz-step {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.4s ease;
+}
+
+.quiz-step.active {
+    display: block; /* Show active step */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 02 - START PAGE */
+.start-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.start-image img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.start-content .eyebrow {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.start-content h1 {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.start-content p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 450px;
+}
+
+/* QUIZ STEPS (03 to 07) */
+.quiz-header {
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    font-size: 0.85rem;
     font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'EMprint';
-    src: url('../../fonts/EMprint-Bold.woff2') format('woff2'),
-         url('../../fonts/EMprint-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-
-
-body {
-    font-family: var(--font-family);
-    color: var(--text-dark);
-    line-height: 1.5;
-    background-color: var(--white);
-    overflow-x: hidden;
+    color: var(--text-gray);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border: none;
+    background: none;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.back-link:hover {
+    color: var(--primary-blue);
 }
 
-/* HEADER / NAVBAR */
-header {
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background-color: #e0e0e0;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--red-brand);
+    transition: width 0.3s ease;
+}
+
+.quiz-question {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.quiz-instruction {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+/* OPTION CARDS */
+.options-grid {
     display: flex;
+    flex-wrap: nowwrap;
+    gap: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.option-card {
+    flex: 8px;
+    min-width: 200px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--white);
+}
+
+.option-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.option-label {
+    padding: 1.2rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-align: center;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background-color: var(--white);
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
-.logo-container {
+/* Active/Selected State */
+.option-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.option-card.selected {
+    border-color: var(--primary-blue);
+    background-color: #eef4fc;
+}
+
+.checkbox-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.option-card.selected .checkbox-circle {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.checkbox-circle::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    display: none;
+}
+
+.option-card.selected .checkbox-circle::after {
+    display: block;
+}
+
+.quiz-actions {
+    display: flex;
     gap: 1rem;
 }
 
-.logo-container img {
-    height: 40px;
-    object-fit: contain;
+.btn-disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
-.logo-divider {
-    color: #cccccc;
-    font-size: 1.5rem;
-    font-weight: 300;
+/* 08 - RESULT PAGE UPDATE */
+.result-hero {
+    margin-bottom: 3rem;
 }
 
-.desktop-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.desktop-nav ul li a {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--primary-blue);
-}
-
-.desktop-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    color: var(--primary-blue);
-    cursor: pointer;
-}
-
-
-
-/* DRIVER PROFILE LAYOUT */
-.driver-profile-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    padding: 5rem 5%;
-    max-width: 1300px;
-    margin: 0 auto;
-    min-height: calc(100vh - 80px); /* Fill screen minus header */
-}
-
-.image-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.image-column img {
+.result-hero img {
     width: 100%;
-    max-width: 600px;
-    border-radius: 24px; /* Matches the rounded corners in the design */
+    height: 300px;
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
 }
 
-.text-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.eyebrow-text {
-    font-size: 0.8rem;
+.hero-eyebrow {
+    display: block;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-gray);
     text-transform: uppercase;
+    margin-bottom: 0.5rem;
     letter-spacing: 0.5px;
+}
+
+.result-title {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.result-description {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    max-width: 900px;
+    margin-bottom: 3rem;
+}
+
+.recommended-products {
+    margin-bottom: 2rem;
+}
+
+.recommended-products h3 {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.product-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Product Card Base */
+.product-card {
+    border-radius: 16px;
+    display: flex;
+    overflow: hidden;
+    align-items: stretch;
+    min-height: 260px; /* Ensures the cards have a good unified height */
+}
+
+/* Card Variations */
+.card-best-fit {
+    border: 2px solid var(--primary-blue);
+    background-color: #f4f7fc; /* Light blue tint */
+}
+
+.card-also-suitable {
+    border: 1px solid #d1d5db;
+    background-color: var(--white);
+}
+
+/* Image Containers inside Cards */
+.card-img-box {
+    width: 35%; /* Controls the width of the image section */
+    height: 100%; /* Forces the container to stretch the full height of the card */
+    flex-shrink: 0;
+    padding: 0; /* Removes all padding to make the image flush with the edges */
+    margin: 0;
+    background-color: transparent; /* No background color, as requested */
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    max-height: none; /* Removes any height restrictions */
+    object-fit: cover; /* Forces the image to fill the entire space perfectly edge-to-edge */
+    border-radius: 14px 0 0 14px; /* Matches the card's rounded corners on the left side so the image doesn't overflow */
+    display: block;
+}
+
+/* Product Details */
+.product-details {
+    padding: 2rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge-pill {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.badge-green {
+    background-color: #00a354;
+}
+
+.badge-blue {
+    background-color: var(--primary-blue);
+}
+
+.tech-specs {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.spec-type {
+    color: var(--text-gray);
+    margin-right: 0.5rem;
+}
+
+.spec-grade {
+    color: #00a354;
+}
+
+.product-details h4 {
+    color: var(--primary-blue);
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.product-details p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Defines Your Drive Section */
+.defines-drive {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.drive-tags {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: var(--white);
+    border: 1px solid #d1d5db;
+    color: var(--primary-blue);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* How You Take Care of Your Car Section */
+.car-care-box {
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.car-care-box h4 {
+    color: var(--primary-blue);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.car-care-box p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.6;
     margin-bottom: 1rem;
 }
 
-.text-column h1 {
-    font-size: 3rem;
+.car-care-box .disclaimer-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* Explore Actions */
+.explore-actions {
+    text-align: left;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+.link-primary {
     color: var(--primary-blue);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.text-column p {
-    font-size: 1.1rem;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    max-width: 500px;
-}
-
-/* FLOATING CHAT BOT */
-.chat-bot {
-    position: fixed;
-    right: 20px;
-    bottom: 20px; /* Moved to bottom right based on new screenshot */
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-flex;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
-    z-index: 1000;
-    border: 3px solid white;
-    background-image: url('https://via.placeholder.com/60x60/001f5b/ffffff?text=Bot');
-    background-size: cover;
-}
-.chat-bot::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 16px;
-    height: 16px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    border: 2px solid white;
 }
 
-/* RESPONSIVE DESIGN */
+.link-primary:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
-    .driver-profile-section {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 3rem;
-        gap: 3rem;
-    }
-
-    .text-column {
-        align-items: center;
-    }
-
-    .text-column h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .desktop-nav, .desktop-actions {
-        display: none;
+    .product-cards-container {
+        grid-template-columns: 1fr;
     }
     
-    .menu-toggle {
-        display: block;
+    .product-card {
+        flex-direction: column;
     }
-
-    .logo-container img {
-        height: 30px;
+    
+    .card-img-box {
+        width: 100%;
+        object-fit: fill;
+        height: 260px;
+        padding: 0px;
     }
 }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .start-grid, .product-cards-container {
+        grid-template-columns: 1fr;
+    }
+    .options-grid {
+        flex-direction: column;
+    }
+    .option-card {
+        display: flex;
+        align-items: center;
+    }
+    .option-card img {
+        width: 120px;
+        height: 100%;
+        border-bottom: none;
+        border-right: 1px solid var(--border-color);
+    }
+    .option-label {
+        flex-grow: 1;
+    }
+    .card-best-fit .card-img-box,
+    .card-also-suitable .card-img-box {
+        width: 100%;
+        height: 200px;
+    }
+}
+

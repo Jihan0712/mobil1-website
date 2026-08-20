@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Contact Us</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header will be injected by components.js -->
+
+    <!-- Top Hero Image -->
+    <section class="contact-hero">
+        <img src="../assets/contact/hero.png" alt="Mechanics consulting a tablet">
+    </section>
+
+    <!-- How Can We Help Section -->
+    <section class="contact-section">
+        <span class="section-eyebrow">Contact Mobil</span>
+        <h1 class="section-title">How can we help?</h1>
+        <p class="section-subtitle">Choose the route that best matches what you need. If you are unsure which oil fits, Driver Profile can guide you using your vehicle and real driving conditions.</p>
+        
+        <div class="help-cards-grid">
+            <a href="driver-profile.html" class="help-card">
+                <img src="../assets/contact/read.png" alt="Driver in car looking at book">
+                <div class="help-card-content">
+                    <span class="help-card-eyebrow">PRODUCT GUIDANCE</span>
+                    <h3>Find the right oil</h3>
+                    <p>Use Driver Profile for a recommendation based on your vehicle and how you drive.</p>
+                </div>
+            </a>
+            
+            <a href="#" class="help-card">
+                <img src="../assets/contact/order.png" alt="Woman carrying a package near a car">
+                <div class="help-card-content">
+                    <span class="help-card-eyebrow">MARKETPLACE SUPPORT</span>
+                    <h3>Order help</h3>
+                    <p>For Shopee or Lazada purchases, use the support channel inside the marketplace where the order was placed.</p>
+                </div>
+            </a>
+            
+            <a href="#enquiry-form" class="help-card">
+                <img src="../assets/contact/general.png" alt="Two mechanics looking at a document">
+                <div class="help-card-content">
+                    <span class="help-card-eyebrow">CONTACT TEAM</span>
+                    <h3>General and technical enquiries</h3>
+                    <p>Send a message for product information, documentation, partnerships, or other support requests.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Direct Contact Section -->
+    <section class="direct-contact-section">
+        <div class="contact-section" style="padding:0;">
+            <h2 class="section-title" style="font-size: 2.2rem;">Direct contact</h2>
+            <p style="color: var(--text-gray); font-size: 0.95rem;">Official support details will appear here once approved by Allied Lubrication.</p>
+            
+            <div class="direct-contact-grid">
+                <div class="contact-item">
+                    <span class="contact-item-number">01 Support email</span>
+                    <h4>Approved email address required</h4>
+                    <p>Use the client-approved Mobil Philippines support email.</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item-number">02 Support phone</span>
+                    <h4>Approved phone number required</h4>
+                    <p>Use the client-approved official support number.</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item-number">03 Office or distributor</span>
+                    <h4>Approved address required</h4>
+                    <p>Use the approved Allied Lubrication office or distributor address.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form Section -->
+    <section class="contact-section" id="enquiry-form">
+        <div class="enquiry-section">
+            <div class="enquiry-text">
+                <span class="section-eyebrow">Send an enquiry</span>
+                <h2 class="section-title">Tell us what you need.</h2>
+                <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.6;">Share enough detail for the right team to understand your question. Choose the closest enquiry category so it can be routed correctly.</p>
+            </div>
+            
+            <div class="enquiry-form-container">
+                <h3>Your enquiry</h3>
+                <p class="form-subtitle">Fields marked required must be completed.</p>
+                
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullname">Full name *</label>
+                            <input type="text" id="fullname" placeholder="Enter your full name" required>
+                            <span class="helper-text">Required</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address *</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                            <span class="helper-text">Used to reply to your enquiry</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Enquiry category *</label>
+                            <select id="category" required>
+                                <option value="" disabled selected>Choose a category</option>
+                                <option value="technical">Technical product question</option>
+                                <option value="business">Business or distributor enquiry</option>
+                                <option value="general">General feedback</option>
+                            </select>
+                            <span class="helper-text">Product, technical, business, or general</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Product or vehicle</label>
+                            <select id="product">
+                                <option value="" disabled selected>Choose if relevant</option>
+                                <option value="passenger">Passenger Vehicle</option>
+                                <option value="commercial">Commercial Vehicle</option>
+                                <option value="motorcycle">Motorcycle</option>
+                            </select>
+                            <span class="helper-text">Optional</span>
+                        </div>
+                    </div>
+                    
+                    <div class="message-row">
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" rows="5" placeholder="Tell us about your question..." required></textarea>
+                            <span class="helper-text">Include product and vehicle details if relevant</span>
+                        </div>
+                        <div class="helpful-details-box">
+                            <h5>Helpful details</h5>
+                            <p>Add the product name, viscosity grade, vehicle make and model, and the conditions you drive in. Do not include payment details or passwords.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Approved privacy notice and consent copy required</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Send enquiry 
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Promo Section -->
+    <section class="promo-section">
+        <div class="promo-left">
+            <span class="section-eyebrow">Service centers</span>
+            <h2>Prefer in-person support?</h2>
+            <p>Find an authorized service center near you for product availability, maintenance conversations, and local assistance.</p>
+            <a href="#" class="btn-white">
+                Find a service center 
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+        <div class="promo-right">
+            <img src="../assets/contact/car.png" alt="Mechanic waving at a car pulling into shop">
+        </div>
+    </section>
+
+    <!-- Footer will be injected by components.js -->
+    
+    <!-- Scripts -->
+    <script src="../js files/migs-bot.js"></script>
+    <script src="../js files/components.js"></script>
+</body>
+</html>
