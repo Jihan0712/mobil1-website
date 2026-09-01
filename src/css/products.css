@@ -158,7 +158,7 @@
 .product-image-box {
     background-color: #e5e5e5; /* Gray background from design */
     border-radius: 12px;
-    padding: 2.5rem;
+    padding: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -387,17 +387,8 @@
         width: calc(100vw - 10%); /* Take up most of screen on mobile */
         right: -5%; /* Align relative to screen */
     }
-}s
-/* RESPONSIVE */
-@media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .products-grid {
-        grid-template-columns: 1fr;
     }
     
     .promo-box {

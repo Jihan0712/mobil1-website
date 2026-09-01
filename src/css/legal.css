@@ -16,9 +16,9 @@
     display: block;
 }
 
-.warning-eyebrow {
+.doc-eyebrow {
     font-size: 0.7rem;
-    color: #a67c00; /* Gold/Bronze warning color */
+    color: var(--secondary-blue);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -50,7 +50,7 @@
 /* DOCUMENTS GRID */
 .docs-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-bottom: 5rem;
 }
@@ -106,19 +106,6 @@
     border: none;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 5rem;
-}
-
-/* PREVIEW HEADER */
-.preview-title {
-    font-size: 2.2rem;
-    color: var(--primary-blue);
-    margin-bottom: 1rem;
-}
-
-.preview-subtitle {
-    font-size: 1rem;
-    color: var(--text-gray);
-    margin-bottom: 3rem;
 }
 
 /* ARTICLE LAYOUT */
@@ -178,17 +165,14 @@
     max-width: 900px;
 }
 
-.alert-box {
-    background-color: #eef4fc; /* Light blue tint */
-    border-radius: 8px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 3rem;
+.policy-doc {
+    padding-top: 4rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.alert-box p {
-    color: var(--primary-blue);
-    font-size: 0.95rem;
-    margin: 0;
+.policy-doc:first-child {
+    padding-top: 0;
+    border-top: none;
 }
 
 .policy-title {
@@ -222,7 +206,17 @@
     font-size: 1rem;
     color: var(--text-gray);
     line-height: 1.6;
-    margin: 0;
+    margin: 0 0 1rem 0;
+}
+
+.policy-section p:last-child {
+    margin-bottom: 0;
+}
+
+.policy-section p a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 /* RESPONSIVE */

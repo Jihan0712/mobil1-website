@@ -36,31 +36,31 @@ const myHeader = `
                         <div class="dropdown-divider"></div>
                         <ul class="dropdown-list">
                             <li>
-                                <a href="#">
+                                <a href="../src/products.html">
                                     <span>All Mobil products</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="../src/products.html">
                                     <span>Cars & light vehicles</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="../src/products.html">
                                     <span>Commercial vehicles & trucks</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="../src/products.html">
                                     <span>Motorcycles & scooters</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li class="no-border">
-                                <a href="#">
+                                <a href="../src/products.html">
                                     <span>Fluids, gear oils & greases</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
@@ -68,17 +68,17 @@ const myHeader = `
                         </ul>
                     </div>
                 </li>
-                <li><a href="../src/product.html">Where to Buy</a></li>
+                <li><a href="../src/products.html">Where to Buy</a></li>
                 <li><a href="../src/about.html">About</a></li>
                 <li><a href="../src/contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="desktop-actions">
-            <button class="btn-primary">Find the Right Oil 
+            <a href="../src/driver-profile.html" class="btn-primary">Find the Right Oil
             <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </button>
+            </a>
             <a href="search.html" style="cursor: pointer; display: flex;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -125,9 +125,9 @@ const myFooter = `
         
         <div class="footer-bottom">
             <span>© 2026 Mobil</span>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Accessibility</a>
+            <a href="../src/legal.html#privacy-policy">Privacy</a>
+            <a href="../src/legal.html#terms-of-use">Terms</a>
+            <a href="../src/legal.html#accessibility">Accessibility</a>
         </div>
     </footer>
 `;

@@ -64,21 +64,12 @@
     margin-bottom: 3rem;
 }
 
-.back-link {
+.step-counter {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-gray);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    border: none;
-    background: none;
-}
-
-.back-link:hover {
-    color: var(--primary-blue);
+    display: block;
+    margin-bottom: 0.8rem;
 }
 
 .progress-bar-container {
@@ -184,6 +175,10 @@
 .quiz-actions {
     display: flex;
     gap: 1rem;
+}
+
+.quiz-actions .btn-outline {
+    border: 1px solid var(--primary-blue);
 }
 
 .btn-disabled {

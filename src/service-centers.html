@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Service Centers</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/service-centers.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header will be injected by components.js -->
+
+    <!-- Top Hero Image -->
+    <section class="sc-hero">
+        <img src="../assets/service-centers/hero.png" alt="Mechanic and customer discussing a service near a car">
+    </section>
+
+    <!-- Intro Banner -->
+    <section class="sc-intro">
+        <span class="section-eyebrow" style="color: rgba(255,255,255,0.8);">Service Centers</span>
+        <h1>Find trusted support near you</h1>
+        <p>Search by city, province, or current location. Service-center names, addresses, operating hours, and contact details must come from the approved Allied Lubrication location database.</p>
+    </section>
+
+    <!-- Search & Results Section -->
+    <section class="sc-search-section">
+        <h2>Search service centers</h2>
+        <p class="section-subtext">Results remain placeholders until the approved service-network database is supplied.</p>
+
+        <div class="sc-search-bar">
+            <div class="sc-search-input">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5 15.5L21 21" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input type="text" placeholder="Enter city, province, or postcode">
+            </div>
+            <button class="btn-use-location">Use my location</button>
+            <button class="btn-primary">Filter services</button>
+        </div>
+
+        <div class="sc-results-layout">
+            <!-- Results List -->
+            <div class="sc-results-list">
+                <div class="sc-result-card">
+                    <span class="sc-result-number">01</span>
+                    <h3>Approved service center name</h3>
+                    <p>Approved city / province &middot; Distance pending location data</p>
+                    <p>Services: oil change &middot; inspection &middot; product availability</p>
+                    <div class="sc-result-links">
+                        <a href="#">View details &rarr;</a>
+                        <a href="#">Get directions &rarr;</a>
+                    </div>
+                </div>
+                <div class="sc-result-card">
+                    <span class="sc-result-number">02</span>
+                    <h3>Approved service center name</h3>
+                    <p>Approved city / province &middot; Distance pending location data</p>
+                    <p>Services: oil change &middot; inspection &middot; product availability</p>
+                    <div class="sc-result-links">
+                        <a href="#">View details &rarr;</a>
+                        <a href="#">Get directions &rarr;</a>
+                    </div>
+                </div>
+                <div class="sc-result-card">
+                    <span class="sc-result-number">03</span>
+                    <h3>Approved service center name</h3>
+                    <p>Approved city / province &middot; Distance pending location data</p>
+                    <p>Services: oil change &middot; inspection &middot; product availability</p>
+                    <div class="sc-result-links">
+                        <a href="#">View details &rarr;</a>
+                        <a href="#">Get directions &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Panel -->
+            <div class="sc-map-panel">
+                <img src="../assets/service-centers/map.png" alt="Map showing nearby service center locations">
+            </div>
+        </div>
+    </section>
+
+    <!-- Before You Visit Section -->
+    <section class="sc-before-visit">
+        <h2>Before you visit</h2>
+        <div class="sc-before-grid">
+            <div class="sc-before-card">
+                <span class="sc-before-number">01</span>
+                <h4>Confirm availability</h4>
+                <p>Call ahead once approved contact details are connected.</p>
+            </div>
+            <div class="sc-before-card">
+                <span class="sc-before-number">02</span>
+                <h4>Bring vehicle details</h4>
+                <p>Know the vehicle model, year, engine, and handbook specification.</p>
+            </div>
+            <div class="sc-before-card">
+                <span class="sc-before-number">03</span>
+                <h4>Ask for genuine products</h4>
+                <p>Use authorized channels and request a proper service record.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Scripts -->
+    <script src="../js files/migs-bot.js"></script>
+    <script src="../js files/components.js"></script>
+</body>
+</html>

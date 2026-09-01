@@ -1,0 +1,231 @@
+/* HERO SECTION */
+.sc-hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 320px;
+    background-color: var(--text-dark);
+    overflow: hidden;
+}
+
+.sc-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INTRO BANNER */
+.sc-intro {
+    background-color: var(--primary-blue);
+    padding: 4rem 5%;
+    position: relative;
+}
+
+.sc-intro h1 {
+    color: var(--white);
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    max-width: 800px;
+}
+
+.sc-intro p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+/* SEARCH SECTION */
+.sc-search-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 5%;
+}
+
+.sc-search-section h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.sc-search-bar {
+    display: flex;
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
+
+.sc-search-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--white);
+}
+
+.sc-search-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.9rem 0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: transparent;
+}
+
+.btn-use-location {
+    background-color: #eef4fc;
+    color: var(--primary-blue);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* RESULTS LAYOUT */
+.sc-results-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.sc-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sc-result-card {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 1.8rem;
+    position: relative;
+}
+
+.sc-result-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.sc-result-card h3 {
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.sc-result-card p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 0.3rem;
+}
+
+.sc-result-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.sc-result-links a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.sc-map-panel {
+    background-color: var(--primary-blue);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sc-map-panel img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* BEFORE YOU VISIT */
+.sc-before-visit {
+    background-color: var(--light-bg);
+    padding: 5rem 5%;
+}
+
+.sc-before-visit h2 {
+    max-width: 1400px;
+    margin: 0 auto 2.5rem;
+    font-size: 2rem;
+    color: var(--primary-blue);
+}
+
+.sc-before-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.sc-before-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1.8rem;
+    border: 1px solid var(--border-color);
+}
+
+.sc-before-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.sc-before-card h4 {
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.sc-before-card p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .sc-results-layout {
+        grid-template-columns: 1fr;
+    }
+    .sc-map-panel {
+        min-height: 300px;
+    }
+    .sc-before-grid {
+        grid-template-columns: 1fr;
+    }
+    .sc-intro h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sc-search-bar {
+        flex-direction: column;
+    }
+}

@@ -1,38 +1,3 @@
-@font-face {
-    font-family: 'EMprint';
-    src: url('fonts/EMprint-Regular.woff2') format('woff2'),
-         url('fonts/EMprint-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'EMprint';
-    src: url('fonts/EMprint-Semibold.woff2') format('woff2'),
-         url('fonts/EMprint-Semibold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'EMprint';
-    src: url('fonts/EMprint-Bold.woff2') format('woff2'),
-         url('fonts/EMprint-Bold.woff') format('woff');
-    font-weight: bold; /* or 700 */
-    font-style: normal;
-}
-
-/* HEADER (Reused) */
-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: var(--white); border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 100; }
-.logo-container { display: flex; align-items: center; gap: 1rem; }
-.logo-container img { height: 40px; object-fit: contain; }
-.logo-divider { color: #cccccc; font-size: 1.5rem; font-weight: 300; }
-.desktop-nav ul { display: flex; list-style: none; gap: 2rem; }
-.desktop-nav ul li a { font-weight: 600; font-size: 0.9rem; color: var(--primary-blue); }
-.desktop-actions { display: flex; align-items: center; gap: 1.5rem; }
-.menu-toggle { display: none; font-size: 1.8rem; color: var(--primary-blue); cursor: pointer; }
-
-
 /* SEARCH SECTION */
 .search-container { max-width: 1200px; margin: 0 auto; padding: 4rem 5%; }
 .search-hero { margin-bottom: 3rem; }
