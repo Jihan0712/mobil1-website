@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/service-centers.css">
     <link rel="stylesheet" href="css/chat-window.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
 
@@ -22,13 +23,22 @@
     <section class="sc-intro">
         <span class="section-eyebrow" style="color: rgba(255,255,255,0.8);">Service Centers</span>
         <h1>Find trusted support near you</h1>
-        <p>Search by city, province, or current location. Service-center names, addresses, operating hours, and contact details must come from the approved Allied Lubrication location database.</p>
+        <p>Search by city, province, or use your current location to see nearby fuel stations, auto shops, and hardware stores on a live map. Prefer to order now? Buy genuine Mobil products online instead.</p>
+        <div class="sc-buy-online">
+            <span>Buy Mobil products online:</span>
+            <a href="https://shopee.ph/mobilph_alsc" target="_blank" rel="noopener">
+                <img src="../assets/shopee.png" alt="Shopee">Shopee
+            </a>
+            <a href=" https://www.lazada.com.ph/shop/mobil-ph/" target="_blank" rel="noopener">
+                <img src="../assets/lazada.png" alt="Lazada">Lazada
+            </a>
+        </div>
     </section>
 
     <!-- Search & Results Section -->
     <section class="sc-search-section">
-        <h2>Search service centers</h2>
-        <p class="section-subtext">Results remain placeholders until the approved service-network database is supplied.</p>
+        <h2>Search nearby locations</h2>
+        <p class="section-subtext">Live results from OpenStreetMap — fuel stations, auto repair &amp; parts shops, and hardware stores. This is general map data, not a verified list of authorized Mobil retailers, so always confirm product availability by calling ahead.</p>
 
         <div class="sc-search-bar">
             <div class="sc-search-input">
@@ -36,50 +46,35 @@
                     <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M15.5 15.5L21 21" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <input type="text" placeholder="Enter city, province, or postcode">
+                <input type="text" id="sc-search-input" placeholder="Enter city, province, or postcode and press Enter">
             </div>
-            <button class="btn-use-location">Use my location</button>
-            <button class="btn-primary">Filter services</button>
+            <button class="btn-use-location" id="sc-use-location">Use my location</button>
+            <div class="sc-filter-container" id="sc-filter-container">
+                <button class="btn-primary" id="sc-filter-toggle">Filter services</button>
+                <div class="sc-filter-dropdown" id="sc-filter-dropdown">
+                    <label><input type="checkbox" value="fuel" checked> Fuel stations</label>
+                    <label><input type="checkbox" value="repair" checked> Auto repair &amp; parts</label>
+                    <label><input type="checkbox" value="hardware" checked> Hardware stores</label>
+                </div>
+            </div>
         </div>
+
+        <p class="sc-status" id="sc-status">Showing results near Metro Manila.</p>
 
         <div class="sc-results-layout">
             <!-- Results List -->
-            <div class="sc-results-list">
-                <div class="sc-result-card">
-                    <span class="sc-result-number">01</span>
-                    <h3>Approved service center name</h3>
-                    <p>Approved city / province &middot; Distance pending location data</p>
-                    <p>Services: oil change &middot; inspection &middot; product availability</p>
-                    <div class="sc-result-links">
-                        <a href="#">View details &rarr;</a>
-                        <a href="#">Get directions &rarr;</a>
-                    </div>
-                </div>
-                <div class="sc-result-card">
-                    <span class="sc-result-number">02</span>
-                    <h3>Approved service center name</h3>
-                    <p>Approved city / province &middot; Distance pending location data</p>
-                    <p>Services: oil change &middot; inspection &middot; product availability</p>
-                    <div class="sc-result-links">
-                        <a href="#">View details &rarr;</a>
-                        <a href="#">Get directions &rarr;</a>
-                    </div>
-                </div>
-                <div class="sc-result-card">
-                    <span class="sc-result-number">03</span>
-                    <h3>Approved service center name</h3>
-                    <p>Approved city / province &middot; Distance pending location data</p>
-                    <p>Services: oil change &middot; inspection &middot; product availability</p>
-                    <div class="sc-result-links">
-                        <a href="#">View details &rarr;</a>
-                        <a href="#">Get directions &rarr;</a>
-                    </div>
-                </div>
+            <div class="sc-results-list" id="sc-results-list">
+                <div class="sc-result-card sc-loading">Loading nearby locations&hellip;</div>
             </div>
 
             <!-- Map Panel -->
             <div class="sc-map-panel">
-                <img src="../assets/service-centers/map.png" alt="Map showing nearby service center locations">
+                <div id="sc-map"></div>
+                <div class="sc-map-legend">
+                    <span><i style="background:#FE000C"></i>Fuel station</span>
+                    <span><i style="background:#001450"></i>Auto repair &amp; parts</span>
+                    <span><i style="background:#5A5A5A"></i>Hardware store</span>
+                </div>
             </div>
         </div>
     </section>
@@ -91,7 +86,7 @@
             <div class="sc-before-card">
                 <span class="sc-before-number">01</span>
                 <h4>Confirm availability</h4>
-                <p>Call ahead once approved contact details are connected.</p>
+                <p>Call ahead — location data comes from OpenStreetMap, not a confirmed Mobil product inventory.</p>
             </div>
             <div class="sc-before-card">
                 <span class="sc-before-number">02</span>
@@ -111,5 +106,261 @@
     <!-- Scripts -->
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+    (function () {
+        var MANILA = { lat: 14.5995, lng: 120.9842 };
+        var CATEGORY_META = {
+            fuel: { label: 'Fuel station', color: '#FE000C' },
+            repair: { label: 'Auto repair & parts', color: '#001450' },
+            hardware: { label: 'Hardware store', color: '#5A5A5A' }
+        };
+
+        var map = L.map('sc-map').setView([MANILA.lat, MANILA.lng], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // The map container's final size isn't known until the flex layout settles,
+        // so Leaflet's initial size read can be wrong and leave tiles blank.
+        setTimeout(function () { map.invalidateSize(); }, 200);
+        window.addEventListener('load', function () { map.invalidateSize(); });
+        window.addEventListener('resize', function () { map.invalidateSize(); });
+
+        var markersLayer = L.layerGroup().addTo(map);
+        var youAreHereMarker = null;
+        var currentResults = [];
+        var activeCategories = { fuel: true, repair: true, hardware: true };
+        var originPoint = MANILA;
+
+        var statusEl = document.getElementById('sc-status');
+        var listEl = document.getElementById('sc-results-list');
+
+        function toRad(deg) { return deg * Math.PI / 180; }
+        function distanceKm(lat1, lon1, lat2, lon2) {
+            var R = 6371;
+            var dLat = toRad(lat2 - lat1);
+            var dLon = toRad(lon2 - lon1);
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function categoryOf(tags) {
+            if (tags.amenity === 'fuel' || tags.shop === 'fuel') return 'fuel';
+            if (tags.shop === 'car_repair' || tags.shop === 'car_parts') return 'repair';
+            if (tags.shop === 'hardware' || tags.shop === 'doityourself') return 'hardware';
+            return null;
+        }
+
+        function addressOf(tags) {
+            var parts = [];
+            if (tags['addr:housenumber']) parts.push(tags['addr:housenumber']);
+            if (tags['addr:street']) parts.push(tags['addr:street']);
+            if (tags['addr:city']) parts.push(tags['addr:city']);
+            if (parts.length) return parts.join(' ');
+            return 'Address not listed on OpenStreetMap';
+        }
+
+        function makeIcon(color) {
+            return L.divIcon({
+                className: 'sc-pin',
+                html: '<span style="background:' + color + '"></span>',
+                iconSize: [16, 16],
+                iconAnchor: [8, 8],
+                popupAnchor: [0, -8]
+            });
+        }
+
+        function directionsUrl(lat, lng) {
+            return 'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng;
+        }
+
+        function renderMarkersAndList() {
+            markersLayer.clearLayers();
+            listEl.innerHTML = '';
+
+            var visible = currentResults.filter(function (r) { return activeCategories[r.category]; });
+
+            if (visible.length === 0) {
+                listEl.innerHTML = '<div class="sc-result-card sc-empty">' +
+                    '<h3>No matching locations nearby</h3>' +
+                    '<p>Try a broader search, enable more categories in Filter services, or check a different area.</p>' +
+                    '</div>';
+                return;
+            }
+
+            visible.forEach(function (r, i) {
+                var meta = CATEGORY_META[r.category];
+                var marker = L.marker([r.lat, r.lng], { icon: makeIcon(meta.color) });
+                var popupHtml = '<div class="sc-popup">' +
+                    '<strong>' + r.name + '</strong>' +
+                    '<span>' + meta.label + '</span>' +
+                    '<span>' + r.address + '</span>' +
+                    '<a href="' + directionsUrl(r.lat, r.lng) + '" target="_blank" rel="noopener">Get directions &rarr;</a>' +
+                    '</div>';
+                marker.bindPopup(popupHtml);
+                marker.addTo(markersLayer);
+
+                var card = document.createElement('div');
+                card.className = 'sc-result-card';
+                card.innerHTML = '<span class="sc-result-number">' + meta.label + '</span>' +
+                    '<h3>' + r.name + '</h3>' +
+                    '<p>' + r.address + '</p>' +
+                    '<p>' + r.distance.toFixed(1) + ' km away</p>' +
+                    '<div class="sc-result-links">' +
+                    '<a href="#" data-idx="' + i + '" class="sc-view-link">View on map &rarr;</a>' +
+                    '<a href="' + directionsUrl(r.lat, r.lng) + '" target="_blank" rel="noopener">Get directions &rarr;</a>' +
+                    '</div>';
+                listEl.appendChild(card);
+
+                card.querySelector('.sc-view-link').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    map.setView([r.lat, r.lng], 16);
+                    marker.openPopup();
+                });
+            });
+        }
+
+        function buildQuery(south, west, north, east) {
+            var bbox = south + ',' + west + ',' + north + ',' + east;
+            return '[out:json][timeout:25];(' +
+                'node["amenity"="fuel"](' + bbox + ');' +
+                'node["shop"="fuel"](' + bbox + ');' +
+                'node["shop"="car_repair"](' + bbox + ');' +
+                'node["shop"="car_parts"](' + bbox + ');' +
+                'node["shop"="hardware"](' + bbox + ');' +
+                'node["shop"="doityourself"](' + bbox + ');' +
+                ');out body 60;';
+        }
+
+        var isSearching = false;
+
+        function fetchOverpass(query, retriesLeft) {
+            var RETRYABLE = [429, 502, 503, 504];
+            return fetch('https://overpass-api.de/api/interpreter', {
+                method: 'POST',
+                body: 'data=' + encodeURIComponent(query)
+            }).then(function (res) {
+                if (RETRYABLE.indexOf(res.status) !== -1 && retriesLeft > 0) {
+                    return new Promise(function (resolve) { setTimeout(resolve, 2000); })
+                        .then(function () { return fetchOverpass(query, retriesLeft - 1); });
+                }
+                if (!res.ok) throw new Error('Overpass request failed');
+                return res.json();
+            });
+        }
+
+        function searchArea(lat, lng, label) {
+            if (isSearching) return;
+            isSearching = true;
+            originPoint = { lat: lat, lng: lng };
+            statusEl.textContent = 'Searching near ' + label + '…';
+            listEl.innerHTML = '<div class="sc-result-card sc-loading">Loading nearby locations&hellip;</div>';
+
+            var radiusDeg = 0.05; // roughly 5-6km
+            var query = buildQuery(lat - radiusDeg, lng - radiusDeg, lat + radiusDeg, lng + radiusDeg);
+
+            fetchOverpass(query, 2)
+            .then(function (data) {
+                currentResults = data.elements
+                    .map(function (el) {
+                        var cat = categoryOf(el.tags || {});
+                        if (!cat) return null;
+                        return {
+                            lat: el.lat,
+                            lng: el.lon,
+                            name: (el.tags && el.tags.name) || ('Unnamed ' + CATEGORY_META[cat].label.toLowerCase()),
+                            address: addressOf(el.tags || {}),
+                            category: cat,
+                            distance: distanceKm(lat, lng, el.lat, el.lon)
+                        };
+                    })
+                    .filter(Boolean)
+                    .sort(function (a, b) { return a.distance - b.distance; })
+                    .slice(0, 15);
+
+                statusEl.textContent = currentResults.length
+                    ? 'Showing ' + currentResults.length + ' live result' + (currentResults.length === 1 ? '' : 's') + ' near ' + label + ' (from OpenStreetMap).'
+                    : 'No fuel stations, auto shops, or hardware stores found near ' + label + ' on OpenStreetMap.';
+
+                renderMarkersAndList();
+            })
+            .catch(function () {
+                statusEl.textContent = 'Could not load live location data right now. The map is still interactive — try again in a moment.';
+                listEl.innerHTML = '<div class="sc-result-card sc-empty"><h3>Live results unavailable</h3><p>We could not reach the OpenStreetMap data service. Please try again shortly.</p></div>';
+            })
+            .finally(function () {
+                isSearching = false;
+            });
+        }
+
+        // Filter dropdown
+        var filterContainer = document.getElementById('sc-filter-container');
+        var filterToggle = document.getElementById('sc-filter-toggle');
+        var filterDropdown = document.getElementById('sc-filter-dropdown');
+        filterToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            filterDropdown.classList.toggle('active');
+        });
+        document.addEventListener('click', function (e) {
+            if (!filterContainer.contains(e.target)) filterDropdown.classList.remove('active');
+        });
+        filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+            cb.addEventListener('change', function () {
+                activeCategories[cb.value] = cb.checked;
+                renderMarkersAndList();
+            });
+        });
+
+        // Use my location
+        document.getElementById('sc-use-location').addEventListener('click', function () {
+            if (!navigator.geolocation) {
+                statusEl.textContent = 'Location access is not supported in this browser.';
+                return;
+            }
+            statusEl.textContent = 'Getting your location…';
+            navigator.geolocation.getCurrentPosition(function (pos) {
+                var lat = pos.coords.latitude, lng = pos.coords.longitude;
+                map.setView([lat, lng], 14);
+                if (youAreHereMarker) map.removeLayer(youAreHereMarker);
+                youAreHereMarker = L.marker([lat, lng], {
+                    icon: L.divIcon({ className: 'sc-pin', html: '<span class="sc-you-are-here"></span>', iconSize: [18, 18], iconAnchor: [9, 9] })
+                }).addTo(map).bindPopup('You are here').openPopup();
+                searchArea(lat, lng, 'your location');
+            }, function () {
+                statusEl.textContent = 'Could not access your location. Check your browser permissions and try again.';
+            });
+        });
+
+        // Search by city/province/postcode
+        var searchInput = document.getElementById('sc-search-input');
+        searchInput.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter') return;
+            var q = searchInput.value.trim();
+            if (!q) return;
+            statusEl.textContent = 'Looking up "' + q + '"…';
+            fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=ph&q=' + encodeURIComponent(q))
+                .then(function (res) { return res.json(); })
+                .then(function (results) {
+                    if (!results.length) {
+                        statusEl.textContent = 'Could not find "' + q + '" in the Philippines. Try a different city or province.';
+                        return;
+                    }
+                    var lat = parseFloat(results[0].lat), lng = parseFloat(results[0].lon);
+                    map.setView([lat, lng], 13);
+                    searchArea(lat, lng, results[0].display_name.split(',')[0]);
+                })
+                .catch(function () {
+                    statusEl.textContent = 'Location lookup failed. Please try again.';
+                });
+        });
+
+        // Initial load
+        searchArea(MANILA.lat, MANILA.lng, 'Metro Manila');
+    })();
+    </script>
 </body>
 </html>
