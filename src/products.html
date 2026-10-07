@@ -195,7 +195,9 @@
                 if (p.viscosity) tags.push('<span class="tag-green">' + escapeHtml(p.viscosity) + '</span>');
                 tags.push('<span class="tag-green">' + escapeHtml(CATEGORY_LABELS[p.category]) + '</span>');
                 return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="product-card">' +
-                    '<div class="product-image-box"><img src="../assets/products/bottle.png" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>' +
+                    (p.image
+                        ? '<div class="product-image-box"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>'
+                        : '<div class="product-image-box is-empty"><img src="../assets/mobil-logo.png" alt=""><span>Pack shot coming soon</span></div>') +
                     '<div class="product-tags">' + tags.join('') + '</div>' +
                     '<h3>' + escapeHtml(p.name) + '</h3>' +
                     '<p>' + escapeHtml(summary(p.description) || 'Available sizes: ' + p.sizes.join(', ')) + '</p>' +

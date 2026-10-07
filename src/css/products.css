@@ -402,3 +402,22 @@
     padding: 48px 0;
     text-align: center;
 }
+
+/* No pack shot yet: neutral tile instead of another product's photo */
+.product-image-box.is-empty {
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.product-image-box.is-empty img {
+    width: 96px;
+    opacity: 0.35;
+}
+
+.product-image-box.is-empty span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

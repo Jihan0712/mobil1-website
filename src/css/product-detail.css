@@ -353,3 +353,65 @@ a.btn-secondary {
     color: var(--text-gray);
     margin-top: 13px;
 }
+
+/* PACK SHOTS (masterlist images, tall transparent PNG-derived WebP) */
+.product-image-container.is-packshot {
+    position: relative;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 520px;
+}
+
+.product-image-container.is-packshot img {
+    width: auto;
+    max-height: 560px;
+}
+
+.pack-views {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pack-views[hidden] {
+    display: none;
+}
+
+.pack-view {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0.4rem 1rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pack-view.active {
+    border-color: var(--primary-blue);
+}
+
+@media (max-width: 900px) {
+    .product-image-container.is-packshot {
+        min-height: 0;
+    }
+    .product-image-container.is-packshot img {
+        max-height: 380px;
+    }
+}
+
+.product-image-container.is-empty {
+    min-height: 520px;
+}
+
+.product-image-container.is-empty img {
+    width: 160px;
+    opacity: 0.35;
+}
+
+@media (max-width: 900px) {
+    .product-image-container.is-empty {
+        min-height: 300px;
+    }
+}

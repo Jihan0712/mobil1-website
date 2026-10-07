@@ -23,7 +23,11 @@
     <!-- Product Overview -->
     <section class="product-overview">
         <div class="product-image-container">
-            <img src="../assets/product-detail/bottle.png" alt="Mobil 1 Triple Action 5W-30">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" id="pdImage">
+            <div class="pack-views" id="pdViews" hidden>
+                <button type="button" class="pack-view active" data-side="front">Front</button>
+                <button type="button" class="pack-view" data-side="back">Back</button>
+            </div>
         </div>
         
         <div class="product-info-container">
@@ -137,7 +141,35 @@
             $('pdBrand').textContent = product.brand;
             $('pdBadge').textContent = product.technology;
             $('pdName').textContent = product.name;
-            document.querySelector('.product-image-container img').alt = product.name;
+            // Pack shots from the masterlist, per size (front / back)
+            const imageBox = document.querySelector('.product-image-container');
+            let currentSize = product.sizes[0];
+            let currentSide = 'front';
+
+            function showPackShot() {
+                const shots = product.images[currentSize] || {};
+                const src = shots[currentSide] || shots.front || product.image;
+                if (src) {
+                    $('pdImage').src = src;
+                    imageBox.classList.add('is-packshot');
+                } else {
+                    // No pack shot in the masterlist yet: neutral tile, not another product's photo
+                    $('pdImage').src = '../assets/mobil-logo.png';
+                    imageBox.classList.add('is-empty');
+                }
+                $('pdImage').alt = product.name + (currentSize ? ' ' + currentSize : '') + (shots[currentSide] && currentSide === 'back' ? ' (back)' : '');
+                $('pdViews').hidden = !(shots.front && shots.back);
+                $('pdViews').querySelectorAll('.pack-view').forEach(function (b) {
+                    b.classList.toggle('active', b.dataset.side === currentSide);
+                });
+            }
+
+            $('pdViews').addEventListener('click', function (e) {
+                const btn = e.target.closest('.pack-view');
+                if (!btn) return;
+                currentSide = btn.dataset.side;
+                showPackShot();
+            });
 
             const specs = [product.viscosity, product.api, product.acea, product.ilsac].filter(Boolean);
             $('pdSpecs').innerHTML = specs.map(escapeHtml).join(' &middot; ');
@@ -149,7 +181,11 @@
                 const pill = e.target.closest('.size-pill');
                 if (!pill) return;
                 this.querySelectorAll('.size-pill').forEach(function (el) { el.classList.toggle('active', el === pill); });
+                currentSize = pill.textContent;
+                currentSide = 'front';
+                showPackShot();
             });
+            showPackShot();
 
             $('pdDescription').textContent = product.description ||
                 'Full product details for ' + product.name + ' are coming soon. Contact us for specifications and availability.';
@@ -162,7 +198,12 @@
                 $('pdApprovalsBox').hidden = true;
             }
 
-            if (product.dataSheet) {
+            if (product.dataSheetUrl) {
+                $('pdDataSheet').href = product.dataSheetUrl;
+                $('pdDataSheet').target = '_blank';
+                $('pdDataSheet').rel = 'noopener';
+                $('pdDataSheet').textContent = 'Download data sheet';
+            } else if (product.dataSheet) {
                 $('pdDataSheetRef').textContent = 'Data sheet reference: ' + product.dataSheet;
             }
 

@@ -11,6 +11,18 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA A5/B5, ACEA C2",
     "ilsac": "ILSAC GF-7A",
     "dataSheet": "SP-XX-Mobil-1-5W-30",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQA9FRmW8vvARb51slyvrxiaASNPtCdZ9VSanlNIBsT2Bh8?e=UvtwA5",
+    "image": "../assets/products/packshots/mobil-1-triple-action-power-5w-30-ctn-12x1l-gf-6-v2-sg-front.webp",
+    "images": {
+      "4L": {
+        "front": "../assets/products/packshots/mobil-1-triple-action-power-5w-30-ctn-4x4l-gf-6-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-triple-action-power-5w-30-ctn-4x4l-gf-6-sg-back.webp"
+      },
+      "1L": {
+        "front": "../assets/products/packshots/mobil-1-triple-action-power-5w-30-ctn-12x1l-gf-6-v2-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-triple-action-power-5w-30-ctn-12x1l-gf-6-v2-sg-back.webp"
+      }
+    },
     "description": "Mobil 1™ Triple Action Power advanced full synthetic engine oil delivers outstanding engine Performance, Protection, and Cleanliness.",
     "approvals": [
       "FORD WSS-M2C971-A1"
@@ -49,6 +61,14 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA A3/B4",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-1-0W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDrcuhDEqP3QJM3b9hdpOyhAfubCKdVafiZWDbsJSOHG_U?e=fKxzBp",
+    "image": "../assets/products/packshots/mobil-1-triple-action-power-0w-40-sp-v3-ctn-12x1-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-1-triple-action-power-0w-40-sp-v3-ctn-12x1-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-triple-action-power-0w-40-sp-v3-ctn-12x1-sg-back.webp"
+      }
+    },
     "description": "Mobil 1™ Triple Action Power+ is the ultimate full synthetic engine oil delivering outstanding engine Performance, Protection, and Cleanliness with the added benefit of Fuel Economy.",
     "approvals": [
       "Porsche A40",
@@ -98,6 +118,18 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA A3/B4",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-1-FS-X2-5W-50",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB-T6pmQJSiQavmg37e_-rhAVWNEK3kbqBqFoBjpoKT0Dk?e=6BaODE",
+    "image": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-12x1l-en-th-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-12x1l-en-th-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-12x1l-en-th-sg-back.webp"
+      },
+      "4L": {
+        "front": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-4x4l-en-th-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-4x4l-en-th-sg-back.webp"
+      }
+    },
     "description": "Mobil 1™ Triple Action Power advanced full synthetic engine oil delivers outstanding engine Performance, Protection, and Cleanliness.",
     "approvals": [
       "MB-Approval 229.3",
@@ -138,6 +170,14 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA C5, C6",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-1-ESP-X2-0W-20",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB6wS0wuj4MRZ6lIa1M9PvEAbq8rwzNOt5EgCV1WV36O58?e=b1Uwwl",
+    "image": "../assets/products/packshots/mobil-1-esp-x2-0w-20-porsche-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-1-esp-x2-0w-20-porsche-ctn-12x1l-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-1-esp-x2-0w-20-porsche-ctn-12x1l-sg-back.webp"
+      }
+    },
     "description": "Mobil 1™ ESP X2 0W-20 is an advanced full synthetic engine oil specifically designed to provide outstanding wear protection, engine cleanliness, strong durability and advanced fuel economy* to keep your engine running like new. Mobil 1™ ESP X2 0W-20 combines durability and protection with a low viscosity, low friction engine oil that was designed in cooperation with key European Original Equipment Manufacturers (OEMs). Mobil 1™ ESP X2 0W-20 has been expertly engineered to help prolong the life and maintain the efficiency of emission systems in new emerging diesel and gasoline powered vehicles that require SAE 0W-20 viscosity grades. * compared vs Mobil 1 ESP Formula 5W-30.",
     "approvals": [
       "MB-Approval 229.71,",
@@ -185,6 +225,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA C3",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-1-ESP-5W-30",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQBir_Jo1n3ISJMjYEWb4qTxAZqUuYzqC6f-iH9zmBl7obM?e=1Qr219",
+    "image": "",
+    "images": {},
     "description": "Mobil 1™ ESP 5W-30 is advanced full synthetic motor oil has been expertly engineered to help prolong the life and maintain the efficiency of emission systems in both diesel and gasoline-powered automobiles.",
     "approvals": [
       "Porsche C30",
@@ -239,6 +282,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA C6",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-1-ESP-X2-0W-20",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB6wS0wuj4MRZ6lIa1M9PvEAbq8rwzNOt5EgCV1WV36O58?e=4egKlY",
+    "image": "",
+    "images": {},
     "description": "Mobil 1™ ESP X2 0W-20 is an advanced full synthetic engine oil specifically designed to provide outstanding wear protection, engine cleanliness, strong durability and advanced fuel economy* to keep your engine running like new.",
     "approvals": [
       "MB-Approval 229.71",
@@ -286,6 +332,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "ILSAC GF-7A",
     "dataSheet": "SP-XX-Mobil-Super-All-In-One-Protection-0W-20",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDqE2_yK9CKToWuA_9o21UyAYV8DlC8hQENd93Gv2RkfHc?e=B58CZW",
+    "image": "",
+    "images": {},
     "description": "Mobil Super™ All-In-One Protection 0W-20 is brought to you by the makers of Mobil 1. This full synthetic engine oil is tailored to deliver improved fuel economy by up to 10%* and provides outstanding engine wear protection even under the most demanding driving conditions.",
     "approvals": [
       "FORD WSS-M2C962-A1"
@@ -330,6 +379,18 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "ILSAC GF-7A",
     "dataSheet": "SP-XX-Mobil-Super-All-In-One-Protection-5W-30",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQAywJzRRISATpfTHFUVk25AAezRtChyxEbOvNR2t84EJ-A?e=GCiOMP",
+    "image": "../assets/products/packshots/mobil-super-aio-protection-5w-30-ctn12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-super-aio-protection-5w-30-ctn12x1l-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-super-aio-protection-5w-30-ctn12x1l-sg-back.webp"
+      },
+      "4L": {
+        "front": "../assets/products/packshots/mobil-super-aio-protection-5w-30-ctn-4x4l-sg-front.webp",
+        "back": "../assets/products/packshots/mobil-super-aio-protection-5w-30-ctn-4x4l-sg-back.webp"
+      }
+    },
     "description": "Mobil Super™ All-In-One Protection 5W-30 is brought to you by the makers of Mobil 1. This full synthetic engine oil is tailored for smoother acceleration and provides outstanding engine wear protection even under the most demanding driving conditions.",
     "approvals": [
       "FORD WSS-M2C961-A1"
@@ -376,6 +437,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Super-Friction-Fighter-10W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQBaueOyM8tmR5bi4IIDytafAaSyKQ9Eirf7mf_Loe2JusQ?e=ekAUE8",
+    "image": "../assets/products/packshots/mobil-super-friction-fighter-10w-40-ctn12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-super-friction-fighter-10w-40-ctn12x1l-sg-front.webp"
+      },
+      "4L": {
+        "front": "../assets/products/packshots/mobil-super-friction-fighter-10w-40-4x4l-sg-front.webp"
+      }
+    },
     "description": "Mobil Super™ Friction Fighter 10W-40 is brought to you by the makers of Mobil 1. This synthetic technology engine oil is specially engineered to enhance engine wear protection to prolong your engine life.",
     "approvals": [],
     "features": [
@@ -420,6 +491,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "ILSAC GF-7A",
     "dataSheet": "SP-XX-Mobil-Super-Friction-Fighter-5W-30",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQCCgSDZ1XFaT4uhT6d_GrwgASZTIkhCXOZi7nH54ndyAew?e=o3pDIp",
+    "image": "",
+    "images": {},
     "description": "Mobil Super™ Friction Fighter 5W-30 is brought to you by the makers of Mobil 1. This synthetic technology engine oil is specially engineered to enhance engine wear protection to prolong your engine life and proven protection for 20 years",
     "approvals": [
       "FORD WSS-M2C929-A"
@@ -464,6 +538,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
+    "dataSheetUrl": "",
+    "image": "",
+    "images": {},
     "description": "",
     "approvals": [],
     "features": [],
@@ -485,6 +562,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "AP-XX-Mobil-Special-20W-50",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB_hcDtLIybSapjUj7QmCoJAS0R0lKG1YYwwp2iiY--Igw?e=Oc7ku8",
+    "image": "../assets/products/packshots/mobil-special-20w50-12x1l-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-special-20w50-12x1l-front.webp"
+      },
+      "4L": {
+        "front": "../assets/products/packshots/mobil-special-20w50-4x4l-front.webp"
+      }
+    },
     "description": "Mobil Special™ 20W-50 is a high performance motor oil for all types of vehicles by the makers of Mobil 1™. Mobil Special 20W-50 delivers engine protection and cleanliness.",
     "approvals": [
       "API SN",
@@ -529,6 +616,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA E7",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Delvac-1-5W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQAN1-opusdpToPAbw3IlKRsAUzwLFrydOYJTbP_V5xTcMs?e=5SRPcd",
+    "image": "../assets/products/packshots/mobil-delvac-1-5w-40-eng-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-delvac-1-5w-40-eng-ctn-12x1l-sg-front.webp"
+      },
+      "5L": {
+        "front": "../assets/products/packshots/mobil-delvac-1-5w-40-eng-ctn-4x5l-sg-front.webp"
+      }
+    },
     "description": "Mobil Delvac 1 5W-40 is an extra high performance, synthetic diesel engine oil that provides excellent lubrication including long drain capability, helping towards long engine life for diesel engines operating in severe applications. The advanced technology behind this product delivers exceptional performance in turbo-charged as well as older naturally aspirated engines. Mobil Delvac 1 5W-40 is recommended for use in a wide range of heavy-duty applications and operating environments found in trucking, mining, construction, agriculture and marine.",
     "approvals": [
       "Cummins CES 20076"
@@ -587,6 +684,19 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Delvac-Legend-CH-4-15W-40-Heavy-Duty",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQCmWVOAcG-5T7x6azTPTKoJAUJnBC4KD3H5f_h63SL-LUY?e=nGIEGh",
+    "image": "../assets/products/packshots/mobil-delvac-legend-ch-4-15w-40-heavy-duty-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-delvac-legend-ch-4-15w-40-heavy-duty-ctn-12x1l-sg-front.webp"
+      },
+      "5L": {
+        "front": "../assets/products/packshots/mobil-delvac-legend-ch-4-15w-40-heavy-duty-ctn-4x5l-sg-front.webp"
+      },
+      "20L": {
+        "front": "../assets/products/packshots/mobil-delvac-legend-ch-4-15w-40-heavy-duty-pail-20l-sg-front.webp"
+      }
+    },
     "description": "Mobil Delvac Legend™ CH-4 15W-40 Heavy Duty is a high performance diesel engine oil that provides protection of diesel engines operating on and off-highway applications. Mobil Delvac Legend™ CH-4 15W-40 Heavy Duty is biodiesel compatible* and is recommended by ExxonMobil for use in a wide range of heavy-duty applications and operating environments found in the trucking, mining, construction, quarrying, and agricultural industries.",
     "approvals": [
       "MTU Oil Category 2",
@@ -637,6 +747,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "ACEA E2",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Delvac-Legend-15W-40-Complete-Defense",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQAoJEmjQsnuR5cGrUFwKHiSATmpauOSWyXYHBSpkq19Nks?e=rnfckh",
+    "image": "",
+    "images": {},
     "description": "Mobil Delvac Legend™ 15W-40 Complete Defense is a high performance diesel engine oil that provides proven engine protection of diesel engines operating in on and off-highway severe service applications.",
     "approvals": [
       "ACEA E2",
@@ -689,6 +802,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-MOBIL-DELVAC-MODERN-10W-30-SUPER-DEFENSE-V2",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQAi1M31QqbZRaMuYU7LMVZcAdsnB-rDZN0uGhqnGQWax-k?e=mVUYjv",
+    "image": "../assets/products/packshots/mobil-delvac-modern-10w-30-super-defense-v2-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-delvac-modern-10w-30-super-defense-v2-ctn-12x1l-sg-front.webp"
+      },
+      "5L": {
+        "front": "../assets/products/packshots/mobil-delvac-modern-10w-30-super-defense-v2-ctn-4x5l-sg-front.webp"
+      }
+    },
     "description": "Mobil Delvac Modern™ 10W-30 Super Defense V2 is formulated to deliver high performance in modern multipurpose, high performance diesel and gasoline medium duty commercial vehicle as well as heavy duty commercial vehicle, including turbo-charged and intercooled units.",
     "approvals": [
       "Recommended by ExxonMobil for use in:",
@@ -747,6 +870,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Delvac-Modern-15W-40-Super-Defense",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDUcvqKZUseQK0_Ib1ZfJu9AY2AgZ3YYikpXCd-KQFjA4E?e=9XPdwv",
+    "image": "../assets/products/packshots/mobil-delvac-modern-15w-40-super-defense-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-delvac-modern-15w-40-super-defense-ctn-12x1l-sg-front.webp"
+      },
+      "5L": {
+        "front": "../assets/products/packshots/mobil-delvac-modern-15w-40-super-defense-ctn-4x5l-sg-front.webp"
+      }
+    },
     "description": "Mobil Delvac Modern 15W-40 Super Defense is an extra high performance diesel engine oil that provides excellent lubrication of today's diesel engines promoting long engine life. As a result, this product meets or exceeds the specifications of major European and American engine manufacturers. It is recommended by ExxonMobil for use in a wide variety of industries, applications, and mixed fleets.",
     "approvals": [
       "Detroit Fluids Specification 93K215",
@@ -817,6 +950,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "AP-XX-Mobil-1-Racing-4T-10W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQBTLDAlc6TaRpORlfW9m7IkAcB02eYb_unP0kSdWUdQpBg?e=mZcaKA",
+    "image": "",
+    "images": {},
     "description": "Mobil 1 Racing™ 4T is an advanced four-stroke motorcycle engine oil. This product helps to provide an outstanding level of performance in today's high performance motorcycles. It will help keep 4-stroke engines running clean protecting even in extreme operating conditions.",
     "approvals": [],
     "features": [
@@ -867,6 +1003,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "AP-XX-Mobil-Super-Moto-10W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQCtPn4IqKv_QqquonhqiIS9AevQU7PYMJdoHd1GV28mpSs?e=0RcmrU",
+    "image": "../assets/products/packshots/mobil-super-moto-10w-40-ctn-12x0-8l-sg-front.webp",
+    "images": {
+      "0.8L": {
+        "front": "../assets/products/packshots/mobil-super-moto-10w-40-ctn-12x0-8l-sg-front.webp"
+      },
+      "1L": {
+        "front": "../assets/products/packshots/mobil-super-moto-10w-40-ctn-12x1l-sg-front.webp"
+      }
+    },
     "description": "Mobil Super Moto™ 10W-40 is a high performance, synthetic blend technology four-stroke motorcycle engine oil by the makers of Mobil 1™. It is developed to provide boosted engine cleanliness and protection for all types of motorcycles and operation.",
     "approvals": [
       "API SN",
@@ -907,6 +1053,16 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "AP-XX-Mobil-Super-Moto-10W-30",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQCR-297GjgcT61jSHgdjQ_lAatcakJlpQKDfkxWL5QGZcY?e=zGunhS",
+    "image": "../assets/products/packshots/mobil-super-moto-10w-30-ctn-12x0-8l-sg-front.webp",
+    "images": {
+      "0.8L": {
+        "front": "../assets/products/packshots/mobil-super-moto-10w-30-ctn-12x0-8l-sg-front.webp"
+      },
+      "1L": {
+        "front": "../assets/products/packshots/mobil-super-moto-10w-30-ctn-12x1l-sg-front.webp"
+      }
+    },
     "description": "Mobil Super Moto™ 10W-30 is a high performance, synthetic blend technology four-stroke motorcycle engine oil by the makers of Mobil 1™. It is developed to provide boosted engine cleanliness and protection for all types of motorcycles and operation.",
     "approvals": [
       "API SN",
@@ -947,6 +1103,13 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "AP-XX-Mobil-Super-Moto-Scooter-10W-40",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDTdg5B1fhdQ6Al0PQcGbEAATF2lzCJcKanojYJlfdptQo?e=GXhNEN",
+    "image": "../assets/products/packshots/mobil-super-moto-scooter-10w-40-12x0-8l-sg-front.webp",
+    "images": {
+      "0.8L": {
+        "front": "../assets/products/packshots/mobil-super-moto-scooter-10w-40-12x0-8l-sg-front.webp"
+      }
+    },
     "description": "Mobil Super Moto™ Scooter 10W-40 is a high performance four-stroke engine oil by the makers of Mobil 1™. It is designed for modern scooter engine technology, aligned with development trends led by major OEMs.",
     "approvals": [
       "API SN",
@@ -986,6 +1149,13 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
+    "dataSheetUrl": "",
+    "image": "../assets/products/packshots/mobil-super-moto-20w-50-ctn-12x1l-sg-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-super-moto-20w-50-ctn-12x1l-sg-front.webp"
+      }
+    },
     "description": "",
     "approvals": [],
     "features": [],
@@ -1007,6 +1177,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
+    "dataSheetUrl": "",
+    "image": "",
+    "images": {},
     "description": "",
     "approvals": [],
     "features": [],
@@ -1028,6 +1201,13 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "GL-XX-Mobil-ATF-220",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQATGFJA4fTMSIfy49cMhx_fAVHJDuVwTxF6WfLsx0PuwWM?e=8YEcU5",
+    "image": "../assets/products/packshots/mobil-atf-220-12x1l-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-atf-220-12x1l-front.webp"
+      }
+    },
     "description": "Mobil ATF 220 is a high performance, fluid for automatic transmissions in older vehicles specifying Dexron IID. It is also used as a hydraulic fluid in unique applications.",
     "approvals": [
       "MAN 339 Typ V1",
@@ -1079,6 +1259,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-MOBIL-CVTF-MULTI-VEHICLE",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDCJMXYFLZPTqIfWQWGpIKFAWJGB8TOJl6TukOzGpOebE8?e=W8XStp",
+    "image": "",
+    "images": {},
     "description": "Mobil CVTF Multi-Vehicle is a full synthetic lubricant formulated from high-quality synthetic base oils combined with advanced additive system to meet servicing needs of the broad range of vehicles manufactured in America, Europe and Asia, with wet continuously variable (step-less) transmissions.",
     "approvals": [],
     "features": [
@@ -1117,6 +1300,13 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "SP-XX-Mobil-Multipurpose-ATF",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQBButpitoRZSK1qkkTfruMBAR-3HjAFosA7L4iDPQNfZQg?e=3kaShV",
+    "image": "../assets/products/packshots/mobil-multipurpose-atf-sg-ctn-12x1l-front.webp",
+    "images": {
+      "1L": {
+        "front": "../assets/products/packshots/mobil-multipurpose-atf-sg-ctn-12x1l-front.webp"
+      }
+    },
     "description": "Mobil Multipurpose ATF is a high performance, automatic transmission fluid designed to meet the service fill requirements for Asian, European and North American designed vehicles. Mobil Multipurpose ATF provides reliable performance including smooth & consistent all weather shifting and all-around lubrication protection of the transmission components. Use of Mobil Multipurpose ATF can lead to dependable longer transmission service life and a smooth driving experience.",
     "approvals": [
       "Allison TES-389",
@@ -1170,6 +1360,13 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
+    "dataSheetUrl": "",
+    "image": "../assets/products/packshots/mobil-grease-xhp-222-cart-40x0-39kg-13-7oz-front.webp",
+    "images": {
+      "0.39KG": {
+        "front": "../assets/products/packshots/mobil-grease-xhp-222-cart-40x0-39kg-13-7oz-front.webp"
+      }
+    },
     "description": "",
     "approvals": [],
     "features": [],
@@ -1191,6 +1388,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "EU-XX-Mobilube-HD-Series",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB_uC32uhlyTok7Fip9A9-oARgKEqCHC5695nu4VRwI3_k?e=E028FY",
+    "image": "",
+    "images": {},
     "description": "Mobilube HD Series are high performance, heavy duty gear lubricants formulated from high performance base oils and an advanced additive system. These lubricants are engineered for automotive applications including heavy duty axles and final drives where extreme pressures and shock loading are expected. They are recommended by ExxonMobil for applications where API GL-5 service is required.",
     "approvals": [
       "Heavy duty axles and final drives requiring API GL-5 level performance",
@@ -1238,6 +1438,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "GL-XX-Mobilube-1-SHC-75W90",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDdh-DHf0A6T7xYW2OWV9XfARgm9Dx-vcYDcQWC8iwxAE8?e=Brhk1E",
+    "image": "",
+    "images": {},
     "description": "Mobilube 1 SHC 75W-90 is a fully synthetic, high performance commercial gear lubricant formulated using advanced base oils and the latest technology additive system. This lubricant is engineered for heavy duty manual transmissions and rear axles where operations require gear lubricants with excellent load-carrying capability over wide operating temperatures and where extreme pressures and shock loading are expected. Mobilube 1 SHC 75W-90 has excellent thermal and oxidation stability, high inherent Viscosity Index (VI), extremely low pour point, and outstanding low temperature fluidity.",
     "approvals": [
       "Scania STO 2:0 A FS"
@@ -1306,6 +1509,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "GL-XX-Mobil-Dexron-VI-ATF",
+    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQCDibM3ovLkS6-sT_YXF7zrAcFy3hBfovyWK54nZsmcVEU?e=d5vfiO",
+    "image": "",
+    "images": {},
     "description": "Mobil DEXRON-VI ATF is a high performance, synthetic blend formulation that meets or exceeds the stringent requirements of GM's DEXRON-VI specification and provides warranty protection for 2006 and newer GM vehicles. It also provides improved performance in older GM vehicles, wherever DEXRON is specified",
     "approvals": [
       "GM DEXRON VI"
@@ -1354,6 +1560,9 @@ window.MOBIL_PRODUCTS = [
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
+    "dataSheetUrl": "",
+    "image": "",
+    "images": {},
     "description": "",
     "approvals": [],
     "features": [],
