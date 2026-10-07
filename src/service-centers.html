@@ -23,7 +23,7 @@
     <section class="sc-intro">
         <span class="section-eyebrow" style="color: rgba(255,255,255,0.8);">Service Centers</span>
         <h1>Find trusted support near you</h1>
-        <p>Search by city, province, or use your current location to see nearby fuel stations, auto shops, and hardware stores on a live map. Prefer to order now? Buy genuine Mobil products online instead.</p>
+        <p>Over 500 authorized Mobil service centers and partner workshops across Luzon and Visayas. Search by name, city, or province, or use your current location to see the nearest ones. Prefer to order now? Buy genuine Mobil products online instead.</p>
         <div class="sc-buy-online">
             <span>Buy Mobil products online:</span>
             <a href="https://shopee.ph/mobilph_alsc" target="_blank" rel="noopener">
@@ -37,8 +37,8 @@
 
     <!-- Search & Results Section -->
     <section class="sc-search-section">
-        <h2>Search nearby locations</h2>
-        <p class="section-subtext">Live results from OpenStreetMap — fuel stations, auto repair &amp; parts shops, and hardware stores. This is general map data, not a verified list of authorized Mobil retailers, so always confirm product availability by calling ahead.</p>
+        <h2>Find a service center</h2>
+        <p class="section-subtext">Authorized service centers supplied by Allied Lubrication Supply Corp. Map pins mark the city of each center, so use Get directions for the exact location and call ahead to confirm stock and schedule.</p>
 
         <div class="sc-search-bar">
             <div class="sc-search-input">
@@ -46,34 +46,47 @@
                     <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M15.5 15.5L21 21" stroke="#5A5A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <input type="text" id="sc-search-input" placeholder="Enter city, province, or postcode and press Enter">
+                <input type="text" id="sc-search-input" placeholder="Search by shop name, city, or province" aria-label="Search service centers">
             </div>
             <button class="btn-use-location" id="sc-use-location">Use my location</button>
             <div class="sc-filter-container" id="sc-filter-container">
-                <button class="btn-primary" id="sc-filter-toggle">Filter services</button>
+                <button class="btn-primary" id="sc-filter-toggle">Filter by area</button>
                 <div class="sc-filter-dropdown" id="sc-filter-dropdown">
-                    <label><input type="checkbox" value="fuel" checked> Fuel stations</label>
-                    <label><input type="checkbox" value="repair" checked> Auto repair &amp; parts</label>
-                    <label><input type="checkbox" value="hardware" checked> Hardware stores</label>
+                    <label class="sc-filter-field" for="sc-region">Region
+                        <select id="sc-region"></select>
+                    </label>
+                    <label class="sc-filter-field" for="sc-province">Province
+                        <select id="sc-province"></select>
+                    </label>
+                    <button type="button" class="sc-filter-clear" id="sc-filter-clear">Clear filters</button>
                 </div>
             </div>
         </div>
 
-        <p class="sc-status" id="sc-status">Showing results near Metro Manila.</p>
+        <p class="sc-status" id="sc-status" aria-live="polite"></p>
 
         <div class="sc-results-layout">
             <!-- Results List -->
             <div class="sc-results-list" id="sc-results-list">
-                <div class="sc-result-card sc-loading">Loading nearby locations&hellip;</div>
+                <div class="sc-result-card sc-loading">Loading service centers&hellip;</div>
             </div>
 
             <!-- Map Panel -->
             <div class="sc-map-panel">
-                <div id="sc-map"></div>
+                <div class="sc-map-frame">
+                    <div id="sc-map"></div>
+                    <!-- Single-shop view: Google Maps places the pin from the shop's name + address -->
+                    <div class="sc-gmap" id="sc-gmap" hidden>
+                        <div class="sc-gmap-bar">
+                            <button type="button" class="sc-gmap-back" id="sc-gmap-back">&larr; All service centers</button>
+                            <span class="sc-gmap-title" id="sc-gmap-title"></span>
+                        </div>
+                        <iframe id="sc-gmap-frame" title="Service center location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
                 <div class="sc-map-legend">
-                    <span><i style="background:#FE000C"></i>Fuel station</span>
-                    <span><i style="background:#001450"></i>Auto repair &amp; parts</span>
-                    <span><i style="background:#5A5A5A"></i>Hardware store</span>
+                    <span><i style="background:#FE000C"></i>Service centers in a city (number = count)</span>
+                    <span><i style="background:#0C479D"></i>Your location</span>
                 </div>
             </div>
         </div>
@@ -85,17 +98,17 @@
         <div class="sc-before-grid">
             <div class="sc-before-card">
                 <span class="sc-before-number">01</span>
-                <h4>Confirm availability</h4>
-                <p>Call ahead — location data comes from OpenStreetMap, not a confirmed Mobil product inventory.</p>
+                <h3>Confirm availability</h3>
+                <p>Call ahead to check product stock and book a time, especially for larger pack sizes.</p>
             </div>
             <div class="sc-before-card">
                 <span class="sc-before-number">02</span>
-                <h4>Bring vehicle details</h4>
+                <h3>Bring vehicle details</h3>
                 <p>Know the vehicle model, year, engine, and handbook specification.</p>
             </div>
             <div class="sc-before-card">
                 <span class="sc-before-number">03</span>
-                <h4>Ask for genuine products</h4>
+                <h3>Ask for genuine products</h3>
                 <p>Use authorized channels and request a proper service record.</p>
             </div>
         </div>
@@ -107,16 +120,15 @@
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js files/service-centers-data.js"></script>
     <script>
     (function () {
-        var MANILA = { lat: 14.5995, lng: 120.9842 };
-        var CATEGORY_META = {
-            fuel: { label: 'Fuel station', color: '#FE000C' },
-            repair: { label: 'Auto repair & parts', color: '#001450' },
-            hardware: { label: 'Hardware store', color: '#5A5A5A' }
-        };
+        var CENTERS = window.MOBIL_SERVICE_CENTERS || [];
+        var PH_CENTER = [12.3, 122.6];
+        var PAGE_SIZE = 20;
+        var REGION_ORDER = ['NCR', 'CAR', 'REGION I', 'REGION II', 'REGION III', 'REGION IV A', 'REGION IV B', 'REGION V', 'REGION VI', 'REGION VII', 'REGION VIII'];
 
-        var map = L.map('sc-map').setView([MANILA.lat, MANILA.lng], 12);
+        var map = L.map('sc-map').setView(PH_CENTER, 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
@@ -129,13 +141,33 @@
         window.addEventListener('resize', function () { map.invalidateSize(); });
 
         var markersLayer = L.layerGroup().addTo(map);
+        var cityMarkers = {};
         var youAreHereMarker = null;
-        var currentResults = [];
-        var activeCategories = { fuel: true, repair: true, hardware: true };
-        var originPoint = MANILA;
+        var userPoint = null;
+        var shownCount = PAGE_SIZE;
 
         var statusEl = document.getElementById('sc-status');
         var listEl = document.getElementById('sc-results-list');
+        var searchInput = document.getElementById('sc-search-input');
+        var regionSelect = document.getElementById('sc-region');
+        var provinceSelect = document.getElementById('sc-province');
+        var filterToggle = document.getElementById('sc-filter-toggle');
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function titleCase(str) {
+            return str.toLowerCase().replace(/(^|[\s(\-])([a-zñ])/g, function (m, pre, ch) { return pre + ch.toUpperCase(); });
+        }
+
+        function regionLabel(region) {
+            return region === 'NCR' || region === 'CAR' ? region : titleCase(region).replace(/\b(Iv|Viii|Vii|Vi|Iii|Ii|V|I)\b/g, function (r) { return r.toUpperCase(); });
+        }
+
+        function cityKey(c) { return c.city + '|' + c.province; }
 
         function toRad(deg) { return deg * Math.PI / 180; }
         function distanceKm(lat1, lon1, lat2, lon2) {
@@ -148,158 +180,220 @@
             return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         }
 
-        function categoryOf(tags) {
-            if (tags.amenity === 'fuel' || tags.shop === 'fuel') return 'fuel';
-            if (tags.shop === 'car_repair' || tags.shop === 'car_parts') return 'repair';
-            if (tags.shop === 'hardware' || tags.shop === 'doityourself') return 'hardware';
-            return null;
+        function directionsUrl(c) {
+            return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(c.name + ', ' + c.address);
         }
 
-        function addressOf(tags) {
-            var parts = [];
-            if (tags['addr:housenumber']) parts.push(tags['addr:housenumber']);
-            if (tags['addr:street']) parts.push(tags['addr:street']);
-            if (tags['addr:city']) parts.push(tags['addr:city']);
-            if (parts.length) return parts.join(' ');
-            return 'Address not listed on OpenStreetMap';
+        function phoneLinks(phone) {
+            return phone.split(/\s*\/\s*/).map(function (num) {
+                return '<a href="tel:' + num.replace(/[^\d+]/g, '') + '">' + escapeHtml(num) + '</a>';
+            }).join(' / ');
         }
 
-        function makeIcon(color) {
-            return L.divIcon({
-                className: 'sc-pin',
-                html: '<span style="background:' + color + '"></span>',
-                iconSize: [16, 16],
-                iconAnchor: [8, 8],
-                popupAnchor: [0, -8]
+        var regionRank = function (r) { var i = REGION_ORDER.indexOf(r); return i === -1 ? 99 : i; };
+        var baseOrder = CENTERS.slice().sort(function (a, b) {
+            return regionRank(a.region) - regionRank(b.region) ||
+                a.province.localeCompare(b.province) ||
+                a.city.localeCompare(b.city) ||
+                a.name.localeCompare(b.name);
+        });
+
+        // Region / province filters
+        function uniqueSorted(values, sortFn) {
+            return values.filter(function (v, i) { return v && values.indexOf(v) === i; }).sort(sortFn);
+        }
+
+        regionSelect.innerHTML = '<option value="">All regions</option>' +
+            uniqueSorted(CENTERS.map(function (c) { return c.region; }), function (a, b) { return regionRank(a) - regionRank(b); })
+                .map(function (r) { return '<option value="' + escapeHtml(r) + '">' + escapeHtml(regionLabel(r)) + '</option>'; }).join('');
+
+        function fillProvinces() {
+            var region = regionSelect.value;
+            var current = provinceSelect.value;
+            var provinces = uniqueSorted(CENTERS.filter(function (c) { return !region || c.region === region; })
+                .map(function (c) { return c.province; }));
+            provinceSelect.innerHTML = '<option value="">All provinces</option>' + provinces.map(function (p) {
+                return '<option value="' + escapeHtml(p) + '">' + escapeHtml(titleCase(p)) + '</option>';
+            }).join('');
+            provinceSelect.value = provinces.indexOf(current) !== -1 ? current : '';
+        }
+        fillProvinces();
+
+        function filtered() {
+            var q = searchInput.value.trim().toLowerCase();
+            var terms = q ? q.split(/\s+/) : [];
+            var list = baseOrder.filter(function (c) {
+                if (regionSelect.value && c.region !== regionSelect.value) return false;
+                if (provinceSelect.value && c.province !== provinceSelect.value) return false;
+                if (!terms.length) return true;
+                var hay = (c.name + ' ' + c.address + ' ' + c.city + ' ' + c.province + ' ' + c.region).toLowerCase();
+                return terms.every(function (t) { return hay.indexOf(t) !== -1; });
+            });
+            if (userPoint) {
+                list = list.map(function (c) {
+                    return { c: c, d: c.lat != null ? distanceKm(userPoint.lat, userPoint.lng, c.lat, c.lng) : Infinity };
+                }).sort(function (a, b) { return a.d - b.d; }).map(function (x) {
+                    x.c._distance = x.d;
+                    return x.c;
+                });
+            }
+            return list;
+        }
+
+        function renderMarkers(list) {
+            markersLayer.clearLayers();
+            cityMarkers = {};
+            var groups = {};
+            list.forEach(function (c) {
+                if (c.lat == null) return;
+                var key = cityKey(c);
+                (groups[key] = groups[key] || []).push(c);
+            });
+
+            Object.keys(groups).forEach(function (key) {
+                var group = groups[key];
+                var first = group[0];
+                var size = group.length > 9 ? 30 : group.length > 1 ? 24 : 18;
+                var marker = L.marker([first.lat, first.lng], {
+                    icon: L.divIcon({
+                        className: 'sc-pin',
+                        html: '<span class="sc-count-pin" style="width:' + size + 'px;height:' + size + 'px">' + (group.length > 1 ? group.length : '') + '</span>',
+                        iconSize: [size, size],
+                        iconAnchor: [size / 2, size / 2],
+                        popupAnchor: [0, -size / 2]
+                    })
+                });
+                var names = group.slice(0, 5).map(function (c) { return '<span>' + escapeHtml(c.name) + '</span>'; }).join('');
+                var more = group.length > 5 ? '<span>+ ' + (group.length - 5) + ' more</span>' : '';
+                marker.bindPopup('<div class="sc-popup">' +
+                    '<strong>' + escapeHtml(titleCase(first.city)) + ', ' + escapeHtml(titleCase(first.province)) + '</strong>' +
+                    '<span>' + group.length + ' service center' + (group.length === 1 ? '' : 's') + '</span>' +
+                    names + more +
+                    '<a href="#" data-key="' + escapeHtml(key) + '" data-label="' + escapeHtml(titleCase(first.city)) + '" class="sc-popup-filter">Show in list &rarr;</a>' +
+                    '</div>');
+                marker.addTo(markersLayer);
+                cityMarkers[key] = marker;
             });
         }
 
-        function directionsUrl(lat, lng) {
-            return 'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng;
+        function cardHtml(c, i) {
+            var lines = '<p>' + escapeHtml(c.address) + '</p>';
+            if (c.phone) lines += '<p class="sc-phone">' + phoneLinks(c.phone) + '</p>';
+            if (c.email) lines += '<p><a href="mailto:' + escapeHtml(c.email) + '">' + escapeHtml(c.email) + '</a></p>';
+            if (c._distance != null && isFinite(c._distance)) lines += '<p>About ' + c._distance.toFixed(1) + ' km away (city centre)</p>';
+            return '<div class="sc-result-card">' +
+                '<span class="sc-result-number">' + escapeHtml(titleCase(c.city)) + ' &middot; ' + escapeHtml(titleCase(c.province)) + ' &middot; ' + escapeHtml(regionLabel(c.region)) + '</span>' +
+                '<h3>' + escapeHtml(c.name) + '</h3>' +
+                lines +
+                '<div class="sc-result-links">' +
+                (c.lat != null ? '<a href="#" data-idx="' + i + '" class="sc-view-link">View on map &rarr;</a>' : '') +
+                '<a href="' + directionsUrl(c) + '" target="_blank" rel="noopener">Get directions &rarr;</a>' +
+                '</div></div>';
         }
 
-        function renderMarkersAndList() {
-            markersLayer.clearLayers();
-            listEl.innerHTML = '';
+        var currentList = [];
+        var cityFilter = null; // { key, label } set by a pin's "Show in list"; narrows the list, not the map
 
-            var visible = currentResults.filter(function (r) { return activeCategories[r.category]; });
+        function clearCityFilter() {
+            cityFilter = null;
+        }
 
-            if (visible.length === 0) {
+        function render(fitMap) {
+            if (fitMap && !gmapEl.hidden) hideGoogleMap();
+            if (!userPoint) baseOrder.forEach(function (c) { delete c._distance; });
+            var areaList = filtered();
+            currentList = cityFilter
+                ? areaList.filter(function (c) { return cityKey(c) === cityFilter.key; })
+                : areaList;
+            var shown = currentList.slice(0, shownCount);
+
+            var filterCount = (regionSelect.value ? 1 : 0) + (provinceSelect.value ? 1 : 0) + (cityFilter ? 1 : 0);
+            filterToggle.textContent = filterCount ? 'Filter by area (' + filterCount + ')' : 'Filter by area';
+
+            statusEl.innerHTML = currentList.length
+                ? 'Showing ' + shown.length + ' of ' + currentList.length + ' authorized service center' + (currentList.length === 1 ? '' : 's') +
+                    (cityFilter ? ' in ' + escapeHtml(cityFilter.label) + '. <button type="button" class="sc-status-clear" id="sc-city-clear">Show all</button>'
+                                : (userPoint ? ', nearest first.' : '.'))
+                : '';
+
+            if (!currentList.length) {
                 listEl.innerHTML = '<div class="sc-result-card sc-empty">' +
-                    '<h3>No matching locations nearby</h3>' +
-                    '<p>Try a broader search, enable more categories in Filter services, or check a different area.</p>' +
+                    '<h3>No matching service centers</h3>' +
+                    '<p>Try a different city or province, or clear the area filters.</p>' +
                     '</div>';
-                return;
+            } else {
+                listEl.innerHTML = shown.map(cardHtml).join('') +
+                    (currentList.length > shown.length
+                        ? '<button type="button" class="btn-use-location sc-show-more">Show ' + Math.min(PAGE_SIZE, currentList.length - shown.length) + ' more</button>'
+                        : '');
             }
 
-            visible.forEach(function (r, i) {
-                var meta = CATEGORY_META[r.category];
-                var marker = L.marker([r.lat, r.lng], { icon: makeIcon(meta.color) });
-                var popupHtml = '<div class="sc-popup">' +
-                    '<strong>' + r.name + '</strong>' +
-                    '<span>' + meta.label + '</span>' +
-                    '<span>' + r.address + '</span>' +
-                    '<a href="' + directionsUrl(r.lat, r.lng) + '" target="_blank" rel="noopener">Get directions &rarr;</a>' +
-                    '</div>';
-                marker.bindPopup(popupHtml);
-                marker.addTo(markersLayer);
-
-                var card = document.createElement('div');
-                card.className = 'sc-result-card';
-                card.innerHTML = '<span class="sc-result-number">' + meta.label + '</span>' +
-                    '<h3>' + r.name + '</h3>' +
-                    '<p>' + r.address + '</p>' +
-                    '<p>' + r.distance.toFixed(1) + ' km away</p>' +
-                    '<div class="sc-result-links">' +
-                    '<a href="#" data-idx="' + i + '" class="sc-view-link">View on map &rarr;</a>' +
-                    '<a href="' + directionsUrl(r.lat, r.lng) + '" target="_blank" rel="noopener">Get directions &rarr;</a>' +
-                    '</div>';
-                listEl.appendChild(card);
-
-                card.querySelector('.sc-view-link').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    map.setView([r.lat, r.lng], 16);
-                    marker.openPopup();
-                });
-            });
+            // Pins always cover the whole search/area result, even when the list is narrowed to one city
+            renderMarkers(areaList);
+            if (fitMap) {
+                var pts = areaList.filter(function (c) { return c.lat != null; }).map(function (c) { return [c.lat, c.lng]; });
+                if (userPoint) pts = pts.slice(0, 15).concat([[userPoint.lat, userPoint.lng]]);
+                if (pts.length) map.fitBounds(pts, { padding: [30, 30], maxZoom: 13 });
+                else map.setView(PH_CENTER, 6);
+            }
         }
 
-        function buildQuery(south, west, north, east) {
-            var bbox = south + ',' + west + ',' + north + ',' + east;
-            return '[out:json][timeout:25];(' +
-                'node["amenity"="fuel"](' + bbox + ');' +
-                'node["shop"="fuel"](' + bbox + ');' +
-                'node["shop"="car_repair"](' + bbox + ');' +
-                'node["shop"="car_parts"](' + bbox + ');' +
-                'node["shop"="hardware"](' + bbox + ');' +
-                'node["shop"="doityourself"](' + bbox + ');' +
-                ');out body 60;';
-        }
+        listEl.addEventListener('click', function (e) {
+            var more = e.target.closest('.sc-show-more');
+            if (more) {
+                shownCount += PAGE_SIZE;
+                render(false);
+                return;
+            }
+            var view = e.target.closest('.sc-view-link');
+            if (view) {
+                e.preventDefault();
+                var c = currentList[parseInt(view.dataset.idx, 10)];
+                listEl.querySelectorAll('.sc-result-card.is-active').forEach(function (el) { el.classList.remove('is-active'); });
+                view.closest('.sc-result-card').classList.add('is-active');
 
-        var isSearching = false;
-
-        function fetchOverpass(query, retriesLeft) {
-            var RETRYABLE = [429, 502, 503, 504];
-            return fetch('https://overpass-api.de/api/interpreter', {
-                method: 'POST',
-                body: 'data=' + encodeURIComponent(query)
-            }).then(function (res) {
-                if (RETRYABLE.indexOf(res.status) !== -1 && retriesLeft > 0) {
-                    return new Promise(function (resolve) { setTimeout(resolve, 2000); })
-                        .then(function () { return fetchOverpass(query, retriesLeft - 1); });
+                showOnGoogleMap(c);
+                if (window.matchMedia('(max-width: 900px)').matches) {
+                    document.getElementById('sc-map').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-                if (!res.ok) throw new Error('Overpass request failed');
-                return res.json();
-            });
+            }
+        });
+
+        // Single-shop view on Google Maps (exact pin from Google's own listing/address match)
+        var gmapEl = document.getElementById('sc-gmap');
+        var gmapFrame = document.getElementById('sc-gmap-frame');
+
+        function showOnGoogleMap(c) {
+            var q = c.name + ', ' + c.address;
+            gmapFrame.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&z=17&output=embed';
+            document.getElementById('sc-gmap-title').textContent = c.name;
+            gmapEl.hidden = false;
         }
 
-        function searchArea(lat, lng, label) {
-            if (isSearching) return;
-            isSearching = true;
-            originPoint = { lat: lat, lng: lng };
-            statusEl.textContent = 'Searching near ' + label + '…';
-            listEl.innerHTML = '<div class="sc-result-card sc-loading">Loading nearby locations&hellip;</div>';
-
-            var radiusDeg = 0.05; // roughly 5-6km
-            var query = buildQuery(lat - radiusDeg, lng - radiusDeg, lat + radiusDeg, lng + radiusDeg);
-
-            fetchOverpass(query, 2)
-            .then(function (data) {
-                currentResults = data.elements
-                    .map(function (el) {
-                        var cat = categoryOf(el.tags || {});
-                        if (!cat) return null;
-                        return {
-                            lat: el.lat,
-                            lng: el.lon,
-                            name: (el.tags && el.tags.name) || ('Unnamed ' + CATEGORY_META[cat].label.toLowerCase()),
-                            address: addressOf(el.tags || {}),
-                            category: cat,
-                            distance: distanceKm(lat, lng, el.lat, el.lon)
-                        };
-                    })
-                    .filter(Boolean)
-                    .sort(function (a, b) { return a.distance - b.distance; })
-                    .slice(0, 15);
-
-                statusEl.textContent = currentResults.length
-                    ? 'Showing ' + currentResults.length + ' live result' + (currentResults.length === 1 ? '' : 's') + ' near ' + label + ' (from OpenStreetMap).'
-                    : 'No fuel stations, auto shops, or hardware stores found near ' + label + ' on OpenStreetMap.';
-
-                renderMarkersAndList();
-            })
-            .catch(function () {
-                statusEl.textContent = 'Could not load live location data right now. The map is still interactive — try again in a moment.';
-                listEl.innerHTML = '<div class="sc-result-card sc-empty"><h3>Live results unavailable</h3><p>We could not reach the OpenStreetMap data service. Please try again shortly.</p></div>';
-            })
-            .finally(function () {
-                isSearching = false;
-            });
+        function hideGoogleMap() {
+            gmapEl.hidden = true;
+            gmapFrame.removeAttribute('src');
+            listEl.querySelectorAll('.sc-result-card.is-active').forEach(function (el) { el.classList.remove('is-active'); });
+            map.invalidateSize();
         }
+
+        document.getElementById('sc-gmap-back').addEventListener('click', hideGoogleMap);
+
+        map.on('popupopen', function (e) {
+            var link = e.popup.getElement().querySelector('.sc-popup-filter');
+            if (!link) return;
+            link.addEventListener('click', function (ev) {
+                ev.preventDefault();
+                cityFilter = { key: link.dataset.key, label: link.dataset.label };
+                shownCount = PAGE_SIZE;
+                render(false);
+                listEl.scrollTop = 0;
+                map.closePopup();
+            });
+        });
 
         // Filter dropdown
         var filterContainer = document.getElementById('sc-filter-container');
-        var filterToggle = document.getElementById('sc-filter-toggle');
         var filterDropdown = document.getElementById('sc-filter-dropdown');
         filterToggle.addEventListener('click', function (e) {
             e.preventDefault();
@@ -308,14 +402,49 @@
         document.addEventListener('click', function (e) {
             if (!filterContainer.contains(e.target)) filterDropdown.classList.remove('active');
         });
-        filterDropdown.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
-            cb.addEventListener('change', function () {
-                activeCategories[cb.value] = cb.checked;
-                renderMarkersAndList();
-            });
+        statusEl.addEventListener('click', function (e) {
+            if (!e.target.closest('#sc-city-clear')) return;
+            clearCityFilter();
+            shownCount = PAGE_SIZE;
+            render(false);
+        });
+        regionSelect.addEventListener('change', function () {
+            clearCityFilter();
+            fillProvinces();
+            shownCount = PAGE_SIZE;
+            render(true);
+        });
+        provinceSelect.addEventListener('change', function () {
+            clearCityFilter();
+            shownCount = PAGE_SIZE;
+            render(true);
+        });
+        document.getElementById('sc-filter-clear').addEventListener('click', function () {
+            regionSelect.value = '';
+            fillProvinces();
+            provinceSelect.value = '';
+            clearCityFilter();
+            shownCount = PAGE_SIZE;
+            render(true);
         });
 
-        // Use my location
+        // Text search: filters as you type, refits the map on Enter
+        var typingTimer;
+        searchInput.addEventListener('input', function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(function () {
+                clearCityFilter();
+                shownCount = PAGE_SIZE;
+                render(false);
+            }, 150);
+        });
+        searchInput.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter') return;
+            shownCount = PAGE_SIZE;
+            render(true);
+        });
+
+        // Use my location: sort by distance from the user
         document.getElementById('sc-use-location').addEventListener('click', function () {
             if (!navigator.geolocation) {
                 statusEl.textContent = 'Location access is not supported in this browser.';
@@ -323,43 +452,20 @@
             }
             statusEl.textContent = 'Getting your location…';
             navigator.geolocation.getCurrentPosition(function (pos) {
-                var lat = pos.coords.latitude, lng = pos.coords.longitude;
-                map.setView([lat, lng], 14);
+                userPoint = { lat: pos.coords.latitude, lng: pos.coords.longitude };
                 if (youAreHereMarker) map.removeLayer(youAreHereMarker);
-                youAreHereMarker = L.marker([lat, lng], {
-                    icon: L.divIcon({ className: 'sc-pin', html: '<span class="sc-you-are-here"></span>', iconSize: [18, 18], iconAnchor: [9, 9] })
-                }).addTo(map).bindPopup('You are here').openPopup();
-                searchArea(lat, lng, 'your location');
+                youAreHereMarker = L.marker([userPoint.lat, userPoint.lng], {
+                    icon: L.divIcon({ className: 'sc-pin', html: '<span class="sc-you-are-here"></span>', iconSize: [18, 18], iconAnchor: [9, 9] }),
+                    zIndexOffset: 1000
+                }).addTo(map).bindPopup('You are here');
+                shownCount = PAGE_SIZE;
+                render(true);
             }, function () {
                 statusEl.textContent = 'Could not access your location. Check your browser permissions and try again.';
             });
         });
 
-        // Search by city/province/postcode
-        var searchInput = document.getElementById('sc-search-input');
-        searchInput.addEventListener('keydown', function (e) {
-            if (e.key !== 'Enter') return;
-            var q = searchInput.value.trim();
-            if (!q) return;
-            statusEl.textContent = 'Looking up "' + q + '"…';
-            fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=ph&q=' + encodeURIComponent(q))
-                .then(function (res) { return res.json(); })
-                .then(function (results) {
-                    if (!results.length) {
-                        statusEl.textContent = 'Could not find "' + q + '" in the Philippines. Try a different city or province.';
-                        return;
-                    }
-                    var lat = parseFloat(results[0].lat), lng = parseFloat(results[0].lon);
-                    map.setView([lat, lng], 13);
-                    searchArea(lat, lng, results[0].display_name.split(',')[0]);
-                })
-                .catch(function () {
-                    statusEl.textContent = 'Location lookup failed. Please try again.';
-                });
-        });
-
-        // Initial load
-        searchArea(MANILA.lat, MANILA.lng, 'Metro Manila');
+        render(true);
     })();
     </script>
 </body>

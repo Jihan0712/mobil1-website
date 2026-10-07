@@ -2,19 +2,59 @@
    HERO CAROUSEL SECTION
    ========================================= */
 .hero-carousel {
+    background-color: var(--white);
+    padding: 24px var(--page-gutter) 48px;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-title {
+    color: var(--primary-blue);
+    font-size: clamp(35px, 3.4vw, 64px);
+    font-weight: bold;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+}
+
+.hero-subtext {
+    color: var(--text-gray);
+    font-size: clamp(16px, 0.95vw, 18px);
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+.hero-cta {
+    padding: 14px 20px;
+}
+
+.hero-cta svg {
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.hero-media {
     position: relative;
     width: 100%;
-    height: 75vh;
-    min-height: 550px;
-    padding: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
     overflow: hidden;
     background-color: var(--text-dark);
 }
 
 .carousel-track-container {
     height: 100%;
-    padding: 0;
-    position: relative;
     overflow: hidden;
 }
 
@@ -22,67 +62,31 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    position: relative;
     height: 100%;
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
-    min-width: 100%;
-    height: 100%;
     flex: 0 0 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
+    height: 100%;
 }
 
 .slide-image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
-}
-
-.slide-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 5%;
-    font-size: 46px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.highlight-title {
-    display: flex;
-    font-weight: 600;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    margin-bottom: 1.5rem;
-}
-
-.highlight-title span {
-    background-color: var(--white);
-    color: var(--primary-blue);
-    font-size: 2.2rem;
-    font-weight: bold;
-    padding: 0.3rem 0.8rem;
-    line-height: 1.2;
-    display: inline-block;
+    object-position: 62% center;
+    display: block;
 }
 
 .carousel-nav {
     position: absolute;
-    bottom: 2.5rem;
-    right: 5%;
+    bottom: 16px;
+    right: 20px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 12px;
     z-index: 10;
 }
 
@@ -93,7 +97,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem;
+    padding: 6px;
     transition: transform 0.2s;
 }
 
@@ -103,19 +107,19 @@
 
 .carousel-dots {
     display: flex;
-    gap: 0.8rem;
+    gap: 8px;
     align-items: center;
 }
 
 .carousel-dot {
     border: 1px solid var(--white);
     background: transparent;
-    border-radius: 50%;
+    border-radius: 999px;
     width: 8px;
     height: 8px;
     padding: 0;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, width 0.2s;
 }
 
 .carousel-dot.current-dot {
@@ -126,7 +130,7 @@
    COMMON SECTION STYLES
    ========================================= */
 section {
-    padding: 4rem 5%;
+    padding: 64px var(--page-gutter);
 }
 
 /* =========================================
@@ -135,11 +139,11 @@ section {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 32px;
 }
 
 .card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-light);
     border-radius: 8px;
     overflow: hidden; 
     background: var(--white);
@@ -158,28 +162,28 @@ section {
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 24px;
 }
 
 .tag-red {
     color: var(--red-tag);
-    font-size: 0.7rem;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 13px;
     letter-spacing: 0.5px;
 }
 
 .card-content h3 {
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-size: 21px;
 }
 
 .card-content p {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 15px;
 }
 
 /* =========================================
@@ -190,7 +194,7 @@ section {
     color: var(--white);
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 64px;
 }
 
 .find-protection h2 {
@@ -199,7 +203,7 @@ section {
 
 .find-protection p {
     color: #d0d0d0;
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 .find-protection .content-left {
@@ -223,7 +227,7 @@ section {
 .grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 .product-card {
@@ -236,11 +240,11 @@ section {
     height: 180px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 }
 
 .product-card h3 {
-    font-size: 1rem;
+    font-size: 16px;
     color: var(--primary-blue);
 }
 
@@ -250,11 +254,6 @@ section {
 .buy-confidence {
     background-color: var(--light-bg);
 }
-.section-subtext{
-    font-weight: normal;
-    font-size: 16px;
-}
-
 .explore-products{
     font-weight: 600;
     font-size: 40px;
@@ -263,17 +262,17 @@ section {
 .buy-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 .buy-card {
     background: var(--white);
-    padding: 2rem;
+    padding: 32px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 .buy-card img {
@@ -284,110 +283,15 @@ section {
 .buy-card a {
     color: var(--primary-blue);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 14px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
 /* =========================================
    FOOTER (Can be moved to global.css)
    ========================================= */
-footer {
-    background-color: var(--white);
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    padding: 4rem 5%;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.footer-logo-col {
-    max-width: 300px;
-}
-
-.footer-logo-col img {
-    height: 40px;
-    margin-bottom: 1rem;
-}
-
-.footer-logo-col p {
-    font-size: 0.85rem;
-    color: var(--text-gray);
-}
-
-.footer-links {
-    display: flex;
-    gap: 4rem;
-}
-
-.footer-col h4 {
-    color: var(--primary-blue);
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-col ul li a {
-    color: var(--text-gray);
-    font-size: 0.85rem;
-}
-
-.footer-bottom {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    padding: 1.5rem 5%;
-    display: flex;
-    gap: 2rem;
-    font-size: 0.8rem;
-}
-
-.footer-bottom a {
-    color: #d0d0d0;
-}
-
-/* =========================================
-   FLOATING CHAT BOT (Can be moved to chat-window.css)
-   ========================================= */
-.chat-bot {
-    position: fixed;
-    right: 20px;
-    top: 40%;
-    width: 55px;
-    height: 55px;
-    background-color: var(--primary-blue);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-    z-index: 1000;
-    border: 3px solid white;
-}
-.chat-bot::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 14px;
-    height: 14px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
 /* =========================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================= */
@@ -398,29 +302,67 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Header Mobile Adjustments */
-    .desktop-nav, .desktop-actions {
-        display: none;
-    }
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Carousel Mobile Adjustments */
+    /* Hero Mobile Adjustments: image on top, text below (mobile spec sizing) */
     .hero-carousel {
-        height: 60vh;
-        min-height: 400px;
+        padding: 12px 20px 48px;
     }
-    .highlight-title span {
-        font-size: 1.6rem;
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .hero-content {
+        gap: 28px;
+    }
+    .hero-media {
+        order: -1;
+        overflow: visible;
+        aspect-ratio: auto;
+        border-radius: 0;
+        background: none;
+    }
+    .carousel-track-container {
+        aspect-ratio: 350 / 260;
+        border-radius: 20px;
     }
     .carousel-nav {
-        right: 50%;
-        transform: translateX(50%);
+        position: static;
+        justify-content: center;
+        margin: 12px 0 28px;
+    }
+    .carousel-arrow {
+        display: none;
+    }
+    .carousel-dot {
+        border: none;
+        background-color: #B5B5B5;
+    }
+    .carousel-dot.current-dot {
+        width: 20px;
+        background-color: var(--primary-blue);
+    }
+    .hero-title {
+        font-size: 34px;
+        line-height: 38px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    .hero-subtext {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+    .hero-actions {
+        width: 100%;
+    }
+    .hero-cta {
+        width: 100%;
+        min-height: 56px;
+        justify-content: center;
+        padding: 0 20px;
     }
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 26px;
     }
 
     /* Card Horizontal Scroll Slider for Mobile */
@@ -428,8 +370,8 @@ footer {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding-bottom: 1rem;
+        gap: 16px;
+        padding-bottom: 16px;
         margin-right: -5%; 
         padding-right: 5%;
         -webkit-overflow-scrolling: touch;
@@ -453,12 +395,4 @@ footer {
         flex-direction: column;
     }
 
-    .footer-top {
-        flex-direction: column;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
 }

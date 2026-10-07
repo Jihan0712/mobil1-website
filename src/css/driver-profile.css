@@ -2,7 +2,7 @@
 .quiz-container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 4rem 5%;
+    padding: 64px var(--page-gutter);
     min-height: 70vh;
 }
 
@@ -24,7 +24,7 @@
 .start-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 64px;
     align-items: center;
 }
 
@@ -35,49 +35,39 @@
     object-fit: cover;
 }
 
-.start-content .eyebrow {
-    font-size: 0.75rem;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
-    display: block;
-}
-
 .start-content h1 {
-    font-size: 3rem;
+    font-size: 48px;
     color: var(--primary-blue);
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
 }
 
 .start-content p {
-    font-size: 1.1rem;
+    font-size: 18px;
     color: var(--text-gray);
     line-height: 1.6;
-    margin-bottom: 2.5rem;
+    margin-bottom: 40px;
     max-width: 450px;
 }
 
 /* QUIZ STEPS (03 to 07) */
 .quiz-header {
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
 }
 
 .step-counter {
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-gray);
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 13px;
 }
 
 .progress-bar-container {
     width: 100%;
     height: 4px;
-    background-color: #e0e0e0;
-    margin-bottom: 2rem;
+    background-color: var(--border-light);
+    margin-bottom: 32px;
     border-radius: 2px;
     overflow: hidden;
 }
@@ -89,27 +79,27 @@
 }
 
 .quiz-question {
-    font-size: 2.2rem;
+    font-size: 35px;
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .quiz-instruction {
-    font-size: 0.9rem;
+    font-size: 14px;
     color: var(--text-gray);
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 /* OPTION CARDS */
 .options-grid {
     display: flex;
-    flex-wrap: nowwrap;
-    gap: 1.5rem;
+    flex-wrap: nowrap;
+    gap: 24px;
     margin-bottom: 8px;
 }
 
 .option-card {
-    flex: 8px;
+    flex: 1;
     min-width: 200px;
     border: 2px solid transparent;
     border-radius: 12px;
@@ -127,8 +117,8 @@
 }
 
 .option-label {
-    padding: 1.2rem 1rem;
-    font-size: 0.95rem;
+    padding: 19px 16px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--primary-blue);
     text-align: center;
@@ -144,7 +134,7 @@
 
 .option-card.selected {
     border-color: var(--primary-blue);
-    background-color: #eef4fc;
+    background-color: var(--light-blue-bg);
 }
 
 .checkbox-circle {
@@ -175,7 +165,7 @@
 
 .quiz-actions {
     display: flex;
-    gap: 1rem;
+    gap: 16px;
 }
 
 .quiz-actions .btn-outline {
@@ -189,7 +179,7 @@
 
 /* 08 - RESULT PAGE UPDATE */
 .result-hero {
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
 }
 
 .result-hero img {
@@ -197,48 +187,38 @@
     height: 300px;
     object-fit: cover;
     border-radius: 16px;
-    margin-bottom: 1.5rem;
-}
-
-.hero-eyebrow {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.5px;
+    margin-bottom: 24px;
 }
 
 .result-title {
-    font-size: 3rem;
+    font-size: 48px;
     color: var(--primary-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     letter-spacing: -0.5px;
 }
 
 .result-description {
-    font-size: 1.1rem;
+    font-size: 18px;
     color: var(--text-gray);
     line-height: 1.6;
     max-width: 900px;
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
 }
 
 .recommended-products {
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 .recommended-products h3 {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--primary-blue);
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
 }
 
 .product-cards-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 /* Product Card Base */
@@ -282,7 +262,7 @@
 
 /* Product Details */
 .product-details {
-    padding: 2rem 1.5rem;
+    padding: 32px 24px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -291,12 +271,12 @@
 
 .badge-pill {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
+    padding: 5px 13px;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 11px;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     width: fit-content;
 }
 
@@ -309,14 +289,14 @@
 }
 
 .tech-specs {
-    font-size: 0.75rem;
+    font-size: 12px;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .spec-type {
     color: var(--text-gray);
-    margin-right: 0.5rem;
+    margin-right: 8px;
 }
 
 .spec-grade {
@@ -325,13 +305,13 @@
 
 .product-details h4 {
     color: var(--primary-blue);
-    font-size: 1.25rem;
-    margin-bottom: 0.8rem;
+    font-size: 20px;
+    margin-bottom: 13px;
     line-height: 1.3;
 }
 
 .product-details p {
-    font-size: 0.9rem;
+    font-size: 14px;
     color: var(--text-gray);
     line-height: 1.5;
     margin: 0;
@@ -341,23 +321,13 @@
 .defines-drive {
     background-color: #f8f9fa;
     border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.section-eyebrow {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
+    padding: 32px;
+    margin-bottom: 24px;
 }
 
 .drive-tags {
     display: flex;
-    gap: 0.8rem;
+    gap: 13px;
     flex-wrap: wrap;
 }
 
@@ -365,9 +335,9 @@
     background-color: var(--white);
     border: 1px solid #d1d5db;
     color: var(--primary-blue);
-    padding: 0.4rem 1rem;
+    padding: 6px 16px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -375,26 +345,26 @@
 .car-care-box {
     border: 1px solid #d1d5db;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 32px;
     background-color: var(--white);
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 .car-care-box h4 {
     color: var(--primary-blue);
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
+    font-size: 21px;
+    margin-bottom: 13px;
 }
 
 .car-care-box p {
     color: var(--text-gray);
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 }
 
 .car-care-box .disclaimer-text {
-    font-size: 0.8rem;
+    font-size: 13px;
     color: #888;
     margin-bottom: 0;
 }
@@ -402,15 +372,16 @@
 /* Explore Actions */
 .explore-actions {
     text-align: left;
-    margin-bottom: 3rem;
-    margin-top: 2rem;
+    margin-bottom: 48px;
+    margin-top: 32px;
 }
 
 .link-primary {
     color: var(--primary-blue);
+    gap: 8px;
     font-weight: 700;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
 }

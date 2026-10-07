@@ -18,73 +18,64 @@
              HERO CAROUSEL SECTION 
              ========================================== -->
         <section class="hero-carousel">
-            <div class="carousel-track-container">
-                <ul class="carousel-track" id="track">
-                    
-                    <!-- Slide 1 -->
-                    <li class="carousel-slide current-slide">
-                        <img src="../assets/homepage/hero.png" alt="Mobil Oil Bottles" class="slide-image">
-                        <div class="slide-content">
-                            <div class="highlight-title">
-                                <span>Give your engine</span>
-                                <span>the protection it needs</span>
-                                <span>to go further.</span>
-                            </div>
-                            <a href="engine.html" class="btn-primary" style="background-color: #001450;">
-                                See what your engine goes through 
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </li>
+            <div class="hero-inner">
 
-                    <!-- Slide 2 -->
-                    <li class="carousel-slide">
-                        <img src="../assets/homepage/care.png" alt="Slide 2" class="slide-image">
-                        <div class="slide-content">s
-                            <div class="highlight-title">
-                                <span>Performance that</span>
-                                <span>pushes boundaries.</span>ss
-                            </div>
-                            <a href="product-detail.html" class="btn-primary" style="background-color: #001450;">View Products &rarr;</a>
-                        </div>
-                    </li>
-
-                    <!-- Slide 3 -->
-                    <li class="carousel-slide">
-                        <img src="../assets/homepage/car.png" alt="Slide 3" class="slide-image">
-                        <div class="slide-content">
-                            <div class="highlight-title">
-                                <span>Find the perfect</span>
-                                <span>oil for your drive.</span>
-                            </div>
-                            <a href="driver-profile.html" class="btn-primary" style="background-color: #001450;">Start Driver Profile &rarr;</a>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-
-            <!-- Carousel Controls -->
-            <div class="carousel-nav">
-                <button class="carousel-arrow" id="prevBtn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                
-                <div class="carousel-dots" id="dotsNav">
-                    <button class="carousel-dot current-dot" data-index="0"></button>
-                    <button class="carousel-dot" data-index="1"></button>
-                    <button class="carousel-dot" data-index="2"></button>
+                <!-- Hero Text -->
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Better protection.<br>
+                        Better engine health.<br>
+                        More miles ahead.
+                    </h1>
+                    <p class="hero-subtext">Help protect your engine from the wear that builds up over time.</p>
+                    <div class="hero-actions">
+                        <a href="engine.html" class="btn-primary hero-cta">
+                            See what your engine goes through
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <button class="carousel-arrow" id="nextBtn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+
+                <!-- Hero Image Carousel -->
+                <div class="hero-media">
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track" id="track">
+                            <li class="carousel-slide current-slide">
+                                <img src="../assets/homepage/hero.png" alt="Mobil 1 and Mobil Super oil bottles in front of an engine" class="slide-image">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="../assets/homepage/care.png" alt="Long-term engine care" class="slide-image">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="../assets/homepage/car.png" alt="Car on the road" class="slide-image">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-nav">
+                        <button class="carousel-arrow" id="prevBtn" aria-label="Previous slide">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+
+                        <div class="carousel-dots" id="dotsNav">
+                            <button class="carousel-dot current-dot" data-index="0" aria-label="Slide 1"></button>
+                            <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+                            <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+                        </div>
+
+                        <button class="carousel-arrow" id="nextBtn" aria-label="Next slide">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -231,6 +222,20 @@
                 let prevIndex = currentIndex - 1;
                 if (prevIndex < 0) prevIndex = slides.length - 1; // Loop to end
                 updateCarousel(prevIndex);
+            });
+
+            // Swipe support (mobile has no arrows)
+            let touchStartX = null;
+            track.addEventListener('touchstart', e => {
+                touchStartX = e.touches[0].clientX;
+            }, { passive: true });
+            track.addEventListener('touchend', e => {
+                if (touchStartX === null) return;
+                const deltaX = e.changedTouches[0].clientX - touchStartX;
+                touchStartX = null;
+                if (Math.abs(deltaX) < 40) return;
+                if (deltaX < 0) nextButton.click();
+                else prevButton.click();
             });
 
             dotsNav.addEventListener('click', e => {

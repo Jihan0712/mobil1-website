@@ -1,8 +1,8 @@
 /* 1. FONT IMPORTS (EMprint) */
 @font-face {
     font-family: 'EMprint';
-    src: url('../../fonts/EMprint-Regular.woff2') format('woff2'),
-         url('../../fonts/EMprint-Regular.woff') format('woff');
+    src: url('../../fonts/EMprint-Regular.woff2?v=2') format('woff2'),
+         url('../../fonts/EMprint-Regular.woff?v=2') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -31,6 +31,10 @@
     --red-brand: #FE000C;
     --light-bg: #F8F8F8;
     --border-color: #dcdcdc;
+    --border-light: #e0e0e0;
+    --light-blue-bg: #eef4fc;
+    /* Side gutter: 5% on smaller screens, caps content at 1200px on wide screens */
+    --page-gutter: max(5%, calc((100% - 1200px) / 2));
     --font-family: 'EMprint', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -53,29 +57,45 @@ a {
     color: inherit;
 }
 
+button, input, select, textarea {
+    font-family: inherit;
+}
+
 h2 {
-    font-size: 2rem;
+    font-size: 32px;
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .section-subtext {
     color: var(--text-gray);
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
+    margin-bottom: 32px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/* Small uppercase label above section headings */
+.section-eyebrow {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
 }
 
 /* 3. GLOBAL BUTTONS */
 .btn-primary {
     background-color: var(--primary-blue);
     color: var(--white);
-    padding: 0.7rem 1.5rem;
+    padding: 11px 24px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 14px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -88,15 +108,36 @@ h2 {
 .btn-outline {
     background-color: var(--white);
     color: var(--primary-blue);
-    padding: 0.7rem 1.5rem;
+    padding: 11px 24px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 14px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
     border: none;
     cursor: pointer;
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    padding: 13px 29px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.btn-white:hover {
+    background-color: #f0f0f0;
 }
 
 /* 4. HEADER / NAVBAR */
@@ -104,7 +145,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 16px var(--page-gutter);
     background-color: var(--white);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -115,7 +156,7 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 16px;
 }
 
 .logo-container img {
@@ -125,7 +166,7 @@ header {
 
 .logo-divider {
     color: #cccccc;
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: 300;
 }
 
@@ -133,22 +174,22 @@ header {
 .desktop-nav > ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 32px;
     align-items: center;
 }
 
 .desktop-nav > ul > li {
     position: relative;
-    padding: 1rem 0;
+    padding: 16px 0;
 }
 
 .desktop-nav > ul > li > a {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 14px;
     color: var(--primary-blue);
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 5px;
 }
 
 /* =========================================
@@ -182,7 +223,7 @@ header {
     font-weight: 600;
     color: var(--text-gray);
     padding: 0 0 12px 0; 
-    border-bottom: 1px solid #dcdcdc; 
+    border-bottom: 1px solid var(--border-color); 
 }
 
 .dropdown-divider {
@@ -203,17 +244,17 @@ ul.dropdown-list li {
 
 /* Target ONLY the first list item to add the bottom border */
 ul.dropdown-list li:first-child {
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid var(--border-color);
 }
 
 ul.dropdown-list li a {
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem 1rem 1.2rem; 
+    padding: 16px 16px 16px 19px; 
     color: #001f5b; 
     font-weight: bold; 
-    font-size: 1rem; 
+    font-size: 16px; 
     transition: color 0.2s;
     width: 100%;
 }
@@ -245,12 +286,12 @@ ul.dropdown-list li a:hover .arrow {
 .desktop-actions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 .menu-toggle {
     display: none;
-    font-size: 1.8rem;
+    font-size: 29px;
     color: var(--primary-blue);
     cursor: pointer;
 }
@@ -264,9 +305,9 @@ footer {
 .footer-top {
     display: flex;
     justify-content: space-between;
-    padding: 4rem 5%;
+    padding: 64px var(--page-gutter);
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 32px;
 }
 
 .footer-logo-col {
@@ -275,22 +316,22 @@ footer {
 
 .footer-logo-col img {
     height: 40px;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 }
 
 .footer-logo-col p {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: var(--text-gray);
 }
 
 .footer-links {
     display: flex;
-    gap: 4rem;
+    gap: 64px;
 }
 
 .footer-col h4 {
     color: var(--primary-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     font-size: 14px;
 }
 
@@ -299,7 +340,7 @@ footer {
 }
 
 .footer-col ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .footer-col ul li a {
@@ -310,10 +351,10 @@ footer {
 .footer-bottom {
     background-color: var(--primary-blue);
     color: var(--white);
-    padding: 1.5rem 5%;
+    padding: 24px var(--page-gutter);
     display: flex;
-    gap: 2rem;
-    font-size: 0.8rem;
+    gap: 32px;
+    font-size: 13px;
 }
 
 .footer-bottom a {
@@ -337,6 +378,6 @@ footer {
     }
     .footer-links {
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 32px;
     }
 }

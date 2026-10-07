@@ -24,7 +24,7 @@ const myHeader = `
             <ul>
                 <!-- Dropdown Parent Item -->
                 <li class="nav-dropdown">
-                    <a href="../../src/products.html" class="dropdown-trigger">Products 
+                    <a href="../src/products.html" class="dropdown-trigger">Products 
                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.75 0.75L5.75 6.75L10.75 0.75" stroke="#001450" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

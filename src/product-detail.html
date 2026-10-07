@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobil 1™ Triple Action 5W-30</title>
+    <title>Mobil - Product</title>
     
 
     <link rel="stylesheet" href="css/global.css">
@@ -16,8 +16,8 @@
 
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs">
-        <a href="#">Products</a> / 
-        <span>Mobil 1™ Triple Action 5W-30</span>
+        <a href="products.html">Products</a> /
+        <span id="pdBreadcrumb"></span>
     </nav>
 
     <!-- Product Overview -->
@@ -27,32 +27,24 @@
         </div>
         
         <div class="product-info-container">
-            <span class="product-brand">MOBIL 1™</span>
-            <span class="product-badge">ADVANCED FULL SYNTHETIC</span>
-            
-            <h1>Mobil 1™ Triple Action 5W-30</h1>
-            
-            <div class="product-specs">
-                5W-30 &middot; API service category: API SP
+            <span class="product-brand" id="pdBrand"></span>
+            <span class="product-badge" id="pdBadge"></span>
+
+            <h1 id="pdName"></h1>
+
+            <div class="product-specs" id="pdSpecs"></div>
+
+            <div class="product-sizes" id="pdSizes"></div>
+
+            <p class="product-description" id="pdDescription"></p>
+
+            <div class="suitability-box" id="pdApprovalsBox">
+                <h5>RECOMMENDATIONS &amp; APPROVALS</h5>
+                <ul class="approvals-list" id="pdApprovals"></ul>
             </div>
-            
-            <div class="product-sizes">
-                <span>Available sizes:</span>
-                <div class="size-pill active">1L</div>
-                <div class="size-pill">4L</div>
-            </div>
-            
-            <p class="product-description">
-                Mobil 1™ Triple Action 5W-30 is an advanced full synthetic engine oil made for everyday driving, long journeys, and demanding stop-start conditions. It helps protect critical engine parts from wear, supports engine cleanliness, and maintains dependable performance when the correct 5W-30 grade and specification are used.
-            </p>
-            
-            <div class="suitability-box">
-                <h5>SUITED TO YOUR DRIVE</h5>
-                <p>Made for drivers balancing city traffic, highway trips, and changing temperatures—when 5W-30 matches the grade and specification in the vehicle handbook.</p>
-            </div>
-            
+
             <div class="purchase-options">
-                <a href="#" class="store-card">
+                <a href="https://shopee.ph/mobilph_alsc" target="_blank" rel="noopener" class="store-card">
                     <img src="../assets/shopee.png" alt="Shopee Logo" class="store-logo">
                     <span class="store-link-text">
                         Buy on Shopee
@@ -62,7 +54,7 @@
                     </span>
                 </a>
                 
-                <a href="#" class="store-card">
+                <a href="https://www.lazada.com.ph/shop/mobil-ph/" target="_blank" rel="noopener" class="store-card">
                     <img src="../assets/lazada.png" alt="Lazada Logo" class="store-logo">
                     <span class="store-link-text">
                         Buy on Lazada
@@ -73,57 +65,17 @@
                 </a>
             </div>
             
-            <button class="btn-secondary">Download data sheet</button>
+            <a href="contact.html" class="btn-secondary" id="pdDataSheet">Request data sheet</a>
+            <p class="data-sheet-ref" id="pdDataSheetRef"></p>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits-section">
+    <section class="benefits-section" id="pdFeaturesSection">
         <div class="benefits-container">
-            <h2>Built to protect your engine</h2>
+            <h2 id="pdFeaturesHeading">Features and benefits</h2>
             
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 14.3V6C8 5.20435 8.31607 4.44129 8.87868 3.87868C9.44129 3.31607 10.2044 3 11 3C11.7957 3 12.5587 3.31607 13.1213 3.87868C13.6839 4.44129 14 5.20435 14 6V14.3C14.6793 14.9076 15.1581 15.7071 15.373 16.5927C15.588 17.4784 15.529 18.4084 15.2038 19.2598C14.8786 20.1112 14.3025 20.8437 13.5519 21.3606C12.8012 21.8774 11.9114 22.1541 11 22.1541C10.0886 22.1541 9.19875 21.8774 8.4481 21.3606C7.69745 20.8437 7.12142 20.1112 6.79623 19.2598C6.47103 18.4084 6.41201 17.4784 6.62696 16.5927C6.84191 15.7071 7.32071 14.9076 8 14.3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 8V16" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18 3V5M18 11V13M14 8H16M20 8H22" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18 10.5C19.3807 10.5 20.5 9.38071 20.5 8C20.5 6.61929 19.3807 5.5 18 5.5C16.6193 5.5 15.5 6.61929 15.5 8C15.5 9.38071 16.6193 10.5 18 10.5Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-
-                    </div>
-                    <h3>Helps manage heat</h3>
-                    <p>Helps the oil maintain protection during high-temperature and demanding driving conditions.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 3L19 6V11C19 15.8 16.2 18.8 12 21C7.8 18.8 5 15.8 5 11V6L12 3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M8.69995 12.1001L10.8 14.2001L15.4 9.6001" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-
-                    </div>
-                    <h3>Supports wear protection</h3>
-                    <p>Helps reduce friction and protect critical engine parts from everyday wear.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 4C12 4 17 9.8 17 14C17 15.3261 16.4732 16.5979 15.5355 17.5355C14.5979 18.4732 13.3261 19 12 19C10.6739 19 9.40215 18.4732 8.46447 17.5355C7.52678 16.5979 7 15.3261 7 14C7 9.8 12 4 12 4Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18.5 3V6M17 4.5H20M5 6V8M4 7H6" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10 16C10.5 16.7 11.1 17 12 17" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-
-                    </div>
-                    <h3>Helps keep engines clean</h3>
-                    <p>Helps control deposits and supports engine cleanliness between scheduled oil changes.</p>
-                </div>
-            </div>
+            <div class="benefits-grid" id="pdFeatures"></div>
         </div>
     </section>
 
@@ -147,6 +99,86 @@
     <!-- Footer will be injected by components.js -->
     
     <!-- Scripts -->
+    <script src="../js files/products-data.js"></script>
+    <script>
+        (function () {
+            const PRODUCTS = window.MOBIL_PRODUCTS || [];
+            const ICONS = [
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 14.3V6C8 5.20435 8.31607 4.44129 8.87868 3.87868C9.44129 3.31607 10.2044 3 11 3C11.7957 3 12.5587 3.31607 13.1213 3.87868C13.6839 4.44129 14 5.20435 14 6V14.3C14.6793 14.9076 15.1581 15.7071 15.373 16.5927C15.588 17.4784 15.529 18.4084 15.2038 19.2598C14.8786 20.1112 14.3025 20.8437 13.5519 21.3606C12.8012 21.8774 11.9114 22.1541 11 22.1541C10.0886 22.1541 9.19875 21.8774 8.4481 21.3606C7.69745 20.8437 7.12142 20.1112 6.79623 19.2598C6.47103 18.4084 6.41201 17.4784 6.62696 16.5927C6.84191 15.7071 7.32071 14.9076 8 14.3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 8V16" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 3V5M18 11V13M14 8H16M20 8H22" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 10.5C19.3807 10.5 20.5 9.38071 20.5 8C20.5 6.61929 19.3807 5.5 18 5.5C16.6193 5.5 15.5 6.61929 15.5 8C15.5 9.38071 16.6193 10.5 18 10.5Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`,
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3L19 6V11C19 15.8 16.2 18.8 12 21C7.8 18.8 5 15.8 5 11V6L12 3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.69995 12.1001L10.8 14.2001L15.4 9.6001" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`,
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4C12 4 17 9.8 17 14C17 15.3261 16.4732 16.5979 15.5355 17.5355C14.5979 18.4732 13.3261 19 12 19C10.6739 19 9.40215 18.4732 8.46447 17.5355C7.52678 16.5979 7 15.3261 7 14C7 9.8 12 4 12 4Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.5 3V6M17 4.5H20M5 6V8M4 7H6" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 16C10.5 16.7 11.1 17 12 17" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`
+            ];
+
+            const id = new URLSearchParams(location.search).get('id');
+            const product = PRODUCTS.find(function (p) { return p.id === id; }) || PRODUCTS[0];
+            if (!product) return;
+
+            function $(elId) { return document.getElementById(elId); }
+            function escapeHtml(str) {
+                return String(str).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            document.title = product.name + ' | Mobil';
+            $('pdBreadcrumb').textContent = product.name;
+            $('pdBrand').textContent = product.brand;
+            $('pdBadge').textContent = product.technology;
+            $('pdName').textContent = product.name;
+            document.querySelector('.product-image-container img').alt = product.name;
+
+            const specs = [product.viscosity, product.api, product.acea, product.ilsac].filter(Boolean);
+            $('pdSpecs').innerHTML = specs.map(escapeHtml).join(' &middot; ');
+
+            $('pdSizes').innerHTML = '<span>Available sizes:</span>' + product.sizes.map(function (size, i) {
+                return '<div class="size-pill' + (i === 0 ? ' active' : '') + '">' + escapeHtml(size) + '</div>';
+            }).join('');
+            $('pdSizes').addEventListener('click', function (e) {
+                const pill = e.target.closest('.size-pill');
+                if (!pill) return;
+                this.querySelectorAll('.size-pill').forEach(function (el) { el.classList.toggle('active', el === pill); });
+            });
+
+            $('pdDescription').textContent = product.description ||
+                'Full product details for ' + product.name + ' are coming soon. Contact us for specifications and availability.';
+
+            if (product.approvals.length) {
+                $('pdApprovals').innerHTML = product.approvals.map(function (a) {
+                    return '<li>' + escapeHtml(a) + '</li>';
+                }).join('');
+            } else {
+                $('pdApprovalsBox').hidden = true;
+            }
+
+            if (product.dataSheet) {
+                $('pdDataSheetRef').textContent = 'Data sheet reference: ' + product.dataSheet;
+            }
+
+            if (product.features.length) {
+                $('pdFeatures').innerHTML = product.features.map(function (f, i) {
+                    return '<div class="benefit-card">' +
+                        '<div class="benefit-icon">' + ICONS[i % ICONS.length] + '</div>' +
+                        (f.title ? '<h3>' + escapeHtml(f.title) + '</h3>' : '') +
+                        '<p>' + escapeHtml(f.text) + '</p>' +
+                        '</div>';
+                }).join('');
+            } else {
+                $('pdFeaturesSection').hidden = true;
+            }
+        })();
+    </script>
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
 </body>

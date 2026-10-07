@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/service-centers.html"
+        ],
+        "createdAt": "2026-10-07T10:11:53.847Z",
+        "reason": "Claude verified in browser: .sc-intro/.sc-before-visit padding is var(--page-gutter)=max(5%,...), renders 19.5px at 390w and 352px at 1920w; detector can't resolve max()"
+      }
+    ]
+  }
+}

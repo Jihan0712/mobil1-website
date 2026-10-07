@@ -22,41 +22,29 @@
 
 /* SECTION CONTAINERS */
 .contact-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 6rem 5%;
-}
-
-.section-eyebrow {
-    font-size: 0.75rem;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.8rem;
-    display: block;
+    padding: 96px var(--page-gutter);
 }
 
 .section-title {
-    font-size: 2.8rem;
+    font-size: 45px;
     color: var(--primary-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     line-height: 1.1;
 }
 
 .section-subtitle {
-    font-size: 1.1rem;
+    font-size: 18px;
     color: var(--text-gray);
     line-height: 1.6;
     max-width: 800px;
-    margin-bottom: 4rem;
+    margin-bottom: 64px;
 }
 
 /* HELP CARDS (3 Column Grid) */
 .help-cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 32px;
 }
 
 .help-card {
@@ -82,30 +70,30 @@
 }
 
 .help-card-content {
-    padding: 2rem;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .help-card-eyebrow {
-    font-size: 0.7rem;
+    font-size: 11px;
     color: var(--text-gray);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.5px;
-    margin-bottom: 0.8rem;
+    margin-bottom: 13px;
 }
 
 .help-card h3 {
     color: var(--primary-blue);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 21px;
+    margin-bottom: 16px;
 }
 
 .help-card p {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 15px;
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -114,37 +102,37 @@
 .direct-contact-section {
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    padding: 6rem 5%;
+    padding: 96px var(--page-gutter);
 }
 
 .direct-contact-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-top: 3rem;
+    gap: 48px;
+    margin-top: 48px;
 }
 
 .contact-item {
     border-top: 3px solid var(--primary-blue);
-    padding-top: 1.5rem;
+    padding-top: 24px;
 }
 
 .contact-item-number {
-    font-size: 0.8rem;
+    font-size: 13px;
     font-weight: bold;
     color: #00a54f; /* Green accent color from image */
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
     display: block;
 }
 
 .contact-item h4 {
-    font-size: 1.2rem;
+    font-size: 19px;
     color: var(--primary-blue);
-    margin-bottom: 0.8rem;
+    margin-bottom: 13px;
 }
 
 .contact-item p {
-    font-size: 0.95rem;
+    font-size: 15px;
     color: var(--text-gray);
     line-height: 1.5;
 }
@@ -153,7 +141,7 @@
 .enquiry-section {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    gap: 64px;
     align-items: start;
 }
 
@@ -162,32 +150,32 @@
 }
 
 .enquiry-text .section-title {
-    font-size: 2.2rem;
+    font-size: 35px;
 }
 
 .enquiry-form-container {
     background-color: #f8f9fa; /* Very light gray */
-    padding: 3rem;
+    padding: 48px;
     border-radius: 8px;
 }
 
 .enquiry-form-container h3 {
-    font-size: 1.8rem;
+    font-size: 29px;
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .form-subtitle {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: var(--text-gray);
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 24px;
+    margin-bottom: 24px;
 }
 
 .form-group {
@@ -196,20 +184,20 @@
 }
 
 .form-group label {
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 700;
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.8rem 1rem;
+    padding: 13px 16px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 15px;
     background-color: var(--white);
     transition: border-color 0.2s;
 }
@@ -224,13 +212,13 @@
 .form-group .helper-text {
     font-size: 12px;
     color: var(--text-gray);
-    margin-top: 0.5rem;
+    margin-top: 8px;
 }
 
 .message-row {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 1.5rem;
+    gap: 24px;
     align-items: stretch;
 }
 
@@ -238,7 +226,7 @@
     background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    padding: 1.5rem;
+    padding: 24px;
     height: 100%;
 }
 
@@ -246,7 +234,7 @@
     font-size: 14px;
     font-weight: 600;
     color: var(--primary-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
 }
 
 .helpful-details-box p {
@@ -259,8 +247,8 @@
 .checkbox-group {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    margin: 2rem 0;
+    gap: 13px;
+    margin: 32px 0;
     border-radius: 20px;
 }
 
@@ -272,7 +260,7 @@
 }
 
 .checkbox-group label {
-    font-size: 0.9rem;
+    font-size: 14px;
     color: var(--text-gray);
     cursor: pointer;
 }
@@ -282,13 +270,13 @@
     display: flex;
     width: 100%;
     min-height: 500px;
-    margin-top: 2rem;
+    margin-top: 32px;
 }
 
 .promo-left {
     flex: 1;
     background-color: #1a56a8; /* Vivid blue */
-    padding: 5rem 5% 5rem 10%;
+    padding: 80px 5% 80px 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -298,7 +286,7 @@
 .promo-right {
     flex: 1.2;
     background-color: var(--primary-blue); /* Deep navy blue */
-    padding: 3rem 5%;
+    padding: 48px var(--page-gutter);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -311,16 +299,16 @@
 
 .promo-left h2 {
     color: var(--white);
-    font-size: 2.5rem;
+    font-size: 40px;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
     max-width: 500px;
 }
 
 .promo-left p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 2.5rem;
+    margin-bottom: 40px;
     color: var(--white);
     max-width: 450px;
 }
@@ -333,27 +321,6 @@
     object-fit: cover;
 }
 
-.btn-white {
-    background-color: var(--white);
-    color: var(--primary-blue);
-    padding: 0.8rem 1.8rem;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: none;
-    cursor: pointer;
-    width: fit-content;
-    transition: background-color 0.2s;
-    text-decoration: none;
-}
-
-.btn-white:hover {
-    background-color: #f0f0f0;
-}
-
 /* RESPONSIVE */
 @media (max-width: 1024px) {
     .help-cards-grid {
@@ -361,11 +328,11 @@
     }
     .direct-contact-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 32px;
     }
     .enquiry-section {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 32px;
     }
     .enquiry-text {
         max-width: 100%;
@@ -378,6 +345,6 @@
     }
     .promo-left, .promo-right {
         border-radius: 0;
-        padding: 4rem 5%;
+        padding: 64px var(--page-gutter);
     }
 }

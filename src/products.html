@@ -25,7 +25,7 @@
 <!-- Filter & Sort Bar -->
         <div class="filter-bar-container">
             <div class="filter-bar">
-                <span class="product-count">9 products</span>
+                <span class="product-count" id="productCount">&nbsp;</span>
                 
                 <!-- DROPDOWN CONTAINER -->
                 <div class="filter-dropdown-container" id="filterContainer">
@@ -43,53 +43,35 @@
                         <p class="filter-intro">Select one or more options where applicable. Results update when you confirm.</p>
                         
                         <div class="filter-group">
-                            <label>Fuel type</label>
+                            <label for="filterCategory">Vehicle type</label>
                             <div class="filter-select-wrapper">
-                                <select>
-                                    <option>Gasoline / Diesel / Hybrid</option>
-                                    <option>Gasoline only</option>
-                                    <option>Diesel only</option>
-                                    <option>Motorcycle</option>
-                                </select>
+                                <select id="filterCategory"></select>
                                 <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                             </div>
-                            <span class="filter-helper">Select one or more options</span>
+                            <span class="filter-helper">Passenger car, diesel, motorcycle, or other fluids</span>
                         </div>
-                        
+
                         <div class="filter-group">
-                            <label>Viscosity</label>
+                            <label for="filterViscosity">Viscosity</label>
                             <div class="filter-select-wrapper">
-                                <select>
-                                    <option>All viscosities</option>
-                                    <option>0W-20</option>
-                                    <option>5W-30</option>
-                                    <option>5W-40</option>
-                                    <option>10W-40</option>
-                                    <option>15W-40</option>
-                                </select>
+                                <select id="filterViscosity"></select>
                                 <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                             </div>
-                            <span class="filter-helper">Choose a viscosity</span>
+                            <span class="filter-helper">Match the grade in your vehicle handbook</span>
                         </div>
-                        
+
                         <div class="filter-group">
-                            <label>Oil technology</label>
+                            <label for="filterTechnology">Oil technology</label>
                             <div class="filter-select-wrapper">
-                                <select>
-                                    <option>All classifications</option>
-                                    <option>Ultimate Synthetic</option>
-                                    <option>Advanced Full Synthetic</option>
-                                    <option>Full Synthetic</option>
-                                    <option>Synthetic Technology</option>
-                                </select>
+                                <select id="filterTechnology"></select>
                                 <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                             </div>
                             <span class="filter-helper">Ultimate, full, or synthetic technology</span>
                         </div>
 
                         <div class="filter-actions">
-                            <button class="btn-reset">Reset filters</button>
-                            <button class="btn-primary" onclick="toggleFilter()">Show 9 products &rarr;</button>
+                            <button class="btn-reset" id="filterReset">Reset filters</button>
+                            <button class="btn-primary" id="filterApply">Show products &rarr;</button>
                         </div>
                     </div>
                 </div>
@@ -98,155 +80,12 @@
 
         <!-- 3x3 Products Grid -->
         <section class="products-section">
-            <h2>All Mobil products</h2>
+            <h2 id="productsHeading">All Mobil products</h2>
             
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <a href="product-detail.html" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil 1 Triple Action 5W-30">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">ADVANCED FULL SYNTHETIC</span>
-                        <span class="tag-green">5W-30</span>
-                        <span class="tag-green">MULTI-FUEL</span>
-                    </div>
-                    <h3>Mobil 1™ Triple Action 5W-30</h3>
-                    <p>Advanced full synthetic protection against heat, wear, and everyday engine stress.</p>
-                </a>
+            <div class="products-grid" id="productsGrid"></div>
 
-                <!-- Product 2 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil 1 ESP X2 0W-20">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">ULTIMATE SYNTHETIC</span>
-                        <span class="tag-green">0W-20</span>
-                        <span class="tag-green">GASOLINE</span>
-                    </div>
-                    <h3>Mobil 1™ ESP X2 0W-20</h3>
-                    <p>Helps protect modern engines and maintain the efficiency of emission systems.</p>
-                </a>
-
-                <!-- Product 3 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil Super All-In-One Protection 5W-30">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">FULL SYNTHETIC</span>
-                        <span class="tag-green">5W-30</span>
-                        <span class="tag-green">GASOLINE</span>
-                    </div>
-                    <h3>Mobil Super™ All-In-One Protection 5W-30</h3>
-                    <p>Full synthetic protection engineered for smoother acceleration and demanding drives.</p>
-                </a>
-
-                <!-- Product 4 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil Super Friction Fighter 10W-40">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">SYNTHETIC TECHNOLOGY</span>
-                        <span class="tag-green">10W-40</span>
-                        <span class="tag-green">GASOLINE</span>
-                    </div>
-                    <h3>Mobil Super™ Friction Fighter 10W-40</h3>
-                    <p>Helps fight wear and daily buildup through traffic, heat, and frequent stop-start driving.</p>
-                </a>
-
-                <!-- Product 5 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil Delvac 1 5W-40">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">ULTIMATE SYNTHETIC</span>
-                        <span class="tag-green">5W-40</span>
-                        <span class="tag-green">DIESEL</span>
-                    </div>
-                    <h3>Mobil Delvac 1™ 5W-40</h3>
-                    <p>Fully synthetic heavy-duty protection for severe on-road and off-road conditions.</p>
-                </a>
-
-                <!-- Product 6 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil Delvac Modern 15W-40">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">SYNTHETIC TECHNOLOGY</span>
-                        <span class="tag-green">15W-40</span>
-                        <span class="tag-green">DIESEL</span>
-                    </div>
-                    <h3>Mobil Delvac Modern™ 15W-40 Super Defense</h3>
-                    <p>Built to help protect hard-working diesel engines under heavy loads and long hours.</p>
-                </a>
-
-                <!-- Product 7 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil Super Moto 10W-40">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">SYNTHETIC TECHNOLOGY</span>
-                        <span class="tag-green">10W-40</span>
-                        <span class="tag-green">MOTORCYCLE</span>
-                    </div>
-                    <h3>Mobil Super Moto™ 10W-40</h3>
-                    <p>Synthetic blend protection developed for cleaner four-stroke motorcycle engines.</p>
-                </a>
-
-                <!-- Product 8 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobil CVTF Multi-Vehicle">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">SYNTHETIC TECHNOLOGY</span>
-                        <span class="tag-green">CVT</span>
-                        <span class="tag-green">TRANSMISSION</span>
-                    </div>
-                    <h3>Mobil CVTF Multi-Vehicle</h3>
-                    <p>Smooth-shifting synthetic protection for a broad range of wet CVT systems.</p>
-                </a>
-
-                <!-- Product 9 -->
-                <a href="#" class="product-card">
-                    <div class="product-image-box">
-                        <img src="../assets/products/bottle.png" alt="Mobilgrease XHP 222">
-                    </div>
-                    <div class="product-tags">
-                        <span class="tag-gray">SPECIALTY LUBRICANT</span>
-                        <span class="tag-green">NLGI 2</span>
-                        <span class="tag-green">GREASE</span>
-                    </div>
-                    <h3>Mobilgrease XHP™ 222</h3>
-                    <p>Long-lasting grease protection for demanding industrial and automotive applications.</p>
-                </a>
-            </div>
             <!-- PAGINATION -->
-            <div class="pagination">
-                <a href="#" class="page-arrow" aria-label="Previous Page">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <span class="page-ellipsis">...</span>
-                <a href="#" class="page-link">8</a>
-                
-                <a href="#" class="page-arrow" aria-label="Next Page">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
+            <nav class="pagination" id="pagination" aria-label="Product pages"></nav>
         </section>
 
         <!-- Bottom Promo Banner -->
@@ -268,26 +107,183 @@
     <!-- Footer injected by components.js -->
     
     <!-- Scripts -->
+    <script src="../js files/products-data.js"></script>
     <script src="../js files/migs-bot.js"></script>
     <script src="../js files/components.js"></script>
     
-    <!-- Dropdown Toggle Script -->
+    <!-- Product listing: rendered from js files/products-data.js -->
     <script>
         function toggleFilter() {
-            const dropdown = document.getElementById('filterDropdown');
-            dropdown.classList.toggle('active');
+            document.getElementById('filterDropdown').classList.toggle('active');
         }
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(event) {
             const container = document.getElementById('filterContainer');
-            const dropdown = document.getElementById('filterDropdown');
-            
-            // If the click happened outside the container, remove the active class
             if (container && !container.contains(event.target)) {
-                dropdown.classList.remove('active');
+                document.getElementById('filterDropdown').classList.remove('active');
             }
         });
+
+        (function () {
+            const PRODUCTS = window.MOBIL_PRODUCTS || [];
+            const PER_PAGE = 9;
+            const CATEGORY_LABELS = {
+                passenger: 'Passenger car',
+                diesel: 'Diesel',
+                motorcycle: 'Motorcycle',
+                transmission: 'Transmission & gear',
+                specialty: 'Grease & brake fluid'
+            };
+
+            const grid = document.getElementById('productsGrid');
+            const pagination = document.getElementById('pagination');
+            const countEl = document.getElementById('productCount');
+            const applyBtn = document.getElementById('filterApply');
+            const selCategory = document.getElementById('filterCategory');
+            const selViscosity = document.getElementById('filterViscosity');
+            const selTechnology = document.getElementById('filterTechnology');
+
+            const params = new URLSearchParams(location.search);
+            let page = Math.max(1, parseInt(params.get('page'), 10) || 1);
+
+            function escapeHtml(str) {
+                return String(str).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            function unique(values) {
+                return values.filter(function (v, i) { return v && values.indexOf(v) === i; });
+            }
+
+            function fillSelect(select, allLabel, options) {
+                select.innerHTML = '<option value="">' + allLabel + '</option>' + options.map(function (o) {
+                    return '<option value="' + escapeHtml(o.value) + '">' + escapeHtml(o.label) + '</option>';
+                }).join('');
+            }
+
+            fillSelect(selCategory, 'All vehicle types', Object.keys(CATEGORY_LABELS).map(function (k) {
+                return { value: k, label: CATEGORY_LABELS[k] };
+            }));
+            fillSelect(selViscosity, 'All viscosities', unique(PRODUCTS.map(function (p) { return p.viscosity; }))
+                .sort(function (a, b) { return a.localeCompare(b, undefined, { numeric: true }); })
+                .map(function (v) { return { value: v, label: v }; }));
+            fillSelect(selTechnology, 'All classifications', unique(PRODUCTS.map(function (p) { return p.technology; }))
+                .sort()
+                .map(function (v) { return { value: v, label: v }; }));
+
+            selCategory.value = params.get('category') || '';
+            selViscosity.value = params.get('viscosity') || '';
+            selTechnology.value = params.get('technology') || '';
+
+            function filtered() {
+                return PRODUCTS.filter(function (p) {
+                    return (!selCategory.value || p.category === selCategory.value) &&
+                        (!selViscosity.value || p.viscosity === selViscosity.value) &&
+                        (!selTechnology.value || p.technology === selTechnology.value);
+                });
+            }
+
+            function summary(text) {
+                const firstSentence = (text || '').split(/\.\s/)[0].replace(/\.$/, '') + (text ? '.' : '');
+                return firstSentence.length > 140 ? firstSentence.slice(0, 137).trim() + '…' : firstSentence;
+            }
+
+            function cardHtml(p) {
+                const tags = ['<span class="tag-gray">' + escapeHtml(p.technology) + '</span>'];
+                if (p.viscosity) tags.push('<span class="tag-green">' + escapeHtml(p.viscosity) + '</span>');
+                tags.push('<span class="tag-green">' + escapeHtml(CATEGORY_LABELS[p.category]) + '</span>');
+                return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="product-card">' +
+                    '<div class="product-image-box"><img src="../assets/products/bottle.png" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>' +
+                    '<div class="product-tags">' + tags.join('') + '</div>' +
+                    '<h3>' + escapeHtml(p.name) + '</h3>' +
+                    '<p>' + escapeHtml(summary(p.description) || 'Available sizes: ' + p.sizes.join(', ')) + '</p>' +
+                    '</a>';
+            }
+
+            const ARROW_PREV = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            const ARROW_NEXT = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+            function pageList(total) {
+                if (total <= 7) return Array.from({ length: total }, function (_, i) { return i + 1; });
+                const pages = [1];
+                const from = Math.max(2, page - 1), to = Math.min(total - 1, page + 1);
+                if (from > 2) pages.push('…');
+                for (let i = from; i <= to; i++) pages.push(i);
+                if (to < total - 1) pages.push('…');
+                pages.push(total);
+                return pages;
+            }
+
+            function renderPagination(totalPages) {
+                if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+                let html = page > 1 ? '<a href="#" class="page-arrow" data-page="' + (page - 1) + '" aria-label="Previous page">' + ARROW_PREV + '</a>' : '';
+                pageList(totalPages).forEach(function (n) {
+                    html += n === '…'
+                        ? '<span class="page-ellipsis">...</span>'
+                        : '<a href="#" class="page-link' + (n === page ? ' active' : '') + '" data-page="' + n + '"' + (n === page ? ' aria-current="page"' : '') + '>' + n + '</a>';
+                });
+                if (page < totalPages) html += '<a href="#" class="page-arrow" data-page="' + (page + 1) + '" aria-label="Next page">' + ARROW_NEXT + '</a>';
+                pagination.innerHTML = html;
+            }
+
+            function syncUrl() {
+                const q = new URLSearchParams();
+                if (selCategory.value) q.set('category', selCategory.value);
+                if (selViscosity.value) q.set('viscosity', selViscosity.value);
+                if (selTechnology.value) q.set('technology', selTechnology.value);
+                if (page > 1) q.set('page', page);
+                const qs = q.toString();
+                history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+            }
+
+            function render() {
+                const list = filtered();
+                const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+                page = Math.min(page, totalPages);
+                const shown = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
+                countEl.textContent = list.length + (list.length === 1 ? ' product' : ' products');
+                grid.innerHTML = shown.length
+                    ? shown.map(cardHtml).join('')
+                    : '<p class="products-empty">No products match these filters. Try resetting one of them.</p>';
+                renderPagination(totalPages);
+                syncUrl();
+            }
+
+            function updateApplyLabel() {
+                const n = filtered().length;
+                applyBtn.innerHTML = 'Show ' + n + (n === 1 ? ' product' : ' products') + ' &rarr;';
+            }
+
+            [selCategory, selViscosity, selTechnology].forEach(function (sel) {
+                sel.addEventListener('change', updateApplyLabel);
+            });
+
+            applyBtn.addEventListener('click', function () {
+                page = 1;
+                render();
+                toggleFilter();
+            });
+
+            document.getElementById('filterReset').addEventListener('click', function () {
+                selCategory.value = selViscosity.value = selTechnology.value = '';
+                updateApplyLabel();
+            });
+
+            pagination.addEventListener('click', function (e) {
+                const link = e.target.closest('[data-page]');
+                if (!link) return;
+                e.preventDefault();
+                page = parseInt(link.dataset.page, 10);
+                render();
+                document.getElementById('productsHeading').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            updateApplyLabel();
+            render();
+        })();
     </script>
 </body>
 </html>
