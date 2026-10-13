@@ -82,64 +82,104 @@
     margin-bottom: 32px;
 }
 
+/* CATEGORY ACCORDION */
+.category-accordion {
+    border-top: 1px solid var(--border-light);
+}
+
+.accordion-heading {
+    margin: 0;
+    font: inherit;
+}
+
+/* The whole row is the click target, not just the chevron */
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.accordion-header:focus-visible {
+    outline: 2px solid var(--secondary-blue);
+    outline-offset: 2px;
+}
+
+.accordion-title {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--primary-blue);
+}
+
+.accordion-count {
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--text-gray);
+}
+
+.accordion-chevron {
+    flex-shrink: 0;
+    transition: transform 300ms ease-in-out;
+}
+
+.accordion-item.is-open .accordion-chevron {
+    transform: rotate(180deg);
+}
+
+/* Body height animates via grid rows; closed content is hidden from tab order */
+.accordion-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease-in-out;
+}
+
+.accordion-item.is-open .accordion-body {
+    grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+    min-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 0s 300ms;
+}
+
+.accordion-item.is-open .accordion-inner {
+    visibility: visible;
+    transition: visibility 0s;
+}
+
+.accordion-inner .products-grid {
+    padding: 32px 0 40px;
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 48px 32px;
-}
-/* PAGINATION */
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 64px;
+    gap: 40px 20px;
 }
 
-.page-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-gray);
-    text-decoration: none;
-    transition: all 0.2s;
+@media (prefers-reduced-motion: reduce) {
+    .accordion-chevron,
+    .accordion-body,
+    .accordion-inner {
+        transition: none;
+    }
 }
 
-.page-link:hover {
-    background-color: #f0f4fa;
-    color: var(--primary-blue);
-}
-
-.page-link.active {
-    background-color: var(--primary-blue);
-    color: var(--white);
-}
-
-.page-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-blue);
-    text-decoration: none;
-    width: 40px;
-    height: 40px;
-    transition: transform 0.2s;
-}
-
-.page-arrow:hover {
-    transform: scale(1.1);
-}
-
-.page-ellipsis {
-    color: var(--text-gray);
-    font-weight: 600;
-    padding: 0 8px;
-}
 .product-card {
     display: flex;
     flex-direction: column;
@@ -152,19 +192,26 @@
 }
 
 .product-image-box {
-    background-color: #e5e5e5; /* Gray background from design */
+    background-color: #F6F6F6;
     border-radius: 12px;
     padding: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 24px;
-    height: 280px;
+    aspect-ratio: 403 / 320;
 }
 
+.product-image-box {
+    position: relative;
+}
+
+/* Absolute so large pack shots cannot stretch the aspect-ratio box */
 .product-image-box img {
-    max-width: 100%;
-    max-height: 100%;
+    position: absolute;
+    inset: 13px;
+    width: calc(100% - 26px);
+    height: calc(100% - 26px);
     object-fit: contain;
 }
 
@@ -186,6 +233,11 @@
 
 .tag-green {
     color: #00a54f; /* Green color for attributes */
+}
+
+/* Masterlist has no description for this product yet */
+.tag-pending {
+    color: #D9640A;
 }
 
 .product-card h3 {
@@ -376,16 +428,86 @@
     cursor: pointer;
 }
 
+.filter-backdrop {
+    display: none;
+}
+
 /* RESPONSIVE */
-@media (max-width: 768px) {
-    .filter-dropdown {
-        width: calc(100vw - 10%); /* Take up most of screen on mobile */
-        right: -5%; /* Align relative to screen */
-    }
+@media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+}
+
+@media (max-width: 768px) {
+    /* Filter becomes a full-width bottom sheet */
+    .filter-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 20, 80, 0.4);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+    }
+    .filter-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .filter-dropdown {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        border: none;
+        border-radius: 16px 16px 0 0;
+        padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+        z-index: 1001;
+        transform: translateY(100%);
+    }
+    .filter-dropdown.active {
+        transform: translateY(0);
+    }
+    body.filter-open {
+        overflow: hidden;
+    }
+
+    .accordion-header {
+        padding: 20px 0;
+    }
+    .accordion-title {
+        font-size: 24px;
+    }
+    .accordion-count {
+        font-size: 14px;
+    }
+    .accordion-inner .products-grid {
+        padding: 20px 0 32px;
+    }
+    .products-grid {
+        gap: 24px 12px;
+    }
+    .product-image-box {
+        aspect-ratio: 1 / 1;
+        margin-bottom: 12px;
+    }
+    .product-card h3 {
+        font-size: 16px;
+    }
+    .product-card p {
+        font-size: 13px;
+    }
+    .product-tags {
+        font-size: 11px;
+        gap: 4px 8px;
+        margin-bottom: 8px;
+    }
+
     .promo-box {
         padding: 32px;
     }
@@ -410,7 +532,9 @@
 }
 
 .product-image-box.is-empty img {
+    position: static;
     width: 96px;
+    height: auto;
     opacity: 0.35;
 }
 

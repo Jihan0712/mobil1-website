@@ -1,4 +1,6 @@
 // Generated from "MOBIL PRODUCT MASTERLIST.xlsx" (Product List sheet).
+// Corrections from the 13 Oct 2026 dev handoff: Scooter "GO" = Gear Oil; ESP 0W-30 row cleared (it carried ESP X2 0W-20 copy).
+// dataPending: masterlist has no description/features yet. Ask Allied, do not invent.
 window.MOBIL_PRODUCTS = [
   {
     "id": "mobil-1-triple-action-power-5w-30",
@@ -281,45 +283,20 @@ window.MOBIL_PRODUCTS = [
     "api": "API SQ",
     "acea": "ACEA C6",
     "ilsac": "",
-    "dataSheet": "SP-XX-Mobil-1-ESP-X2-0W-20",
-    "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQB6wS0wuj4MRZ6lIa1M9PvEAbq8rwzNOt5EgCV1WV36O58?e=4egKlY",
+    "dataSheet": "",
+    "dataSheetUrl": "",
     "image": "",
     "images": {},
-    "description": "Mobil 1™ ESP X2 0W-20 is an advanced full synthetic engine oil specifically designed to provide outstanding wear protection, engine cleanliness, strong durability and advanced fuel economy* to keep your engine running like new.",
-    "approvals": [
-      "MB-Approval 229.71",
-      "Porsche C20",
-      "VW 508 00",
-      "VW 509 00"
-    ],
-    "features": [
-      {
-        "title": "",
-        "text": "Reduce particulate buildup in diesel particulate filters"
-      },
-      {
-        "title": "",
-        "text": "Reduce poisoning of gasoline catalytic converters"
-      },
-      {
-        "title": "",
-        "text": "Reduce deposits and sludge buildup to enable long and clean engine life"
-      },
-      {
-        "title": "",
-        "text": "Reduce oil aging, allowing extended drain interval protection"
-      },
-      {
-        "title": "",
-        "text": "Aid fuel economy"
-      }
-    ],
+    "description": "",
+    "approvals": [],
+    "features": [],
     "sizes": [
       "1L"
     ],
     "skus": [
       "MOBIL 1 ESP 0W-30 CTN 12X1L:SG"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobil-super-all-in-one-protection-0w-20",
@@ -549,7 +526,8 @@ window.MOBIL_PRODUCTS = [
     ],
     "skus": [
       "MOBIL  SUPER FRICTION FIGHTER 15W-40 12X1L"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobil-special-20w-50",
@@ -671,7 +649,8 @@ window.MOBIL_PRODUCTS = [
     "skus": [
       "MOBIL DELVAC 1 5W-40 (ENG) CTN 12X1L:SG",
       "MOBIL DELVAC 1 5W-40 (ENG) CTN 4X5L:SG"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobil-delvac-legend-ch-4-15w-40",
@@ -1164,16 +1143,17 @@ window.MOBIL_PRODUCTS = [
     ],
     "skus": [
       "MOBIL SUPER MOTO 20W-50 CTN 12X1L:SG"
-    ]
+    ],
+    "dataPending": true
   },
   {
-    "id": "mobil-super-moto-scooter-go",
-    "name": "Mobil Super Moto™ Scooter Go",
+    "id": "mobil-super-moto-scooter-gear-oil",
+    "name": "Mobil Super Moto™ Scooter Gear Oil (120ml)",
     "brand": "MOBIL SUPER MOTO™",
     "category": "motorcycle",
     "technology": "Scooter",
-    "viscosity": "",
-    "api": "",
+    "viscosity": "80W-90",
+    "api": "API GL-4",
     "acea": "",
     "ilsac": "",
     "dataSheet": "",
@@ -1188,7 +1168,8 @@ window.MOBIL_PRODUCTS = [
     ],
     "skus": [
       "MOBIL SUPER MOTO SCOOTER GO 20X120ML:TH-EXP"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobil-atf-220",
@@ -1375,7 +1356,8 @@ window.MOBIL_PRODUCTS = [
     ],
     "skus": [
       "MOBIL GREASE XHP 222 CART 40X0.39KG/13.7OZ"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobilube-hd-80w-90",
@@ -1441,7 +1423,7 @@ window.MOBIL_PRODUCTS = [
     "dataSheetUrl": "https://alliedlubrication-my.sharepoint.com/:b:/p/mlabajo/IQDdh-DHf0A6T7xYW2OWV9XfARgm9Dx-vcYDcQWC8iwxAE8?e=Brhk1E",
     "image": "",
     "images": {},
-    "description": "Mobilube 1 SHC 75W-90 is a fully synthetic, high performance commercial gear lubricant formulated using advanced base oils and the latest technology additive system. This lubricant is engineered for heavy duty manual transmissions and rear axles where operations require gear lubricants with excellent load-carrying capability over wide operating temperatures and where extreme pressures and shock loading are expected. Mobilube 1 SHC 75W-90 has excellent thermal and oxidation stability, high inherent Viscosity Index (VI), extremely low pour point, and outstanding low temperature fluidity.",
+    "description": "Mobil 1™ Synthetic Gear Lube LS 75W-90 is a fully synthetic, high performance commercial gear lubricant formulated using advanced base oils and the latest technology additive system. This lubricant is engineered for heavy duty manual transmissions and rear axles where operations require gear lubricants with excellent load-carrying capability over wide operating temperatures and where extreme pressures and shock loading are expected. Mobil 1™ Synthetic Gear Lube LS 75W-90 has excellent thermal and oxidation stability, high inherent Viscosity Index (VI), extremely low pour point, and outstanding low temperature fluidity.",
     "approvals": [
       "Scania STO 2:0 A FS"
     ],
@@ -1571,6 +1553,7 @@ window.MOBIL_PRODUCTS = [
     ],
     "skus": [
       "MOBIL BRAKE FLUID DOT 4, 12X0.5LT CTN"
-    ]
+    ],
+    "dataPending": true
   }
 ];

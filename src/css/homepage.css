@@ -21,7 +21,8 @@
 
 .hero-title {
     color: var(--primary-blue);
-    font-size: clamp(35px, 3.4vw, 64px);
+    /* Max 56px keeps the three lines intact in the 1200px container (Hero v2 in Figma) */
+    font-size: clamp(35px, 3.4vw, 56px);
     font-weight: bold;
     line-height: 1.12;
     letter-spacing: -0.5px;

@@ -42,25 +42,25 @@ const myHeader = `
                                 </a>
                             </li>
                             <li>
-                                <a href="../src/products.html">
+                                <a href="../src/products.html?category=cars">
                                     <span>Cars & light vehicles</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../src/products.html">
+                                <a href="../src/products.html?category=commercial">
                                     <span>Commercial vehicles & trucks</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../src/products.html">
+                                <a href="../src/products.html?category=motorcycles">
                                     <span>Motorcycles & scooters</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
                             </li>
                             <li class="no-border">
-                                <a href="../src/products.html">
+                                <a href="../src/products.html?category=fluids">
                                     <span>Fluids, gear oils & greases</span>
                                     <span class="arrow">${customArrowSVG}</span>
                                 </a>
@@ -101,8 +101,8 @@ const myFooter = `
                 <div class="footer-col">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="#">Passenger vehicle</a></li>
-                        <li><a href="#">Commercial vehicles & trucks</a></li>
+                        <li><a href="../src/products.html?category=cars">Passenger vehicle</a></li>
+                        <li><a href="../src/products.html?category=commercial">Commercial vehicles & trucks</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

@@ -261,7 +261,7 @@
 /* COMPARE PROMO SECTION */
 .compare-section {
     background-color: var(--primary-blue);
-    padding: 2%;
+    padding: 48px var(--page-gutter);
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 64px;
@@ -271,7 +271,6 @@
 
 .compare-content {
     max-width: 600px;
-    padding: 0px 0px 2% 4%;
 }
 
 .compare-content h2 {
