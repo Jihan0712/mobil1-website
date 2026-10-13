@@ -1,0 +1,34 @@
+{
+  "version": "2026-10-13",
+  "personas": ["RITUALIST", "VOYAGER", "ESSENTIALIST", "TACTICIAN", "WORKHORSE"],
+  "questions": [
+    {"id": "Q2_PATTERN", "select": {"min": 1, "max": 1}, "answers": [
+      {"id": "PATTERN_DAILY", "label": "The daily crawl", "support": "Short trips and stop-and-go traffic", "scores": {"TACTICIAN": 4}, "stress_tag": "Stop-and-go traffic"},
+      {"id": "PATTERN_MIXED", "label": "A bit of both", "support": "City roads and expressways", "scores": {"ESSENTIALIST": 4}, "stress_tag": "Mixed city and highway use"},
+      {"id": "PATTERN_OPEN", "label": "The open road", "support": "Highways and provincial routes", "scores": {"VOYAGER": 4}, "stress_tag": "Long-distance driving"},
+      {"id": "PATTERN_WORK", "label": "Working miles", "support": "Deliveries, fieldwork or rough roads", "scores": {"WORKHORSE": 4}, "stress_tag": "Demanding work use"}]},
+    {"id": "Q3_STRESS", "select": {"min": 1, "max": 2}, "answers": [
+      {"id": "STRESS_TRAFFIC", "label": "Heavy traffic", "support": "Frequent stopping and long idling", "scores": {"TACTICIAN": 3}, "stress_tag": "Heavy traffic and idling"},
+      {"id": "STRESS_HEAT", "label": "Daily heat", "support": "Long hours under hot conditions", "scores": {}, "stress_tag": "Frequent heat"},
+      {"id": "STRESS_ROUGH", "label": "Tougher roads", "support": "Dusty, rough or steep routes", "scores": {"VOYAGER": 1, "WORKHORSE": 3}, "stress_tag": "Rough, dusty or steep roads"},
+      {"id": "STRESS_LONG", "label": "Long distances", "support": "Extended, uninterrupted drives", "scores": {"VOYAGER": 3, "WORKHORSE": 1}, "stress_tag": "Extended drives"}]},
+    {"id": "Q4_LOAD", "select": {"min": 1, "max": 1}, "answers": [
+      {"id": "LOAD_LIGHT", "label": "Just the essentials", "support": "Mostly me and a few belongings", "scores": {"ESSENTIALIST": 2}, "stress_tag": "Light everyday load"},
+      {"id": "LOAD_PASSENGERS", "label": "A few passengers", "support": "Regular everyday trips", "scores": {"ESSENTIALIST": 1, "TACTICIAN": 1}, "stress_tag": "Regular passengers"},
+      {"id": "LOAD_FULL", "label": "A full cabin", "support": "Family, friends and their things", "scores": {"ESSENTIALIST": 1, "WORKHORSE": 1}, "stress_tag": "Full cabin"},
+      {"id": "LOAD_HEAVY", "label": "Heavy loads", "support": "Cargo, tools or work equipment", "scores": {"WORKHORSE": 3}, "stress_tag": "Cargo or heavy loads"}]},
+    {"id": "Q5_CARE", "select": {"min": 1, "max": 1}, "answers": [
+      {"id": "CARE_AHEAD", "label": "I stay ahead", "support": "I track every PMS and oil change", "scores": {"RITUALIST": 7}, "stress_tag": "Preventive maintenance"},
+      {"id": "CARE_SCHEDULE", "label": "I stay on schedule", "support": "I rarely miss a service date", "scores": {"RITUALIST": 3, "ESSENTIALIST": 1}, "stress_tag": "Consistent maintenance"},
+      {"id": "CARE_REMINDER", "label": "I need a reminder", "support": "I rely on my mechanic or notifications", "scores": {"ESSENTIALIST": 2}, "stress_tag": "Reminder-led maintenance"},
+      {"id": "CARE_LOST", "label": "I've lost track", "support": "I honestly can't remember the last one", "scores": {}, "stress_tag": "Maintenance check needed"}]}
+  ],
+  "tie_break": [
+    {"if_any_selected": ["CARE_AHEAD"], "pick": "RITUALIST"},
+    {"if_any_selected": ["PATTERN_WORK", "LOAD_HEAVY"], "pick": "WORKHORSE"},
+    {"if_any_selected": ["PATTERN_OPEN", "STRESS_LONG"], "pick": "VOYAGER"},
+    {"if_any_selected": ["PATTERN_DAILY", "STRESS_TRAFFIC"], "pick": "TACTICIAN"},
+    {"if_any_selected": [], "pick": "ESSENTIALIST"}
+  ],
+  "final_fallback_order": ["RITUALIST", "VOYAGER", "ESSENTIALIST", "TACTICIAN", "WORKHORSE"]
+}

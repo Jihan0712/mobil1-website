@@ -11,6 +11,24 @@
         ],
         "createdAt": "2026-10-07T10:11:53.847Z",
         "reason": "Claude verified in browser: .sc-intro/.sc-before-visit padding is var(--page-gutter)=max(5%,...), renders 19.5px at 390w and 352px at 1920w; detector can't resolve max()"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "src/driver-profile.html"
+        ],
+        "createdAt": "2026-10-13T06:52:30.296Z",
+        "reason": "Claude: uppercase strings are short labels whose casing is given in DriverProfile/DRIVER-PROFILE-SPEC.md section 5"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "src/driver-profile.html"
+        ],
+        "createdAt": "2026-10-13T06:52:30.534Z",
+        "reason": "Claude: pre-existing v1 progress-bar width transition; each step sets its own static width, so nothing animates at runtime"
       }
     ]
   }
