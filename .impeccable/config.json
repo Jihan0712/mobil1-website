@@ -38,6 +38,24 @@
         ],
         "createdAt": "2026-10-13T08:43:25.808Z",
         "reason": "Claude: products-hero inset comes from padding var(--page-gutter); verified in render at 375/1440/1920, static scan cannot resolve the variable"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "src/service-centers.html"
+        ],
+        "createdAt": "2026-10-14T07:40:03.284Z",
+        "reason": "Claude triage: no pulse/animation exists in service-centers.html or service-centers.css; the dot is the static geolocation 'You are here' marker, shown only after the user shares their location"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "src/service-centers.html"
+        ],
+        "createdAt": "2026-10-14T08:02:34.052Z",
+        "reason": "Claude triage: only colored shadow is the zero-blur 4px spread ring on the static geolocation 'You are here' map marker (service-centers.css .sc-you-are-here); standard map accuracy halo, not a decorative glow; predates this session"
       }
     ]
   }
