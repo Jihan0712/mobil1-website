@@ -1,5 +1,6 @@
 // Generated from "MOBIL PRODUCT MASTERLIST.xlsx" (Product List sheet).
-// Corrections from the 13 Oct 2026 dev handoff: Scooter "GO" = Gear Oil; ESP 0W-30 row cleared (it carried ESP X2 0W-20 copy).
+// Corrections from the 13 Oct 2026 dev handoff: Scooter "GO" = Gear Oil; ESP 0W-30 row cleared (it carried ESP X2 0W-20 copy);
+// FS X2 5W-50 description/features cleared (they were Triple Action Power 5W-30 copy).
 // dataPending: masterlist has no description/features yet. Ask Allied, do not invent.
 window.MOBIL_PRODUCTS = [
   {
@@ -132,26 +133,13 @@ window.MOBIL_PRODUCTS = [
         "back": "../assets/products/packshots/mobil-1-fs-x2-5w-50-sp-v2-ctn-4x4l-en-th-sg-back.webp"
       }
     },
-    "description": "Mobil 1™ Triple Action Power advanced full synthetic engine oil delivers outstanding engine Performance, Protection, and Cleanliness.",
+    "description": "",
     "approvals": [
       "MB-Approval 229.3",
       "FIAT 9.55535-M2",
       "LEXUS LFA Service Fill"
     ],
-    "features": [
-      {
-        "title": "Performance",
-        "text": "Reduces the stress of daily wear and harsh conditions for longer engine life."
-      },
-      {
-        "title": "Protection",
-        "text": "Guards against extreme temperatures to prevent breakdowns."
-      },
-      {
-        "title": "Cleanliness",
-        "text": "Prevents buildup of contaminants and sludge for a cleaner engine."
-      }
-    ],
+    "features": [],
     "sizes": [
       "1L",
       "4L"
@@ -159,7 +147,8 @@ window.MOBIL_PRODUCTS = [
     "skus": [
       "MOBIL 1 FS X2 5W-50 (SP) V2 CTN 12x1L (EN/TH):SG",
       "MOBIL 1 FS X2 5W-50 (SP)V2 CTN 4X4L(EN/TH):SG"
-    ]
+    ],
+    "dataPending": true
   },
   {
     "id": "mobil-1-esp-x2-0w-20",

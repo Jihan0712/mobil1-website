@@ -440,6 +440,11 @@
 }
 
 @media (max-width: 768px) {
+    .btn-filter,
+    .btn-white-outline {
+        min-height: 44px;
+    }
+
     /* Filter becomes a full-width bottom sheet */
     .filter-backdrop {
         display: block;

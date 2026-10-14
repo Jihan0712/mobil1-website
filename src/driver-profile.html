@@ -459,6 +459,11 @@
                 });
             }
 
+            // SAE grade stays on one line ("5W-30", not "5W-" / "30")
+            function nameHtml(name) {
+                return escapeHtml(name).replace(/\b(\d{1,2}W-\d{2})\b/g, '<span class="nowrap">$1</span>');
+            }
+
             function productFor(key) {
                 const id = PRODUCT_IDS[key];
                 return id ? PRODUCTS.find(function (p) { return p.id === id; }) : null;
@@ -480,7 +485,7 @@
                 const inner = '<div class="card-img-box">' + img + '</div>' +
                     '<div class="product-details">' +
                     '<span class="badge-pill ' + (slot === 'primary' ? 'badge-green' : 'badge-blue') + '">' + label + '</span>' +
-                    '<h3>' + escapeHtml(display) + '</h3>' +
+                    '<h3>' + nameHtml(display) + '</h3>' +
                     (benefitLine(p) ? '<p>' + escapeHtml(benefitLine(p)) + '</p>' : '') +
                     '</div>';
                 const cls = 'product-card ' + (slot === 'primary' ? 'card-best-fit' : 'card-also-suitable');

@@ -29,6 +29,15 @@
         ],
         "createdAt": "2026-10-13T06:52:30.534Z",
         "reason": "Claude: pre-existing v1 progress-bar width transition; each step sets its own static width, so nothing animates at runtime"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/products.html"
+        ],
+        "createdAt": "2026-10-13T08:43:25.808Z",
+        "reason": "Claude: products-hero inset comes from padding var(--page-gutter); verified in render at 375/1440/1920, static scan cannot resolve the variable"
       }
     ]
   }

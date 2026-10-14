@@ -249,6 +249,19 @@ section {
     color: var(--primary-blue);
 }
 
+/* Product line tiles link to their products accordion section */
+a.product-card img {
+    transition: opacity 0.2s;
+}
+
+a.product-card:hover img {
+    opacity: 0.85;
+}
+
+a.product-card:hover h3 {
+    text-decoration: underline;
+}
+
 /* =========================================
    BUY WITH CONFIDENCE SECTION
    ========================================= */

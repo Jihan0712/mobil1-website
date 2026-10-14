@@ -704,6 +704,8 @@ a.product-card:hover {
     }
     .result-hero img {
         height: 200px;
+        /* Wide banners: keep the subject (right side) in frame on narrow screens */
+        object-position: 80% 30%;
     }
     .drive-truth {
         font-size: 18px;

@@ -227,6 +227,11 @@
                 });
             }
 
+            // SAE grade stays on one line ("5W-30", not "5W-" / "30")
+            function nameHtml(name) {
+                return escapeHtml(name).replace(/\b(\d{1,2}W-\d{2})\b/g, '<span class="nowrap">$1</span>');
+            }
+
             function summary(text) {
                 const firstSentence = (text || '').split(/\.\s/)[0].replace(/\.$/, '') + (text ? '.' : '');
                 return firstSentence.length > 140 ? firstSentence.slice(0, 137).trim() + '…' : firstSentence;
@@ -245,7 +250,7 @@
                         ? '<div class="product-image-box"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>'
                         : '<div class="product-image-box is-empty"><img src="../assets/mobil-logo.png" alt=""><span>Pack shot coming soon</span></div>') +
                     '<div class="product-tags">' + tags.join('') + '</div>' +
-                    '<h3>' + escapeHtml(p.name) + '</h3>' +
+                    '<h3>' + nameHtml(p.name) + '</h3>' +
                     '<p>' + escapeHtml(copy) + '</p>' +
                     '</a>';
             }

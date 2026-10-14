@@ -38,6 +38,11 @@
     --font-family: 'EMprint', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Keeps an SAE grade like 5W-30 from breaking at the hyphen */
+.nowrap {
+    white-space: nowrap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -379,5 +384,25 @@ footer {
     .footer-links {
         flex-wrap: wrap;
         gap: 32px;
+    }
+
+    /* 44px minimum tap targets on mobile */
+    .btn-primary,
+    .btn-outline,
+    .btn-white {
+        min-height: 44px;
+    }
+    .footer-col ul li {
+        margin-bottom: 0;
+    }
+    .footer-col ul li a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+    .footer-bottom a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
     }
 }
