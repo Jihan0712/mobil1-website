@@ -14,12 +14,19 @@ const myHeader = `
             <img src="../assets/allied-logo.png" alt="Allied Lubrication">
         </div>
         
-        <div class="menu-toggle">
-            <svg width="24" height="24" viewBox="120 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M124 7H140M124 12H140M124 17H140" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="mobile-actions">
+            <a href="../src/driver-profile.html" class="btn-primary mobile-cta">Find the Right Oil
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
+            </a>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="120 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M124 7H140M124 12H140M124 17H140" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
-        
+
         <nav class="desktop-nav">
             <ul>
                 <!-- Dropdown Parent Item -->
@@ -89,6 +96,62 @@ const myHeader = `
     </header>
 `;
 
+const myMobileMenu = `
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+        <div class="mobile-menu-top">
+            <div class="logo-container">
+                <a href="homepage.html"><img src="../assets/mobil-logo.png" alt="Mobil Logo"></a>
+                <span class="logo-divider">|</span>
+                <img src="../assets/allied-logo.png" alt="Allied Lubrication">
+            </div>
+            <button type="button" class="mobile-menu-close" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M5 5L19 19M19 5L5 19" stroke="#001450" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <a href="../src/driver-profile.html" class="btn-primary mobile-menu-cta">Find the Right Oil
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 7H17M11 13L17 7L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <nav aria-label="Main">
+            <ul class="mobile-menu-links">
+                <li><a href="../src/products.html">Products</a></li>
+                <li><a href="../src/service-centers.html">Where to Buy</a></li>
+                <li><a href="../src/about.html">About</a></li>
+                <li><a href="../src/contact.html">Contact</a></li>
+                <li><a href="../src/search.html">Search</a></li>
+            </ul>
+        </nav>
+        <img class="mobile-menu-allied" src="../assets/allied-logo.png" alt="Allied Lubrication, authorized Mobil distributor">
+    </div>
+`;
+
+function setupMobileMenu() {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('mobileMenu');
+    if (!toggle || !menu) return;
+    const close = menu.querySelector('.mobile-menu-close');
+
+    function setOpen(open) {
+        menu.hidden = !open;
+        toggle.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+        (open ? close : toggle).focus();
+    }
+
+    toggle.addEventListener('click', function () { setOpen(true); });
+    close.addEventListener('click', function () { setOpen(false); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.hidden) setOpen(false);
+    });
+    // Back to desktop width: never leave the page scroll-locked
+    window.matchMedia('(min-width: 769px)').addEventListener('change', function (mq) {
+        if (mq.matches && !menu.hidden) setOpen(false);
+    });
+}
+
 const myFooter = `
     <footer>
         <div class="footer-top">
@@ -133,7 +196,8 @@ const myFooter = `
 `;
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.body.insertAdjacentHTML('afterbegin', myHeader);
+    document.body.insertAdjacentHTML('afterbegin', myHeader + myMobileMenu);
+    setupMobileMenu();
     
     const wantsFooter = document.body.getAttribute('data-no-footer') !== "true";
     if (wantsFooter) {

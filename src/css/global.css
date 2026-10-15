@@ -294,11 +294,82 @@ ul.dropdown-list li a:hover .arrow {
     gap: 24px;
 }
 
-.menu-toggle {
+.mobile-actions {
     display: none;
-    font-size: 29px;
-    color: var(--primary-blue);
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-toggle,
+.mobile-menu-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: none;
     cursor: pointer;
+}
+
+.menu-toggle:focus-visible,
+.mobile-menu-close:focus-visible {
+    outline: 2px solid var(--secondary-blue);
+    outline-offset: 2px;
+}
+
+/* Full-screen mobile menu (Figma: Local/Header — Mobile Prototype) */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    padding: 16px var(--page-gutter) calc(32px + env(safe-area-inset-bottom));
+    background-color: var(--white);
+    overflow-y: auto;
+}
+
+.mobile-menu[hidden] {
+    display: none;
+}
+
+.mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.mobile-menu-cta {
+    align-self: flex-start;
+    margin-bottom: 16px;
+}
+
+.mobile-menu-links {
+    list-style: none;
+}
+
+.mobile-menu-links a {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.mobile-menu-allied {
+    align-self: center;
+    height: 48px;
+    margin-top: 32px;
+    object-fit: contain;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 /* 5. FOOTER */
@@ -371,8 +442,8 @@ footer {
     .desktop-nav, .desktop-actions {
         display: none;
     }
-    .menu-toggle {
-        display: block;
+    .mobile-actions {
+        display: flex;
     }
     .logo-container img {
         height: 30px;
@@ -404,5 +475,12 @@ footer {
         display: inline-flex;
         align-items: center;
         min-height: 44px;
+    }
+}
+
+/* Header CTA only where it fits beside the logos; it is always in the menu */
+@media (max-width: 559px) {
+    .mobile-cta {
+        display: none;
     }
 }
