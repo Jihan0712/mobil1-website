@@ -56,6 +56,7 @@
     const SHOPEE_URL = 'https://shopee.ph/mobilph_alsc';
     const LAZADA_URL = 'https://www.lazada.com.ph/shop/mobil-ph/';
 
+    
     const loading = {};
     function loadData(name) {
         const d = DATA_FILES[name];
