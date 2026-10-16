@@ -1546,3 +1546,15 @@ window.MOBIL_PRODUCTS = [
     "dataPending": true
   }
 ];
+
+// Pack shots added 15 Oct 2026 (from the client Packshots folder)
+(function () {
+  function addShot(id, size, src) {
+    const p = window.MOBIL_PRODUCTS.find(function (x) { return x.id === id; });
+    if (!p) return;
+    p.images[size] = { front: src };
+    if (!p.image) p.image = src;
+  }
+  addShot('mobil-delvac-legend-15w-40-complete-defense', '5L', '../assets/products/packshots/mobil-delvac-legend-15w-40-complete-defense-5l-front.webp');
+  addShot('mobil-1-synthetic-gear-lube-ls-75w-90', '1QT', '../assets/products/packshots/mobil-1-synthetic-gear-lube-ls-75w-90-1qt-front.webp');
+})();

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Products</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header will be injected by components.js -->
+
+    <main>
+        <!-- Top Hero Banner -->
+        <section class="products-hero">
+            <div class="products-hero-content">
+                <span class="eyebrow">MOBIL PRODUCTS</span>
+                <h1>Protection for how you drive</h1>
+                <p>Browse by category, viscosity grade, performance standard, or pack size. Or answer five quick questions for a guided&nbsp;recommendation.</p>
+            </div>
+        </section>
+
+        <!-- Toolbar -->
+        <div class="filter-bar-container">
+            <div class="filter-bar">
+                <span class="product-count" id="productCount">&nbsp;</span>
+
+                <div class="filter-dropdown-container" id="filterContainer">
+                    <button class="btn-filter" id="filterToggle" aria-expanded="false" aria-controls="filterDropdown">
+                        Filter
+                    </button>
+
+                    <div class="filter-backdrop" id="filterBackdrop"></div>
+
+                    <div class="filter-dropdown" id="filterDropdown" role="dialog" aria-labelledby="filterTitle">
+                        <div class="filter-header">
+                            <h2 id="filterTitle">Filter products</h2>
+                            <button class="btn-close" id="filterClose">Close</button>
+                        </div>
+
+                        <p class="filter-intro">Select one or more options where applicable. Results update when you confirm.</p>
+
+                        <div class="filter-group">
+                            <label for="filterCategory">Product category</label>
+                            <div class="filter-select-wrapper">
+                                <select id="filterCategory"></select>
+                                <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                            <span class="filter-helper">Cars, commercial, motorcycles, or fluids</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filterViscosity">Viscosity grade</label>
+                            <div class="filter-select-wrapper">
+                                <select id="filterViscosity"></select>
+                                <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                            <span class="filter-helper">SAE grade, for example 5W-30 or 15W-40</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filterStandard">Performance standard</label>
+                            <div class="filter-select-wrapper">
+                                <select id="filterStandard"></select>
+                                <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                            <span class="filter-helper">API, ACEA, or ILSAC rating</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filterPack">Pack size</label>
+                            <div class="filter-select-wrapper">
+                                <select id="filterPack"></select>
+                                <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                            <span class="filter-helper">1L, 4L, 5L, 20L pail, or 208L drum</span>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button class="btn-reset" id="filterReset">Reset filters</button>
+                            <button class="btn-primary" id="filterApply">Show products &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products, grouped by category -->
+        <section class="products-section">
+            <h2 id="productsHeading">All Mobil products</h2>
+            <div class="category-accordion" id="categoryAccordion"></div>
+            <p class="products-empty" id="productsEmpty" hidden>No products match these filters. Try resetting one of them.</p>
+        </section>
+
+        <!-- Bottom Promo Banner -->
+        <section class="products-promo">
+            <div class="promo-box">
+                <h2>Not sure which oil fits?</h2>
+                <p>Tell us about your vehicle and everyday driving to get a clearer product&nbsp;recommendation.</p>
+                <a href="driver-profile.html" class="btn-white-outline">
+                    Start Driver Profile
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 5px;">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer injected by components.js -->
+
+    <!-- Scripts -->
+    <script src="../js files/products-data.js"></script>
+    <script src="../js files/migs-bot.js"></script>
+    <script src="../js files/components.js"></script>
+
+    <!-- Product listing: rendered from js files/products-data.js -->
+    <script>
+        (function () {
+            // Hidden products (see MOBIL_HIDDEN_PRODUCT_IDS in products-data.js) are not listed
+            const PRODUCTS = (window.MOBIL_PRODUCTS || []).filter(function (p) { return !p.hidden; });
+
+            // The 4 accordion categories. Data categories map onto them.
+            const GROUPS = [
+                { id: 'cars', label: 'Cars & light vehicles', categories: ['passenger'] },
+                { id: 'commercial', label: 'Commercial vehicles & trucks', categories: ['diesel'] },
+                { id: 'motorcycles', label: 'Motorcycles & scooters', categories: ['motorcycle'] },
+                { id: 'fluids', label: 'Fluids, gear oils & greases', categories: ['transmission', 'specialty'] }
+            ];
+            const TAG_LABELS = {
+                passenger: 'Passenger car',
+                diesel: 'Diesel',
+                motorcycle: 'Motorcycle',
+                transmission: 'Transmission & gear',
+                specialty: 'Grease & brake fluid'
+            };
+            // Pack sizes as written in the SKU names -> label, in display order
+            const PACK_SIZES = [
+                ['0.8L', '0.8L'], ['1L', '1L'], ['4L', '4L'], ['5L', '5L'], ['20L', '20L pail'], ['208L', '208L drum'],
+                ['120ML', '120ml'], ['0.5L', '500ml'], ['1QT', '1 QT'], ['0.39KG', '0.39kg cartridge']
+            ];
+            const CHEVRON = '<svg class="accordion-chevron" width="14" height="9" viewBox="0 0 14 9" fill="none" aria-hidden="true"><path d="M1 1L7 7L13 1" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+            const accordion = document.getElementById('categoryAccordion');
+            const emptyEl = document.getElementById('productsEmpty');
+            const countEl = document.getElementById('productCount');
+            const applyBtn = document.getElementById('filterApply');
+            const toggleBtn = document.getElementById('filterToggle');
+            const panel = document.getElementById('filterDropdown');
+            const backdrop = document.getElementById('filterBackdrop');
+            const selCategory = document.getElementById('filterCategory');
+            const selViscosity = document.getElementById('filterViscosity');
+            const selStandard = document.getElementById('filterStandard');
+            const selPack = document.getElementById('filterPack');
+
+            function escapeHtml(str) {
+                return String(str).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            function groupOf(p) {
+                return GROUPS.find(function (g) { return g.categories.indexOf(p.category) !== -1; });
+            }
+
+            // API / ACEA / ILSAC cells hold comma lists, sometimes combined ("API MT-1/GL-4/GL-5") or unprefixed ("C6")
+            function standardsOf(p) {
+                const out = [];
+                [['API', p.api], ['ACEA', p.acea], ['ILSAC', p.ilsac]].forEach(function (pair) {
+                    (pair[1] || '').split(/\s*,\s*/).filter(Boolean).forEach(function (s) {
+                        if (s.indexOf(pair[0] + ' ') !== 0) s = pair[0] + ' ' + s;
+                        if (pair[0] === 'API' && /^API [A-Z]+-\d\/.+/.test(s)) {
+                            s.slice(4).split('/').forEach(function (part) { out.push('API ' + part); });
+                        } else {
+                            out.push(s);
+                        }
+                    });
+                });
+                return out.filter(function (s, i) { return out.indexOf(s) === i; });
+            }
+
+            function isSaeGrade(v) { return /^\d+W-\d+$/.test(v || ''); }
+
+            function fillSelect(select, allLabel, options) {
+                select.innerHTML = '<option value="">' + allLabel + '</option>' + options.map(function (o) {
+                    return '<option value="' + escapeHtml(o.value) + '">' + escapeHtml(o.label) + '</option>';
+                }).join('');
+            }
+
+            const allStandards = [];
+            PRODUCTS.forEach(function (p) {
+                standardsOf(p).forEach(function (s) { if (allStandards.indexOf(s) === -1) allStandards.push(s); });
+            });
+            const STANDARD_ORDER = ['API', 'ACEA', 'ILSAC'];
+            allStandards.sort(function (a, b) {
+                const d = STANDARD_ORDER.indexOf(a.split(' ')[0]) - STANDARD_ORDER.indexOf(b.split(' ')[0]);
+                return d || a.localeCompare(b, undefined, { numeric: true });
+            });
+
+            fillSelect(selCategory, 'All categories', GROUPS.map(function (g) { return { value: g.id, label: g.label }; }));
+            fillSelect(selViscosity, 'All viscosity grades', PRODUCTS.map(function (p) { return p.viscosity; })
+                .filter(function (v, i, arr) { return isSaeGrade(v) && arr.indexOf(v) === i; })
+                .sort(function (a, b) { return a.localeCompare(b, undefined, { numeric: true }); })
+                .map(function (v) { return { value: v, label: v }; }));
+            fillSelect(selStandard, 'All standards', allStandards.map(function (s) { return { value: s, label: s }; }));
+            fillSelect(selPack, 'All pack sizes', PACK_SIZES
+                .filter(function (ps) { return PRODUCTS.some(function (p) { return p.sizes.indexOf(ps[0]) !== -1; }); })
+                .map(function (ps) { return { value: ps[0], label: ps[1] }; }));
+
+            const params = new URLSearchParams(location.search);
+            selCategory.value = params.get('category') || '';
+            selViscosity.value = params.get('viscosity') || '';
+            selStandard.value = params.get('standard') || '';
+            selPack.value = params.get('pack') || '';
+
+            function filtersActive() {
+                return !!(selCategory.value || selViscosity.value || selStandard.value || selPack.value);
+            }
+
+            function filtered() {
+                return PRODUCTS.filter(function (p) {
+                    return (!selCategory.value || groupOf(p).id === selCategory.value) &&
+                        (!selViscosity.value || p.viscosity === selViscosity.value) &&
+                        (!selStandard.value || standardsOf(p).indexOf(selStandard.value) !== -1) &&
+                        (!selPack.value || p.sizes.indexOf(selPack.value) !== -1);
+                });
+            }
+
+            // SAE grade stays on one line ("5W-30", not "5W-" / "30")
+            function nameHtml(name) {
+                return escapeHtml(name).replace(/\b(\d{1,2}W-\d{2})\b/g, '<span class="nowrap">$1</span>');
+            }
+
+            function summary(text) {
+                const firstSentence = (text || '').split(/\.\s/)[0].replace(/\.$/, '') + (text ? '.' : '');
+                return firstSentence.length > 140 ? firstSentence.slice(0, 137).trim() + '…' : firstSentence;
+            }
+
+            function cardHtml(p) {
+                const tags = [];
+                if (p.technology) tags.push('<span class="tag-gray">' + escapeHtml(p.technology) + '</span>');
+                if (p.viscosity) tags.push('<span class="tag-green">' + escapeHtml(p.viscosity) + '</span>');
+                tags.push('<span class="tag-green">' + escapeHtml(TAG_LABELS[p.category]) + '</span>');
+                const copy = summary(p.description) || 'Available sizes: ' + p.sizes.join(', ');
+                return '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="product-card">' +
+                    (p.image
+                        ? '<div class="product-image-box"><img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>'
+                        : '<div class="product-image-box is-empty"><img src="../assets/mobil-logo.png" alt=""></div>') +
+                    '<div class="product-tags">' + tags.join('') + '</div>' +
+                    '<h3>' + nameHtml(p.name) + '</h3>' +
+                    '<p>' + escapeHtml(copy) + '</p>' +
+                    '</a>';
+            }
+
+            // Which groups are open. Default: first group only, or the one named in ?category=
+            const openGroups = {};
+            openGroups[selCategory.value || GROUPS[0].id] = true;
+
+            function syncUrl() {
+                const q = new URLSearchParams();
+                if (selCategory.value) q.set('category', selCategory.value);
+                if (selViscosity.value) q.set('viscosity', selViscosity.value);
+                if (selStandard.value) q.set('standard', selStandard.value);
+                if (selPack.value) q.set('pack', selPack.value);
+                const qs = q.toString();
+                history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+            }
+
+            function render() {
+                const list = filtered();
+                countEl.textContent = list.length + (list.length === 1 ? ' product' : ' products');
+
+                accordion.innerHTML = GROUPS.map(function (g) {
+                    const items = list.filter(function (p) { return groupOf(p) === g; });
+                    if (!items.length) return '';
+                    const open = !!openGroups[g.id];
+                    return '<div class="accordion-item' + (open ? ' is-open' : '') + '" data-group="' + g.id + '">' +
+                        '<h3 class="accordion-heading">' +
+                        '<button class="accordion-header" id="acc-h-' + g.id + '" aria-expanded="' + open + '" aria-controls="acc-b-' + g.id + '">' +
+                        '<span class="accordion-title">' + escapeHtml(g.label) +
+                        '<span class="accordion-count">' + items.length + (items.length === 1 ? ' product' : ' products') + '</span></span>' +
+                        CHEVRON + '</button></h3>' +
+                        '<div class="accordion-body" id="acc-b-' + g.id + '" role="region" aria-labelledby="acc-h-' + g.id + '">' +
+                        '<div class="accordion-inner"><div class="products-grid">' + items.map(cardHtml).join('') + '</div></div></div>' +
+                        '</div>';
+                }).join('');
+                emptyEl.hidden = list.length > 0;
+                syncUrl();
+            }
+
+            // Items are independent: opening one does not close the others
+            accordion.addEventListener('click', function (e) {
+                const header = e.target.closest('.accordion-header');
+                if (!header) return;
+                const item = header.closest('.accordion-item');
+                const open = !item.classList.contains('is-open');
+                openGroups[item.dataset.group] = open;
+                item.classList.toggle('is-open', open);
+                header.setAttribute('aria-expanded', String(open));
+            });
+
+            // FILTER PANEL (dropdown on desktop, bottom sheet on mobile)
+            function setPanel(open) {
+                panel.classList.toggle('active', open);
+                backdrop.classList.toggle('active', open);
+                document.body.classList.toggle('filter-open', open);
+                toggleBtn.setAttribute('aria-expanded', String(open));
+            }
+            toggleBtn.addEventListener('click', function () { setPanel(!panel.classList.contains('active')); });
+            document.getElementById('filterClose').addEventListener('click', function () { setPanel(false); });
+            backdrop.addEventListener('click', function () { setPanel(false); });
+            document.addEventListener('click', function (e) {
+                if (!document.getElementById('filterContainer').contains(e.target)) setPanel(false);
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && panel.classList.contains('active')) { setPanel(false); toggleBtn.focus(); }
+            });
+
+            function updateApplyLabel() {
+                const n = filtered().length;
+                applyBtn.innerHTML = 'Show ' + n + (n === 1 ? ' product' : ' products') + ' &rarr;';
+            }
+
+            [selCategory, selViscosity, selStandard, selPack].forEach(function (sel) {
+                sel.addEventListener('change', updateApplyLabel);
+            });
+
+            applyBtn.addEventListener('click', function () {
+                // Filtering: open every group that still has matches so results are visible
+                Object.keys(openGroups).forEach(function (k) { delete openGroups[k]; });
+                if (filtersActive()) {
+                    GROUPS.forEach(function (g) { openGroups[g.id] = true; });
+                } else {
+                    openGroups[GROUPS[0].id] = true;
+                }
+                render();
+                setPanel(false);
+                document.getElementById('productsHeading').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            document.getElementById('filterReset').addEventListener('click', function () {
+                selCategory.value = selViscosity.value = selStandard.value = selPack.value = '';
+                updateApplyLabel();
+            });
+
+            if (filtersActive()) GROUPS.forEach(function (g) { openGroups[g.id] = true; });
+            updateApplyLabel();
+            render();
+        })();
+    </script>
+</body>
+</html>

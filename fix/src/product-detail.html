@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Product</title>
+    
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header will be injected by components.js -->
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <a href="products.html">Products</a> /
+        <span id="pdBreadcrumb"></span>
+    </nav>
+
+    <!-- Product Overview -->
+    <section class="product-overview">
+        <div class="product-image-container">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" id="pdImage">
+            <div class="pack-views" id="pdViews" hidden>
+                <button type="button" class="pack-view active" data-side="front">Front</button>
+                <button type="button" class="pack-view" data-side="back">Back</button>
+            </div>
+        </div>
+        
+        <div class="product-info-container">
+            <span class="product-brand" id="pdBrand"></span>
+            <span class="product-badge" id="pdBadge"></span>
+
+            <h1 id="pdName"></h1>
+
+            <div class="product-specs" id="pdSpecs"></div>
+
+            <div class="product-sizes" id="pdSizes"></div>
+
+            <p class="product-description" id="pdDescription"></p>
+
+            <div class="suitability-box" id="pdApprovalsBox">
+                <h5>RECOMMENDATIONS &amp; APPROVALS</h5>
+                <ul class="approvals-list" id="pdApprovals"></ul>
+            </div>
+
+            <div class="purchase-options">
+                <a href="https://shopee.ph/mobilph_alsc" target="_blank" rel="noopener" class="store-card">
+                    <img src="../assets/shopee.png" alt="Shopee Logo" class="store-logo">
+                    <span class="store-link-text">
+                        Buy on Shopee
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+                
+                <a href="https://www.lazada.com.ph/shop/mobil-ph/" target="_blank" rel="noopener" class="store-card">
+                    <img src="../assets/lazada.png" alt="Lazada Logo" class="store-logo">
+                    <span class="store-link-text">
+                        Buy on Lazada
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+            
+            <a href="contact.html" class="btn-secondary" id="pdDataSheet">Request data sheet</a>
+            <p class="data-sheet-ref" id="pdDataSheetRef"></p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section" id="pdFeaturesSection">
+        <div class="benefits-container">
+            <h2 id="pdFeaturesHeading">Features and benefits</h2>
+            
+            <div class="benefits-grid" id="pdFeatures"></div>
+        </div>
+    </section>
+
+    <!-- Compare Promo Section -->
+    <section class="compare-section">
+        <div class="compare-content">
+            <h2>Still comparing?</h2>
+            <p>Use Driver Profile to connect your vehicle, driving pattern, and daily conditions to a suitable Mobil oil.</p>
+            <a href="driver-profile.html" class="btn-white">
+                Find the right oil 
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+        <div class="compare-image">
+            <img src="../assets/product-detail/woman.webp" alt="Woman checking phone near car">
+        </div>
+    </section>
+
+    <!-- Footer will be injected by components.js -->
+    
+    <!-- Scripts -->
+    <script src="../js files/products-data.js"></script>
+    <script>
+        (function () {
+            const PRODUCTS = window.MOBIL_PRODUCTS || [];
+            const ICONS = [
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 14.3V6C8 5.20435 8.31607 4.44129 8.87868 3.87868C9.44129 3.31607 10.2044 3 11 3C11.7957 3 12.5587 3.31607 13.1213 3.87868C13.6839 4.44129 14 5.20435 14 6V14.3C14.6793 14.9076 15.1581 15.7071 15.373 16.5927C15.588 17.4784 15.529 18.4084 15.2038 19.2598C14.8786 20.1112 14.3025 20.8437 13.5519 21.3606C12.8012 21.8774 11.9114 22.1541 11 22.1541C10.0886 22.1541 9.19875 21.8774 8.4481 21.3606C7.69745 20.8437 7.12142 20.1112 6.79623 19.2598C6.47103 18.4084 6.41201 17.4784 6.62696 16.5927C6.84191 15.7071 7.32071 14.9076 8 14.3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 8V16" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 3V5M18 11V13M14 8H16M20 8H22" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 10.5C19.3807 10.5 20.5 9.38071 20.5 8C20.5 6.61929 19.3807 5.5 18 5.5C16.6193 5.5 15.5 6.61929 15.5 8C15.5 9.38071 16.6193 10.5 18 10.5Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`,
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3L19 6V11C19 15.8 16.2 18.8 12 21C7.8 18.8 5 15.8 5 11V6L12 3Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.69995 12.1001L10.8 14.2001L15.4 9.6001" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`,
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4C12 4 17 9.8 17 14C17 15.3261 16.4732 16.5979 15.5355 17.5355C14.5979 18.4732 13.3261 19 12 19C10.6739 19 9.40215 18.4732 8.46447 17.5355C7.52678 16.5979 7 15.3261 7 14C7 9.8 12 4 12 4Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.5 3V6M17 4.5H20M5 6V8M4 7H6" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 16C10.5 16.7 11.1 17 12 17" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`
+            ];
+
+            const id = new URLSearchParams(location.search).get('id');
+            const product = PRODUCTS.find(function (p) { return p.id === id; });
+            if (!product) {
+                // Unknown or missing id: show a not-found state instead of another product
+                document.title = 'Product not found | Mobil';
+                document.getElementById('pdBreadcrumb').textContent = 'Product not found';
+                document.querySelectorAll('.product-overview, .benefits-section').forEach(function (el) { el.hidden = true; });
+                const notFound = document.createElement('section');
+                notFound.className = 'product-not-found';
+                notFound.innerHTML = '<h1>Product not found</h1>' +
+                    '<p>This product link may be out of date. Browse the full range or use Driver Profile to find the right oil.</p>' +
+                    '<div class="product-not-found-actions">' +
+                    '<a href="products.html" class="btn-primary">See all Mobil products</a>' +
+                    '<a href="driver-profile.html" class="btn-outline">Start Driver Profile</a></div>';
+                document.querySelector('.product-overview').after(notFound);
+                return;
+            }
+
+            function $(elId) { return document.getElementById(elId); }
+            function escapeHtml(str) {
+                return String(str).replace(/[&<>"']/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            document.title = product.name + ' | Mobil';
+            $('pdBreadcrumb').textContent = product.name;
+            $('pdBrand').textContent = product.brand;
+            $('pdBadge').textContent = product.technology;
+            // SAE grade stays on one line ("5W-30", not "5W-" / "30")
+            $('pdName').innerHTML = escapeHtml(product.name).replace(/\b(\d{1,2}W-\d{2})\b/g, '<span class="nowrap">$1</span>');
+            // Pack shots from the masterlist, per size (front / back)
+            const imageBox = document.querySelector('.product-image-container');
+            let currentSize = product.sizes[0];
+            let currentSide = 'front';
+
+            function showPackShot() {
+                const shots = product.images[currentSize] || {};
+                const src = shots[currentSide] || shots.front || product.image;
+                if (src) {
+                    $('pdImage').src = src;
+                    imageBox.classList.add('is-packshot');
+                } else {
+                    // No pack shot in the masterlist yet: neutral tile, not another product's photo
+                    $('pdImage').src = '../assets/mobil-logo.png';
+                    imageBox.classList.add('is-empty');
+                }
+                $('pdImage').alt = product.name + (currentSize ? ' ' + currentSize : '') + (shots[currentSide] && currentSide === 'back' ? ' (back)' : '');
+                $('pdViews').hidden = !(shots.front && shots.back);
+                $('pdViews').querySelectorAll('.pack-view').forEach(function (b) {
+                    b.classList.toggle('active', b.dataset.side === currentSide);
+                });
+            }
+
+            $('pdViews').addEventListener('click', function (e) {
+                const btn = e.target.closest('.pack-view');
+                if (!btn) return;
+                currentSide = btn.dataset.side;
+                showPackShot();
+            });
+
+            const specs = [product.viscosity, product.api, product.acea, product.ilsac].filter(Boolean);
+            $('pdSpecs').innerHTML = specs.map(escapeHtml).join(' &middot; ');
+
+            $('pdSizes').innerHTML = '<span>Available sizes:</span>' + product.sizes.map(function (size, i) {
+                return '<div class="size-pill' + (i === 0 ? ' active' : '') + '">' + escapeHtml(size) + '</div>';
+            }).join('');
+            $('pdSizes').addEventListener('click', function (e) {
+                const pill = e.target.closest('.size-pill');
+                if (!pill) return;
+                this.querySelectorAll('.size-pill').forEach(function (el) { el.classList.toggle('active', el === pill); });
+                currentSize = pill.textContent;
+                currentSide = 'front';
+                showPackShot();
+            });
+            showPackShot();
+
+            if (product.description) {
+                $('pdDescription').textContent = product.description;
+            } else {
+                $('pdDescription').hidden = true;
+            }
+
+            if (product.approvals.length) {
+                $('pdApprovals').innerHTML = product.approvals.map(function (a) {
+                    return '<li>' + escapeHtml(a) + '</li>';
+                }).join('');
+            } else {
+                $('pdApprovalsBox').hidden = true;
+            }
+
+            if (product.dataSheetUrl) {
+                $('pdDataSheet').href = product.dataSheetUrl;
+                $('pdDataSheet').target = '_blank';
+                $('pdDataSheet').rel = 'noopener';
+                $('pdDataSheet').textContent = 'Download data sheet';
+            } else if (product.dataSheet) {
+                $('pdDataSheetRef').textContent = 'Data sheet reference: ' + product.dataSheet;
+            }
+
+            if (product.features.length) {
+                $('pdFeatures').innerHTML = product.features.map(function (f, i) {
+                    return '<div class="benefit-card">' +
+                        '<div class="benefit-icon">' + ICONS[i % ICONS.length] + '</div>' +
+                        (f.title ? '<h3>' + escapeHtml(f.title) + '</h3>' : '') +
+                        '<p>' + escapeHtml(f.text) + '</p>' +
+                        '</div>';
+                }).join('');
+            } else {
+                $('pdFeaturesSection').hidden = true;
+            }
+        })();
+    </script>
+    <script src="../js files/migs-bot.js"></script>
+    <script src="../js files/components.js"></script>
+</body>
+</html>

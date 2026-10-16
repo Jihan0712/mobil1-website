@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil - Search</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/chat-window.css">
+</head>
+<body>
+
+    <!-- Header will be injected by components.js -->
+
+    <main class="search-container">
+        
+        <!-- Search Hero Section -->
+        <div class="search-hero">
+            <div class="section-eyebrow">Search Mobil</div>
+            <h1 class="search-title">Find what keeps you moving</h1>
+            <p class="search-subtitle">Search Mobil products, engine-care guidance, service centers, and support in one place.</p>
+            
+            <div class="search-box-wrapper">
+                <div class="search-input-area">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.5 17C14.0899 17 17 14.0899 17 10.5C17 6.91015 14.0899 4 10.5 4C6.91015 4 4 6.91015 4 10.5C4 14.0899 6.91015 17 10.5 17Z" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.5 15.5L21 21" stroke="#001450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Default value removed so user sees placeholder initially -->
+                    <input type="text" id="searchInput" placeholder="Search by vehicle make, model, or year...">
+                </div>
+                <!-- The script handles search via 'input' event, but keep button just in case -->
+                <button class="search-btn-large" onclick="performSearch()">Search &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Filter Tabs (Dynamically populated by JS) -->
+        <div class="search-tabs" id="brandTabs">
+            <div class="search-tab active" data-brand="all" onclick="setBrand('all')">All</div>
+        </div>
+
+        <!-- Dynamic Results Header -->
+        <div class="results-header">
+            <h2 id="resultsTitle">All Vehicle Recommendations</h2>
+            <span id="resultsCount">Loading results...</span>
+        </div>
+
+        <!-- Dynamic Results Grid -->
+        <div class="results-grid" id="resultsArea">
+            <!-- JavaScript will inject cards here -->
+        </div>
+
+        <!-- Empty State CTA (Shown when no results) -->
+        <div class="empty-state-cta" id="emptyState" style="display: none;">
+            <div class="empty-text">
+                <span class="result-eyebrow">Empty state guidance</span>
+                <h3>No exact match? Let's narrow it down.</h3>
+                <p>Check the spelling, try a broader product or vehicle term, or use Driver Profile for a guided recommendation.</p>
+            </div>
+            <a href="driver-profile.html" class="btn-primary" style="background-color: #001f5b;">Start Driver Profile &rarr;</a>
+        </div>
+
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Scripts -->
+    <script src="../js files/migs-bot.js"></script>
+    <script src="../js files/components.js"></script>
+
+    <!-- YOUR LOCAL DATA & SEARCH LOGIC -->
+    <script src="../js files/driver-profile-data.js"></script>
+    <script src="../js files/products-data.js"></script>
+    <script src="../js files/vehicle-specs-data.js"></script>
+    <script>
+        // Same vehicle data and product mapping as the Driver Profile and Migs
+        const PRODUCTS = window.MOBIL_PRODUCTS;
+        const vehicles = window.DP_VEHICLES.map(function (row) {
+            const v = {};
+            window.DP_VEHICLE_FIELDS.forEach(function (f, i) { v[f] = row[i]; });
+            const spec = window.DP_VEHICLE_SPECS[v.lookup_id] || [];
+            v.sae = spec[0] || '';
+            v.spec = spec[1] || '';
+            v.capacity = spec[2] || '';
+            v.engine = spec[3] || v.engine_option_label;
+            return v;
+        });
+
+        const brands = [...new Set(vehicles.map(v => v.brand))].sort((a, b) => a.localeCompare(b));
+        let currentBrand = 'all';
+        let currentQuery = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTabs();
+            performSearch();
+
+            const input = document.getElementById('searchInput');
+            let debounceTimer;
+            input.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    currentQuery = e.target.value.trim().toLowerCase();
+                    performSearch();
+                }, 300);
+            });
+        });
+
+        function escapeHtml(str) {
+            return String(str == null ? '' : str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        // "SG / SH / SJ" -> each part kept on one line, so values never split mid-spec
+        function specHtml(value) {
+            if (!value) return '—';
+            return value.split(/\s*\/\s*/).map(part => '<span class="nowrap">' + escapeHtml(part) + '</span>').join(' / ');
+        }
+
+        function productFor(key) {
+            const id = window.DP_PRODUCT_IDS[key];
+            return id ? PRODUCTS.find(p => p.id === id) : null;
+        }
+
+        function renderTabs() {
+            const container = document.getElementById('brandTabs');
+            brands.forEach(brand => {
+                const tab = document.createElement('div');
+                tab.className = 'search-tab';
+                tab.textContent = brand;
+                tab.dataset.brand = brand;
+                tab.onclick = () => setBrand(brand);
+                container.appendChild(tab);
+            });
+        }
+
+        function setBrand(brand) {
+            currentBrand = brand;
+            document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.search-tab[data-brand="${brand}"]`) ||
+                              document.querySelector(`.search-tab[data-brand="all"]`);
+            if (activeTab) activeTab.classList.add('active');
+            performSearch();
+        }
+
+        function performSearch() {
+            const query = currentQuery.toLowerCase();
+            const grid = document.getElementById('resultsArea');
+            const emptyState = document.getElementById('emptyState');
+            const countSpan = document.getElementById('resultsCount');
+            const title = document.getElementById('resultsTitle');
+
+            const filtered = vehicles.filter(v => {
+                const matchesBrand = currentBrand === 'all' || v.brand === currentBrand;
+                if (!query) return matchesBrand;
+                const searchStr = `${v.brand} ${v.model} ${v.generation} ${v.engine} ${v.engine_option_label} ${v.sae}`.toLowerCase();
+                return matchesBrand && searchStr.includes(query);
+            });
+
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'flex';
+                countSpan.textContent = '0 results found';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            countSpan.textContent = `${filtered.length} result${filtered.length !== 1 ? 's' : ''} found`;
+
+            if (query) {
+                title.textContent = `Search Results for "${currentQuery}"`;
+            } else if (currentBrand !== 'all') {
+                title.textContent = `${currentBrand} Recommendations`;
+            } else {
+                title.textContent = 'All Vehicle Recommendations';
+            }
+
+            filtered.forEach(v => grid.appendChild(createCard(v)));
+        }
+
+        function createCard(v) {
+            const div = document.createElement('div');
+            div.className = 'result-card';
+
+            const recHTML = (label, key, className = '') => {
+                const p = productFor(key);
+                if (!p) return '';
+                return `<div class="rec-row ${className}">
+                    <span class="rec-label">${label}:</span>
+                    <a class="rec-value" href="product-detail.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.name).replace(/\b(\d{1,2}W-\d{2})\b/g, '<span class="nowrap">$1</span>')}</a>
+                </div>`;
+            };
+
+            div.innerHTML = `
+                <div class="card-header">
+                    <span class="result-eyebrow">${escapeHtml(v.brand)}</span>
+                </div>
+                <h3>${escapeHtml(v.model)}</h3>
+                <div class="result-meta">
+                    ${v.generation ? `<span class="meta-tag">${escapeHtml(v.generation)}</span>` : ''}
+                    <span class="meta-tag">${escapeHtml(v.engine)}</span>
+                </div>
+
+                <div class="oil-specs">
+                    <div class="spec-item">
+                        <label>Viscosity</label>
+                        <span>${specHtml(v.sae)}</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Capacity</label>
+                        <span>${v.capacity ? '<span class="nowrap">' + escapeHtml(v.capacity) + '</span>' : '—'}</span>
+                    </div>
+                    <div class="spec-item">
+                        <label>Spec / API</label>
+                        <span>${specHtml(v.spec)}</span>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    ${recHTML('Right for your vehicle', v.final_primary_key)}
+                    ${recHTML('Premium option', v.final_secondary_key, 'rec-best')}
+                </div>
+            `;
+            return div;
+        }
+    </script>
+</body>
+</html>

@@ -157,7 +157,7 @@ const myFooter = `
         <div class="footer-top">
             <div class="footer-logo-col">
                 <img src="../assets/mobil-logo.png" alt="Mobil Logo">
-                <p>Engine oils and services engineered for performance.</p>
+                <p>Engine oils and services<br>engineered for performance.</p>
             </div>
             
             <div class="footer-links">
