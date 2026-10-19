@@ -219,14 +219,19 @@
         }
         fillProvinces();
 
+        // Lowercase and strip accents so "las pinas" matches "Las Piñas"
+        function fold(str) {
+            return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        }
+
         function filtered() {
-            var q = searchInput.value.trim().toLowerCase();
+            var q = fold(searchInput.value.trim());
             var terms = q ? q.split(/\s+/) : [];
             var list = baseOrder.filter(function (c) {
                 if (regionSelect.value && c.region !== regionSelect.value) return false;
                 if (provinceSelect.value && c.province !== provinceSelect.value) return false;
                 if (!terms.length) return true;
-                var hay = (c.name + ' ' + c.address + ' ' + c.city + ' ' + c.province + ' ' + c.region).toLowerCase();
+                var hay = fold(c.name + ' ' + c.address + ' ' + c.city + ' ' + c.province + ' ' + c.region);
                 return terms.every(function (t) { return hay.indexOf(t) !== -1; });
             });
             if (userPoint) {

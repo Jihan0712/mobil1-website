@@ -80,7 +80,9 @@
     }
 
     function norm(str) {
-        return String(str).toLowerCase().replace(/[™®]/g, '').replace(/\s+/g, ' ').trim();
+        // Accents are stripped so "Las Pinas" matches "Las Piñas"
+        return String(str).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+            .replace(/[™®]/g, '').replace(/\s+/g, ' ').trim();
     }
 
     function hasWord(text, word) {
