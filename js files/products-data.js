@@ -1549,12 +1549,31 @@ window.MOBIL_PRODUCTS = [
 
 // Pack shots added 15 Oct 2026 (from the client Packshots folder)
 (function () {
-  function addShot(id, size, src) {
+  function addShot(id, size, src, back) {
     const p = window.MOBIL_PRODUCTS.find(function (x) { return x.id === id; });
     if (!p) return;
-    p.images[size] = { front: src };
+    if (p.sizes.indexOf(size) === -1) p.sizes.push(size); // pack shot supplied for a size not in the masterlist row
+    p.images[size] = back ? { front: src, back: back } : { front: src };
     if (!p.image) p.image = src;
   }
   addShot('mobil-delvac-legend-15w-40-complete-defense', '5L', '../assets/products/packshots/mobil-delvac-legend-15w-40-complete-defense-5l-front.webp');
   addShot('mobil-1-synthetic-gear-lube-ls-75w-90', '1QT', '../assets/products/packshots/mobil-1-synthetic-gear-lube-ls-75w-90-1qt-front.webp');
+  // Added 20 Oct 2026 from the client packshot folder
+  addShot('mobil-1-esp-0w-30', '1L', '../assets/products/packshots/mobil-1-esp-0w-30-1l-front.webp', '../assets/products/packshots/mobil-1-esp-0w-30-1l-back.webp');
+  addShot('mobil-super-all-in-one-protection-0w-20', '1L', '../assets/products/packshots/mobil-super-all-in-one-protection-0w-20-1l-front.webp', '../assets/products/packshots/mobil-super-all-in-one-protection-0w-20-1l-back.webp');
+  addShot('mobil-super-friction-fighter-5w-30', '1L', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-1l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-1l-back.webp');
+  addShot('mobil-super-friction-fighter-15w-40', '1L', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-1l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-1l-back.webp');
+  addShot('mobil-1-racing-4t-10w-40', '1L', '../assets/products/packshots/mobil-1-racing-4t-10w-40-1l-front.webp');
+  addShot('mobil-super-moto-scooter-gear-oil', '120ML', '../assets/products/packshots/mobil-super-moto-scooter-gear-oil-120ml-front.webp');
+  addShot('mobil-cvtf-multi-vehicle', '1L', '../assets/products/packshots/mobil-cvtf-multi-vehicle-1l-front.webp');
+  addShot('mobilube-hd-80w-90', '1L', '../assets/products/packshots/mobilube-hd-80w-90-1l-front.webp');
+  addShot('mobil-dexron-vi-atf', '1L', '../assets/products/packshots/mobil-dexron-vi-atf-1l-front.webp');
+  addShot('mobil-brake-fluid-dot-4', '0.5L', '../assets/products/packshots/mobil-brake-fluid-dot-4-0.5l-front.webp');
+  addShot('mobil-1-esp-0w-30', '4L', '../assets/products/packshots/mobil-1-esp-0w-30-4l-front.webp', '../assets/products/packshots/mobil-1-esp-0w-30-4l-back.webp');
+  addShot('mobil-1-esp-0w-30', '5L', '../assets/products/packshots/mobil-1-esp-0w-30-5l-front.webp', '../assets/products/packshots/mobil-1-esp-0w-30-5l-back.webp');
+  addShot('mobil-super-all-in-one-protection-0w-20', '4L', '../assets/products/packshots/mobil-super-all-in-one-protection-0w-20-4l-front.webp', '../assets/products/packshots/mobil-super-all-in-one-protection-0w-20-4l-back.webp');
+  addShot('mobil-super-friction-fighter-5w-30', '4L', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-4l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-4l-back.webp');
+  addShot('mobil-super-friction-fighter-5w-30', '5L', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-5l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-5l-back.webp');
+  addShot('mobil-super-friction-fighter-15w-40', '4L', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-4l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-4l-back.webp');
+  addShot('mobil-super-friction-fighter-15w-40', '5L', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-5l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-5l-back.webp');
 })();
