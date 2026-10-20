@@ -1576,4 +1576,142 @@ window.MOBIL_PRODUCTS = [
   addShot('mobil-super-friction-fighter-5w-30', '5L', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-5l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-5w-30-5l-back.webp');
   addShot('mobil-super-friction-fighter-15w-40', '4L', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-4l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-4l-back.webp');
   addShot('mobil-super-friction-fighter-15w-40', '5L', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-5l-front.webp', '../assets/products/packshots/mobil-super-friction-fighter-15w-40-5l-back.webp');
+  // Added 20 Oct 2026 from the client Drive "Packshots" folder
+  addShot('mobil-1-triple-action-power-plus-0w-40', '4L', '../assets/products/packshots/mobil-1-triple-action-power-plus-0w-40-4l-front.webp', '../assets/products/packshots/mobil-1-triple-action-power-plus-0w-40-4l-back.webp');
+  addShot('mobil-super-moto-scooter-10w-40', '1L', '../assets/products/packshots/mobil-super-moto-scooter-10w-40-1l-front.webp');
+})();
+
+// Data entries added 20 Oct 2026 from the "Mobil Missing Data Entry" sheet (sourced from mobil.com PDS pages).
+// Fills only empty fields; approvals are merged. meetsOrExceeds / recommendedFor / typicalProperties are kept for later use.
+(function () {
+  function fillData(id, d) {
+    const p = window.MOBIL_PRODUCTS.find(function (x) { return x.id === id; });
+    if (!p) return;
+    if (!p.description) p.description = d.description;
+    if (!p.features.length) p.features = d.features.map(function (line) {
+      const m = line.match(/^([A-Z][a-z]+): (.+)$/);
+      return m ? { title: m[1], text: m[2].charAt(0).toUpperCase() + m[2].slice(1) } : { title: '', text: line };
+    });
+    (d.approvals || []).forEach(function (a) { if (p.approvals.indexOf(a) === -1) p.approvals.push(a); });
+    if (!p.api && d.api) p.api = d.api;
+    if (!p.dataSheet) p.dataSheet = d.dataSheet;
+    if (!p.dataSheetUrl) p.dataSheetUrl = d.dataSheetUrl;
+    p.meetsOrExceeds = d.meetsOrExceeds;
+    p.recommendedFor = d.recommendedFor;
+    p.typicalProperties = d.typicalProperties;
+    delete p.dataPending;
+  }
+
+  fillData('mobil-super-friction-fighter-15w-40', {
+    description: 'Mobil Super™ Friction Fighter 15W-40 is brought to you by the makers of Mobil 1. This synthetic technology engine oil is specially engineered to enhance engine wear protection and prolong your engine life. It provides a protective layer within your moving engine parts for better engine wear protection even during frequent start-stop operations of daily traffic conditions.',
+    features: [
+      'Friction Fighter Molecule technology for wear protection',
+      'Helps keep engines clean',
+      'Strong protection at high temperatures',
+      'Helps reduce Low Speed Pre-Ignition (LSPI)',
+      'Suits most Japanese and Korean gasoline engines'
+    ],
+    api: 'API SN PLUS',
+    meetsOrExceeds: 'API SN PLUS, API SN, API SM',
+    recommendedFor: 'ACEA A3/B3-16, API CF',
+    typicalProperties: '',
+    dataSheet: 'AP-XX-Mobil-Super-Friction-Fighter-15W-40',
+    dataSheetUrl: 'https://www.mobil.com/en-ph/passenger-vehicle-lube/pds/ap-xx-mobil-super-friction-fighter-15w-40'
+  });
+
+  fillData('mobil-super-moto-20w-50', {
+    description: 'Mobil Super Moto™ 20W-50 is a high performance, synthetic blend technology four-stroke motorcycle engine oil by the makers of Mobil 1™. It is developed to provide boosted engine cleanliness and protection for all types of motorcycles and operation.',
+    features: [
+      'Up to 7x better wear protection vs. industry standard (Sequence IVA and VIII tests vs. API SN)',
+      'Oil change interval up to 6,000 km (field trial, 100–125cc bikes in India)',
+      'Engine cleanliness and corrosion protection',
+      'Protects engine and gears; supports clutch performance'
+    ],
+    api: 'API SN',
+    meetsOrExceeds: 'API SN, JASO MA, JASO MA2',
+    recommendedFor: '',
+    typicalProperties: 'KV @100°C 19.5 mm²/s · VI 123 · Flash point 260°C · Pour point -33°C',
+    dataSheet: 'AP-XX-Mobil-Super-Moto-20W-50',
+    dataSheetUrl: 'https://www.mobil.com/en-ph/passenger-vehicle-lube/pds/ap-xx-mobil-super-moto-20w-50'
+  });
+
+  fillData('mobil-super-moto-scooter-gear-oil', {
+    description: 'Mobil Super Moto™ Scooter Gear Oil is a multi-grade 80W-90 gear oil suitable for Japanese scooter final gear transmissions. Its unique extreme pressure additive increases oil film thickness under frequent start-stop scooter operating condition, protects your scooter gear from wear under extreme gear load and heat condition.',
+    features: [
+      'Extreme-pressure additives for a thicker protective film',
+      'Less metal-to-metal contact: lower friction, heat and gear noise',
+      'Good thermal and oxidation stability',
+      'Good low-temperature flow for easier starts',
+      'Rust and corrosion protection; seal compatible'
+    ],
+    meetsOrExceeds: '',
+    recommendedFor: 'API GL-4',
+    typicalProperties: 'KV @40°C 143 mm²/s · KV @100°C 14.23 mm²/s · VI 97 · Flash point 253°C · Pour point -33°C',
+    dataSheet: 'SP-XX-Mobil-Super-Moto-Scooter-Gear-Oil',
+    dataSheetUrl: 'https://www.mobil.com/en-ph/passenger-vehicle-lube/pds/sp-xx-mobil-super-moto-scooter-gear-oil'
+  });
+
+  fillData('mobilgrease-xhp-222', {
+    description: 'Mobilgrease XHP™ 220 greases are extended service lithium complex greases intended for a wide variety of applications and severe operating conditions. These greases were designed to outperform conventional products by applying cutting edge, proprietary, lithium complex manufacturing technology. They are formulated to provide excellent high temperature performance with superb adhesion, structural stability and resistance to water contamination. These greases have a high level of chemical stability and offer excellent protection against rust and corrosion. These greases feature high dropping points and maximum recommended operating temperature of 140º C (284°F). Mobilgrease XHP 220 greases are available in NLGI grades 00, 0, 1, 2 and 3 with an ISO VG 220 base oil viscosity.',
+    features: [
+      'Strong resistance to water washout and spray-off',
+      'Tacky, adhesive formula stays in place longer',
+      'Rust and corrosion protection in wet conditions',
+      'Resists breakdown at high temperature',
+      'Anti-wear and extreme-pressure protection'
+    ],
+    approvals: ['Volvo 97720'],
+    meetsOrExceeds: 'DIN 51825 KP 2 N -20, NLGI GA, NLGI HPM+WR',
+    recommendedFor: 'Fives Cincinnati P-64, P-72, P-79',
+    typicalProperties: 'Lithium complex · Dark blue · Base oil 220 mm²/s @40°C · Worked penetration 280 · 4-ball weld 315 kgf',
+    dataSheet: 'GL-XX-Mobilgrease-XHP-220-Series',
+    dataSheetUrl: 'https://www.mobil.com/en-ph/grease/pds/gl-xx-mobilgrease-xhp-220-series'
+  });
+
+  fillData('mobil-brake-fluid-dot-4', {
+    description: 'Mobil Brake Fluid DOT 4 is an extra high performance hydraulic brake fluid for use in automotive disc, drum and anti-skid brake systems and clutch systems.',
+    features: [
+      'High boiling point for consistent braking',
+      'Low rubber swell helps prevent leaks',
+      'Strong corrosion protection for brake components',
+      'Polyethylene glycol ether based'
+    ],
+    meetsOrExceeds: 'FMVSS 116 DOT 3, FMVSS 116 DOT 4, ISO 4925:2005 Class 3 & 4, SAE J1704',
+    recommendedFor: '',
+    typicalProperties: 'Replace every 2 years or 40,000 km; reseal container right after use (absorbs moisture); never reuse drained fluid',
+    dataSheet: 'GL-XX-Mobil-Brake-Fluid-DOT-4',
+    dataSheetUrl: 'https://www.mobil.com/en-es/passenger-vehicle-lube/pds/gl-xx-mobil-brake-fluid-dot-4'
+  });
+
+  fillData('mobil-1-fs-x2-5w-50', {
+    description: 'Mobil 1™ FS X2 5W-50 is an advanced full synthetic engine oil engineered to provide high-temperature protection, cleaning power, and wear resistance for high-mileage and high-performance engines.',
+    features: [
+      'Performance: helps reduce wear for longer engine life',
+      'Protection: up to 10x better high-temperature protection (Sequence IIIH vs. API SP)',
+      'Cleanliness: active cleaning agents fight sludge and deposits'
+    ],
+    approvals: ['MB-Approval 229.3'],
+    meetsOrExceeds: 'API SP, SN PLUS, SN, SM, SQ; ACEA A3/B4; Porsche A40; Lexus LFA Service Fill',
+    recommendedFor: 'FIAT 9.55535-M2, API CF',
+    typicalProperties: 'KV @100°C 18.6 mm²/s · VI 185 · Flash point 225°C · Pour point -37°C',
+    dataSheet: 'SP-XX-Mobil-1-FS-X2-5W-50',
+    dataSheetUrl: 'https://www.mobil.com/en-ph/passenger-vehicle-lube/pds/sp-xx-mobil-1-fs-x2-5w-50'
+  });
+
+  fillData('mobil-1-esp-0w-30', {
+    description: 'Mobil 1™ ESP 0W-30 is an advanced full synthetic engine oil designed to help provide exceptional cleaning power, wear protection and overall performance. Mobil 1™ ESP 0W-30 has been expertly engineered to help prolong the life and maintain the efficiency of emission systems in both diesel and gasoline powered automobiles. Mobil 1™ ESP 0W-30 meets or exceeds the requirements of many leading industry and car manufacturers\' standards required for newer modern diesel and gasoline powered passenger car engines.',
+    features: [
+      'Less particulate buildup in diesel particulate filters',
+      'Helps protect gasoline catalytic converters from poisoning',
+      'Fights deposits and sludge for a long, clean engine life',
+      'Slows oil aging, supporting extended drain intervals',
+      'Helps fuel economy'
+    ],
+    approvals: ['MB 229.31', 'MB 229.51', 'MB 229.52', 'Porsche C30', 'VW 504 00', 'VW 507 00'],
+    meetsOrExceeds: 'API SP, SQ, SN PLUS, SN, SL; ACEA C3',
+    recommendedFor: 'ACEA C2',
+    typicalProperties: '',
+    dataSheet: 'EU-XX-Mobil-1-ESP-0W-30',
+    dataSheetUrl: 'https://www.mobil.com/en-ae/passenger-vehicle-lube/pds/eu-xx-mobil-1-esp-0w-30'
+  });
 })();
