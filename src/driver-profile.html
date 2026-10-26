@@ -167,7 +167,7 @@
                 Q5_CARE: { title: 'How do you take care of what you worked hard for?', helper: 'Choose the answer closest to your usual maintenance habit.' }
             };
 
-            // Spec section 5. Banner art from Figma "Driver Profile — All persona results" (23 Oct 2026).
+            // Spec section 5. Banner art from Figma page "08 Deck — Driver Personas" (26 Oct 2026).
             const PERSONAS = {
                 TACTICIAN: {
                     headline: "You're The Tactician.",
@@ -183,7 +183,8 @@
                     truth: 'The farther you go, the more dependable protection matters.',
                     defaultTag: 'Long-distance driving',
                     engine: 'Long, uninterrupted drives build mileage and sustained engine demand. Protection has to stay dependable across the distance.',
-                    banner: '../assets/driver/persona-voyager.webp'
+                    banner: '../assets/driver/persona-voyager.webp',
+                    bannerPosition: '50% 80%'
                 },
                 WORKHORSE: {
                     headline: "You're The Workhorse.",
@@ -497,6 +498,7 @@
             function renderPersona(persona, selected) {
                 const c = PERSONAS[persona];
                 $('resBanner').src = c.banner;
+                $('resBanner').style.objectPosition = c.bannerPosition || '';
                 $('resHeadline').textContent = c.headline;
                 $('resDescription').textContent = c.description;
                 $('resTruth').textContent = c.truth;
