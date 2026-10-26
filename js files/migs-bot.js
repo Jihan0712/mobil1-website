@@ -328,7 +328,8 @@
                     { label: 'Find the right oil for my vehicle', run: startVehicle },
                     { label: 'Compare Mobil products', run: startCompare },
                     { label: 'Understand my driving stress', run: startStress },
-                    { label: 'Find where to buy', run: startBuy }
+                    { label: 'Find where to buy', run: startBuy },
+                    { label: 'Contact the team', run: startContact }
                 ]);
             } catch (e) { /* nothing more we can safely do */ }
         }
@@ -360,7 +361,8 @@
                 { label: 'Find the right oil for my vehicle', run: startVehicle },
                 { label: 'Compare Mobil products', run: startCompare },
                 { label: 'Understand my driving stress', run: startStress },
-                { label: 'Find where to buy', run: startBuy }
+                { label: 'Find where to buy', run: startBuy },
+                { label: 'Contact the team', run: startContact }
             ]);
             if (first) {
                 addHtml('<p class="chat-disclaimer">Recommendations are guidance only. Confirm viscosity and specifications in your vehicle owner\'s manual.</p>');
@@ -675,11 +677,32 @@
             ], 'chips');
         }
 
+        /* ---------- 5. Contact ---------- */
+
+        function showContact() {
+            addBot('You can reach the Allied Lubrication team Monday to Friday, 8:00-5:00:' +
+                '<ul class="chat-contact">' +
+                    '<li>Call <a href="tel:+63283951771,8898">8395-1771 ext 8898</a></li>' +
+                    '<li>Email <a href="mailto:info@alliedlubrication.com">info@alliedlubrication.com</a></li>' +
+                    '<li>Head office: 538 Jenny’s Avenue, Brgy. Maybunga, Pasig City 1607, Metro Manila</li>' +
+                '</ul>');
+            addHtml('<a class="chat-link" href="contact.html#inquiry-form">Send an inquiry &rarr;</a>');
+            addOptions([
+                { label: 'Find where to buy', run: startBuy },
+                menuOption()
+            ], 'chips');
+        }
+
+        function startContact() {
+            reply(showContact);
+        }
+
         /* ---------- Free text ---------- */
 
         const INTENTS = {
             buy: /\b(buy|bili|bumili|where|saan|shop|store|near|nearby|service cent|mechanic|casa|lazada|shopee|retailer|outlet)/,
             price: /\b(price|cost|how much|magkano|presyo)/,
+            contact: /\b(contact|call|phone|telephone|landline|hotline|email|e-mail|office|address|opening hours|office hours|business hours|inquiry|inquire|customer service|talk to|tawag|numero)\b/,
             compare: /\b(compare|comparison|difference|versus|vs\.?|better)\b/,
             stress: /\b(stress|traffic|heat|hot|init|rough|pothole|flood|rain|idling|idle|long drive|commute)/,
             motorcycle: /\b(motor|motorcycle|motorbike|scooter|bike|4t|underbone)\b/,
@@ -698,7 +721,7 @@
                 return reply(showMenu);
             }
             // A clear new request beats the question Migs just asked
-            if (pending && (INTENTS.compare.test(t) || INTENTS.price.test(t) || (INTENTS.buy.test(t) && t.split(' ').length > 1))) pending = null;
+            if (pending && (INTENTS.compare.test(t) || INTENTS.price.test(t) || INTENTS.contact.test(t) || (INTENTS.buy.test(t) && t.split(' ').length > 1))) pending = null;
 
             if (pending) {
                 const fn = pending;
@@ -711,6 +734,9 @@
             }
             if (INTENTS.thanks.test(t) && t.split(' ').length <= 4) {
                 return reply(function () { addBot('You’re welcome! Drive safe.'); showMenu(); });
+            }
+            if (INTENTS.contact.test(t)) {
+                return reply(showContact);
             }
             if (INTENTS.price.test(t)) {
                 return reply(function () {

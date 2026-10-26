@@ -371,6 +371,20 @@
     margin: 4px 0 0;
 }
 
+.chat-contact {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+}
+
+.chat-contact a {
+    color: var(--secondary-blue);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
 .chat-vehicle-gen {
     display: block;
     font-size: 13px;

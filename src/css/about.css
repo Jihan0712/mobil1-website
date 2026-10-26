@@ -1,173 +1,245 @@
-/* HERO SECTION */
+/* About page, built from Figma "15 — About" (Oct 2026) */
+
+.about-eyebrow {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--secondary-blue);
+    margin-bottom: 8px;
+}
+
+/* HERO */
 .about-hero {
-    position: relative;
-    width: 100%;
-    height: 50vh; /* Adjust height based on design */
-    min-height: 400px;
-    background-color: var(--text-dark);
-    display: flex;
+    background-color: var(--primary-blue);
+    padding: 40px var(--page-gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-    justify-content: center;
+    gap: 48px;
+}
+
+.about-hero-text h1 {
+    color: var(--white);
+    font-size: clamp(32px, 3vw, 46px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.about-hero-text p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.about-hero-media {
+    aspect-ratio: 3 / 2;
+    border-radius: 16px;
     overflow: hidden;
 }
 
-.about-hero img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.about-hero-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* TOP INFO SECTION (Mobil) */
-.about-mobil-section {
-    padding: 72px var(--page-gutter);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: flex-start;
-}
-
-.about-mobil-left .eyebrow {
-    font-size: 17px;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
     display: block;
 }
 
-.about-mobil-left h1 {
-    font-size: 40px;
-    color: var(--primary-blue);
-    line-height: 1.2;
-    max-width: 500px;
+/* ABOUT MOBIL */
+.about-mobil {
+    padding: 96px var(--page-gutter);
 }
 
-.about-mobil-right h2 {
-    font-size: 22px;
-    color: var(--primary-blue);
-    margin-bottom: 16px;
-    line-height: 1.4;
-    font-weight: bold;
+.about-mobil-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    margin-bottom: 64px;
 }
 
-.about-mobil-right p {
+.about-mobil-intro h2 {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.about-lead {
+    color: var(--primary-blue);
     font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.about-mobil-intro p:not(.about-lead) {
     color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 32px;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
-.list-box {
-    background-color: #EEF5FF; /* Light blue background */
-    border-radius: 8px;
-    padding: 32px;
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
 }
 
-.list-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.about-stat {
+    border-top: 2px solid var(--red-brand);
+    padding-top: 24px;
 }
 
-.list-box ul li {
-    font-size: 17px;
+.about-stat-number {
+    display: block;
     color: var(--primary-blue);
-    margin-bottom: 13px;
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
+    font-size: clamp(40px, 3.6vw, 56px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 12px;
 }
 
-.list-box ul li:last-child {
+.about-stat p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+/* ALLIED LUBRICATION */
+.about-allied {
+    background-color: var(--light-bg);
+    padding: 96px var(--page-gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.about-allied-logo img {
+    width: 100%;
+    max-width: 290px;
+    height: auto;
+    display: block;
+}
+
+.about-allied-text h2 {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.about-allied-text p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.about-allied-text p:last-child {
     margin-bottom: 0;
 }
 
-.list-box ul li .number {
-    font-size: 18px;
-    font-weight: normal;
-    color: var(--primary-blue);
-}
-
-/* BOTTOM PROMO SECTION (Allied Lubrication) */
-.about-allied-section {
-    display: flex;
-    width: 100%;
-    min-height: 560px;
-}
-
-.allied-left {
-    flex: 1;
-    background-color: var(--secondary-blue);
-    padding: 88px 72px 88px var(--page-gutter);
-    display: flex;
-    flex-direction: column;
-}
-
-.allied-right {
-    flex: 1;
-    background-color: var(--primary-blue); /* Deep navy blue */
-    padding: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.allied-left .eyebrow {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-    font-weight: 600;
-    line-height: 17px;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.allied-left h2 {
-    color: var(--white);
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    max-width: 500px;
-}
-
-.allied-left p {
-    font-size: 18px;
+.about-allied-text .about-allied-lead {
+    color: var(--secondary-blue);
+    font-size: 17px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    max-width: 600px;
 }
 
-.allied-right img {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 28px;
-    align-items: center;
-    object-fit: cover;
+/* VISION AND MISSION */
+.about-vision {
+    background-color: var(--primary-blue);
+    padding: 96px var(--page-gutter);
+}
+
+.about-vision > .about-eyebrow,
+.about-vision-card .about-eyebrow {
+    color: var(--white);
+}
+
+.about-vision h2 {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.about-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.about-vision-card {
+    background-color: var(--secondary-blue);
+    border-radius: 12px;
+    padding: 40px 48px;
+}
+
+.about-vision-card .about-eyebrow {
+    margin-bottom: 16px;
+}
+
+.about-vision-card p {
+    color: var(--white);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+/* CONTACT STRIP */
+.about-contact {
+    background-color: var(--light-bg);
+    padding: 64px var(--page-gutter);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
+}
+
+.about-contact .about-eyebrow {
+    color: var(--text-gray);
+}
+
+.about-contact p {
+    color: var(--primary-blue);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about-contact a:hover {
+    text-decoration: underline;
+}
+
+.about-contact-link {
+    color: var(--secondary-blue);
+    font-weight: 600;
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-    .about-mobil-section {
+    .about-hero,
+    .about-mobil-intro,
+    .about-allied {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-    
-    .about-allied-section {
-        flex-direction: column;
+
+    .about-mobil,
+    .about-allied,
+    .about-vision {
+        padding-top: 64px;
+        padding-bottom: 64px;
     }
-    
-    .allied-left {
-        padding: 80px var(--page-gutter);
+
+    .about-stats,
+    .about-vision-grid,
+    .about-contact {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
-    
-    .allied-right {
-        padding: 80px var(--page-gutter);
+
+    .about-vision-card {
+        padding: 32px 24px;
     }
 }
