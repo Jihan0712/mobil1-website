@@ -179,8 +179,9 @@ const myFooter = `
                 <div class="footer-col">
                     <h4>Follow Mobil</h4>
                     <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">YouTube</a></li>
+                        <li><a href="https://www.facebook.com/MobilPhOfficial" target="_blank" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.facebook.com/MobilPhSupermoto" target="_blank" rel="noopener">Facebook – Super Moto</a></li>
+                        <li><a href="https://www.instagram.com/alliedlubricationsupplycorp/" target="_blank" rel="noopener">Instagram</a></li>
                     </ul>
                 </div>
             </div>

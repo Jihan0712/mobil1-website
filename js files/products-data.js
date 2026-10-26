@@ -1579,6 +1579,13 @@ window.MOBIL_PRODUCTS = [
   // Added 20 Oct 2026 from the client Drive "Packshots" folder
   addShot('mobil-1-triple-action-power-plus-0w-40', '4L', '../assets/products/packshots/mobil-1-triple-action-power-plus-0w-40-4l-front.webp', '../assets/products/packshots/mobil-1-triple-action-power-plus-0w-40-4l-back.webp');
   addShot('mobil-super-moto-scooter-10w-40', '1L', '../assets/products/packshots/mobil-super-moto-scooter-10w-40-1l-front.webp');
+  // Added 22 Oct 2026 from the client Drive "Packshots for Website" folder
+  addShot('mobil-1-esp-5w-30', '1L', '../assets/products/packshots/mobil-1-esp-5w-30-1l-front.webp', '../assets/products/packshots/mobil-1-esp-5w-30-1l-back.webp');
+  addShot('mobil-1-esp-5w-30', '4L', '../assets/products/packshots/mobil-1-esp-5w-30-4l-front.webp', '../assets/products/packshots/mobil-1-esp-5w-30-4l-back.webp');
+  addShot('mobil-1-esp-5w-30', '5L', '../assets/products/packshots/mobil-1-esp-5w-30-5l-front.webp', '../assets/products/packshots/mobil-1-esp-5w-30-5l-back.webp');
+  addShot('mobil-delvac-legend-15w-40-complete-defense', '20L', '../assets/products/packshots/mobil-delvac-legend-15w-40-complete-defense-20l-front.webp');
+  addShot('mobil-delvac-modern-15w-40-super-defense', '20L', '../assets/products/packshots/mobil-delvac-modern-15w-40-super-defense-20l-front.webp');
+  addShot('mobil-delvac-modern-15w-40-super-defense', '208L', '../assets/products/packshots/mobil-delvac-modern-15w-40-super-defense-208l-front.webp'); // unlabelled drum, as supplied
 })();
 
 // Data entries added 20 Oct 2026 from the "Mobil Missing Data Entry" sheet (sourced from mobil.com PDS pages).
