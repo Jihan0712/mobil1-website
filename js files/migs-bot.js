@@ -450,7 +450,9 @@
                     ? productCardHtml(secondary, 'Premium compatible option')
                     : '<div class="chat-bubble"><strong>Premium compatible option:</strong> ' + escapeHtml(row.final_secondary_display) + '</div>');
             }
-            addHtml('<p class="chat-disclaimer">Always confirm the oil grade and specification in your owner\'s manual.</p>');
+            addHtml('<p class="chat-note">' +
+                '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M8 7.2V11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="4.9" r="0.8" fill="currentColor"/></svg>' +
+                '<span>Oil recommendations provided on this website are for reference purposes only and are based on vehicle information available to us. Vehicle owners should always consult and follow the oil specifications, viscosity grades, and requirements stated in their vehicle manufacturer\'s owner\'s manual. The vehicle manufacturer\'s recommendations shall take precedence over any suggestions.</span></p>');
             addOptions([
                 { label: 'Get my full Driver Profile', run: function () { location.href = 'driver-profile.html'; } },
                 { label: 'Where can I buy it?', run: startBuy },

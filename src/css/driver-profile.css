@@ -577,6 +577,21 @@ button.option-card:focus-visible {
     margin: -12px 0 24px;
 }
 
+.recommendation-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+.recommendation-note svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
 .link-button {
     background: none;
     border: none;
